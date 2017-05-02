@@ -24,31 +24,25 @@ Weapon Groups:
 To define how a user will play, there will be 4 unique weapon groups, which are all on the variation of the main playstyle, the sword. The sword playstyle will determine what counters what, as it is the most balanced playstyle. The other 4 playstyles will have strengths that are balanced by the weaknesses they lose to make room for those strengths. 
 Skill Combo’s For Sword, the Base Weapon Group
 Each Response is determined by these twenty five results, and each result has an animation. Weapon playstyle will change these results to change gameplay.
-ATK Q + DEF Q = Perfect Block, no damage taken Turn the Initiative
-ATK Q + DEF W = Correct Block, no damage taken, chance based on skill to turn the initiative.
-ATK Q + DEF E = Light hit. Half base damage dealt
-ATK Q + DEF R = Solid hit, full base damage dealt
-ATK Q + DEF SPACE = Critical strike, 1.5 base damage dealt, chance based on strength to mutilate.
-ATK W + DEF Q = Critical strike, 1.5 base damage dealt, chance based on strength to mutilate.
-ATK W + DEF W = Perfect Block, no damage taken Turn the Initiative
-ATK W + DEF E = Correct Block, no damage taken, chance based on skill to turn the initiative.
-ATK W + DEF R = Light hit. Half base damage dealt
-ATK W + DEF SPACE = Solid hit, full base damage dealt
-ATK E + DEF Q = Solid hit, full base damage dealt
-ATK E + DEF W = Critical strike, 1.5 base damage dealt, chance based on strength to mutilate.
-ATK E + DEF E = Perfect Block, no damage taken Turn the Initiative
-ATK E + DEF R = Correct Block, no damage taken, chance based on skill to turn the initiative.
-ATK E + DEF SPACE = Light hit. Half base damage dealt
-ATK R + DEF Q = Light hit. Half base damage dealt
-ATK R + DEF W = Solid hit, full base damage dealt
-ATK R + DEF E = Critical strike, 1.5 base damage dealt, chance based on strength to mutilate.
-ATK R + DEF R = Perfect Block, no damage taken Turn the Initiative
-ATK R + DEF SPACE = Correct Block, no damage taken, chance based on skill to turn the initiative.
-ATK SPACE + DEF Q = Correct Block, no damage taken, chance based on skill to turn the initiative.
-ATK SPACE + DEF W = Light hit. Half base damage dealt
-ATK SPACE + DEF E = Solid hit, full base damage dealt
-ATK SPACE + DEF R = Critical strike, 1.5 base damage dealt, chance based on strength to mutilate.
-ATK SPACE + DEF SPACE = Perfect Block, no damage taken Turn the Initiative
+
+|         | DEF - Q | DEF - W | DEF - E | DEF - R | DEF - SPC|
+|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|
+|ATK - Q|Perfect Block|Correct Block|Light Hit|Solid Hit|Critical Strike|
+|ATK - W|Critical Strike|Perfect Block|Correct Block|Light Hit|Solid Hit|
+|ATK - E|Solid Hit|Critical Strike|Perfect Block|Correct Block|Light Hit|
+|ATK - R|Light Hit|Solid Hit|Critical Strike|Perfect Block|Correct Block|
+|ATK - Spc|Correct Block|Light Hit|Solid Hit|Critical Strike|Perfect Block|
+
+Perfect Block: No damage taken, turn the initiative.
+
+Correct Block: No damage taken, chance based on skill to turn the initiative.
+
+Light Hit: Half base damage dealt.
+
+Solid Hit: Full base damage dealt.
+
+Critical Strike: 1.5 base damage dealt, chance based on strength to mutilate.
+
 
 ## Sword Playstyle:
 The basic Playstyle pattern
