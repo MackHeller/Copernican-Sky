@@ -106,17 +106,17 @@ Critical Strike: 1.5 base damage dealt, chance based on strength to mutilate.
 
 Sword Playstyle:
 
-The basic Playstyle pattern
-
-Perfect Block
-
-Correct Block
-
-Light Hit
-
-Solid Hit
-
-Critical Strike
+> The basic Playstyle pattern
+>
+> Perfect Block
+>
+> Correct Block
+> 
+> Light Hit
+>
+> Solid Hit
+> 
+> Critical Strike
 
 Axe Playstyle:
 
