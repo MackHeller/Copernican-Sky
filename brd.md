@@ -222,11 +222,11 @@ WEAPON ITEMS
 > 
 > Weapon Playstyle (WP) - Determines the playstyle of the weapon
 > 
-> Damage - WC base damage range + (WC scaling damage range x primary Attribute) 
+> Damage (DMG) - WC base damage range + (WC scaling damage range x primary Attribute) 
 > 
-> Magic Property - Case by case scenario, will have to builds unique cases for each magic weapon that can alter playstyle or stats.
+> Magic Property MGC - Case by case scenario, will have to builds unique cases for each magic weapon that can alter playstyle or stats.
 
-> Stat boosts
+> Stat boosts (SB)
 > Skill 
 > Strength 
 > Speed 
@@ -271,15 +271,15 @@ WEAPON ITEMS
 
 > Magic Wooden Sword EXAMPLE
 
-> WC: F
+> Weapon Class: F
 
-> WP: Sword
+> Weapon Playsyle: Sword
 
-> Dmg: 57+(0.05*PA)
+> Damage: 57+(0.05*PA)
 
-> Mgc: All critical strikes and solid hits become light hits (for example, only a small number of magic items in the game.
+> Magic: All critical strikes and solid hits become light hits (for example, only a small number of magic items in the game.
 
-> SB
+> Skill Boosts
 
 > SKL +3
 
