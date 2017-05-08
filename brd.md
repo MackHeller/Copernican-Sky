@@ -1,4 +1,4 @@
-**The BRD**
+## The BRD
 
 This BRD is designed to outline the needs and wants for the Copernican
 Sky project created by Newhome Studio. This document is outlined to show
