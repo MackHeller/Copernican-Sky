@@ -270,16 +270,29 @@ WEAPON ITEMS
 > Secondary Stats 40% Chance
 
 > Magic Wooden Sword EXAMPLE
+
 > WC: F
+
 > WP: Sword
+
 > Dmg: 57+(0.05*PA)
+
 > Mgc: All critical strikes and solid hits become light hits (for example, only a small number of magic items in the game.
+
 > SB
+
 > SKL +3
+
 > STR +3
+
 > SPE +1
+
 > REA +1
+
 > INI +1
+
 > CON +1
+
 > FWK +0
+
 > ARM +0
