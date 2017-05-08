@@ -219,8 +219,11 @@ up in the stats screen.
 
 WEAPON ITEMS
 > Weapon Class (WC) - Value to determine the weapon quality (base and scaling) as well as what enemies drop it.
+> 
 > Weapon Playstyle (WP) - Determines the playstyle of the weapon
+> 
 > Damage - WC base damage range + (WC scaling damage range x primary Attribute) 
+> 
 > Magic Property - Case by case scenario, will have to builds unique cases for each magic weapon that can alter playstyle or stats.
 
 > Stat boosts
