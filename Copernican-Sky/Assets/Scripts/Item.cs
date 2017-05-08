@@ -1,19 +1,26 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿
 
 public class Item {
 
-    double weight;
-    string itemName;
+    private double weight;
+    private string itemName;
+
+    public double Weight{get{return weight;}}
+    public string ItemName{get{return itemName;}}
+
+    //combat
+    //sword, axe, spear, 
+    int weaponGroup;
+    int speed; 
     public Item(double weight)
     {
         this.weight = weight;
 
     }
+
 }
 
 public class ItemType
 {
-    public static readonly Item SWORD = new Item(3.0);
+    public static readonly Item SWORD_BASIC = new Item(3.0);
 }

@@ -14,6 +14,7 @@ public class ItemOW : MonoBehaviour
         itemName = this.gameObject.name;
         //call item init 
     }
+    //TODO On contact add a *Item to the *Inventory
 }
 
 
