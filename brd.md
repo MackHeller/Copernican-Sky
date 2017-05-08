@@ -218,65 +218,65 @@ stats, when a level up for a user is available, the user can level them
 up in the stats screen.
 
 WEAPON ITEMS
-Weapon Class (WC) - Value to determine the weapon quality (base and scaling) as well as what enemies drop it.
-Weapon Playstyle (WP) - 
-Damage - WC base damage range + (WC scaling damage range x primary Attribute) 
-Magic Property - Case by case scenario, will have to builds unique cases for each magic weapon that can alter playstyle or stats.
+> Weapon Class (WC) - Value to determine the weapon quality (base and scaling) as well as what enemies drop it.
+> Weapon Playstyle (WP) - Determines the playstyle of the weapon
+> Damage - WC base damage range + (WC scaling damage range x primary Attribute) 
+> Magic Property - Case by case scenario, will have to builds unique cases for each magic weapon that can alter playstyle or stats.
 
-Stat boosts
-Skill 
-Strength 
-Speed 
-Reaction 
-Initiative 
-Constitution 
-Footwork 
-Armour 
+> Stat boosts
+> Skill 
+> Strength 
+> Speed 
+> Reaction 
+> Initiative 
+> Constitution 
+> Footwork 
+> Armour 
 
-When no addition is made ie stat boost is zero, hide stat boost for that attribute in ui
+> When no addition is made ie stat boost is zero, hide stat boost for that attribute in ui
 
-Base Damage Ranges: numbers subject to change
-F 50-99 
-E 100-199
-D 200-299
-C 300-399
-B 400-499
-A 500-749
-S 750-1000
+> Base Damage Ranges: numbers subject to change
+> F 50-99 
+> E 100-199
+> D 200-299
+> C 300-399
+> B 400-499
+> A 500-749
+> S 750-1000
 
-Scaling Damage Ranges: numbers subject to change
-F 0-0.2
-E 0.2-0.4
-D 0.4-0.6
-C 0.6-0.8
-B 0.8-1.0
-A 1.0-1.5
-S 1.5-3.0
+> Scaling Damage Ranges: numbers subject to change
+> F 0-0.2
+> E 0.2-0.4
+> D 0.4-0.6
+> C 0.6-0.8
+> B 0.8-1.0
+> A 1.0-1.5
+> S 1.5-3.0
 
-Stat Boost Ranges: numbers subject to change
-F 0-10 skill points to assign based on probability
-E 10-20
-D 20-30
-C 30-40
-B 40-50
-A 50-75
-S 75-100
+> Stat Boost Ranges: numbers subject to change
+> F 0-10 skill points to assign based on probability
+> E 10-20
+> D 20-30
+> C 30-40
+> B 40-50
+> A 50-75
+> S 75-100
 
-Stat Boost Probability Range:
-Primary Stats 60% Chance
-Secondary Stats 40% Chance
+> Stat Boost Probability Range:
+> Primary Stats 60% Chance
+> Secondary Stats 40% Chance
 
-Magic Wooden Sword EXAMPLE
-WC: F
-WP: Sword
-Dmg: 57+(0.05*PA)
-Mgc: All critical strikes and solid hits become light hits (for example, only a small number of magic items in the game.
-SB
-SKL +3
-STR +3
-SPE +1
-REA +1
-INI +1
-CON +1
-FWK +0
-ARM +0
+> Magic Wooden Sword EXAMPLE
+> WC: F
+> WP: Sword
+> Dmg: 57+(0.05*PA)
+> Mgc: All critical strikes and solid hits become light hits (for example, only a small number of magic items in the game.
+> SB
+> SKL +3
+> STR +3
+> SPE +1
+> REA +1
+> INI +1
+> CON +1
+> FWK +0
+> ARM +0
