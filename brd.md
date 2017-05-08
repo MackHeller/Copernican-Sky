@@ -225,7 +225,7 @@ WEAPON ITEMS
 > Damage (DMG) - WC base damage range + (WC scaling damage range x primary Attribute) 
 > 
 > Magic Property MGC - Case by case scenario, will have to builds unique cases for each magic weapon that can alter playstyle or stats.
-
+ 
 > Stat boosts (SB)
 > Skill 
 > Strength 
@@ -239,34 +239,59 @@ WEAPON ITEMS
 > When no addition is made ie stat boost is zero, hide stat boost for that attribute in ui
 
 > Base Damage Ranges: numbers subject to change
+
 > F 50-99 
+
 > E 100-199
+
 > D 200-299
+
 > C 300-399
+
 > B 400-499
+
 > A 500-749
+
 > S 750-1000
 
 > Scaling Damage Ranges: numbers subject to change
+
 > F 0-0.2
+
 > E 0.2-0.4
+
 > D 0.4-0.6
+
 > C 0.6-0.8
+
 > B 0.8-1.0
+
 > A 1.0-1.5
+
 > S 1.5-3.0
 
 > Stat Boost Ranges: numbers subject to change
-> F 0-10 skill points to assign based on probability
+
+> skill points to assign based on probability:
+
+> F 0-10 
+
 > E 10-20
+
 > D 20-30
+
 > C 30-40
+
 > B 40-50
+
 > A 50-75
+
 > S 75-100
 
 > Stat Boost Probability Range:
+
 > Primary Stats 60% Chance
+
 > Secondary Stats 40% Chance
 
 > Magic Wooden Sword EXAMPLE
