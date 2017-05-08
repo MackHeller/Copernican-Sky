@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class heroOW : MonoBehaviour {
+public class HeroOW : MonoBehaviour {
     private float speed = 8.0f;
     private float distance = 5f;
     public Rigidbody2D rb;
