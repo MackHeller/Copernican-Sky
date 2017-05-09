@@ -312,6 +312,8 @@ Weapon Class: F
 
 Weapon Playsyle: Sword
 
+Weight: 75lbs
+
 Item Profile: Wood Sword Spriteset
 
 Buy Price:
