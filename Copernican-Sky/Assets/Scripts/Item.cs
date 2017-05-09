@@ -54,7 +54,39 @@ public class Weapon : IItem{
         } 
     }
 }
-//TODO make armour, quest(normal) item
+//TODO make armour, 
+
+//key(normal) item
+public class KeyItem : IItem
+{
+    protected int itemId;
+    protected int questId;
+    public KeyItem(string itemName, double weight, int sellPrice, int buyPrice, int itemId, int questId)
+    {
+        this.weight = weight;
+        this.itemName = itemName;
+        this.sellPrice = sellPrice;
+        this.buyPrice = buyPrice;
+        this.itemId = itemId;
+        this.questId = questId;
+        this.itemClass = ItemClass.K;
+        //TODO math to set these values. These are DUMMY VALUES
+        skillBonus = new Skills(new int[7] { 0, 0, 0, 0, 0, 0, 0 });
+    }
+    //getters specific to weapons 
+    override public int getIntValue(string value)
+    {
+        switch (value)
+        {
+            case "itemId":
+                return itemId;
+            case "questId":
+                return questId;
+            default:
+                throw new System.Exception();
+        }
+    }
+}
 
 public enum ItemClass
 {
@@ -69,4 +101,7 @@ public enum WeaponType
 public class ItemType
 {
     public static readonly IItem SWORD_BASIC = new Weapon("Basic Sword",3,10,20,ItemClass.F, WeaponType.SWORD);
+    public static readonly IItem COIN = new KeyItem("Coin", 0.0, 1, 1, 0, 0);
+    public static readonly IItem AUNT_MAYS_COOKIES = new KeyItem("Aunt May's cookies", 2, 0, 1, 1, 0);
+    public static readonly IItem KEY = new KeyItem("Chest Key", 0.1,0,0,0,1);
 }

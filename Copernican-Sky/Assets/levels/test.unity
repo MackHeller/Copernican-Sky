@@ -459,8 +459,14 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1352595761020942, guid: 0d10108c2bca0434dbadcc98f20a4ebd, type: 2}
       propertyPath: m_Name
-      value: twoSwords
+      value: Chest
       objectReference: {fileID: 0}
+    - target: {fileID: 114669709069272252, guid: 0d10108c2bca0434dbadcc98f20a4ebd,
+        type: 2}
+      propertyPath: altSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 1449a49485c4bab43b96ad0bc411c62d,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0d10108c2bca0434dbadcc98f20a4ebd, type: 2}
   m_IsPrefabParent: 0
