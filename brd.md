@@ -222,6 +222,16 @@ Weapon Class (WC) - Value to determine the weapon quality (base and scaling) as 
 > 
 Weapon Playstyle (WP) - Determines the playstyle of the weapon
 > 
+Item Profile - Determines the look of the weapon
+>
+Weight - Determines the maximum load you can carry.
+>
+Buy Price
+>
+Sell Price
+>
+Rarity
+>
 Damage (DMG) - WC base damage range + (WC scaling damage range x primary Attribute) 
 > 
 Magic Property MGC - Case by case scenario, will have to builds unique cases for each magic weapon that can alter playstyle or stats.
@@ -301,6 +311,14 @@ Stat Boost Probability Range:
 Weapon Class: F
 
 Weapon Playsyle: Sword
+
+Item Profile: Wood Sword Spriteset
+
+Buy Price:
+
+Sell Price:
+
+Rarity:1%
 
 Damage: 57+(0.05*PA)
 
