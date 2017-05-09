@@ -217,16 +217,26 @@ their equipment, and check their stats. Level up screen will be in the
 stats, when a level up for a user is available, the user can level them
 up in the stats screen.
 
-WEAPON ITEMS
-> Weapon Class (WC) - Value to determine the weapon quality (base and scaling) as well as what enemies drop it.
+## WEAPON ITEMS
+Weapon Class (WC) - Value to determine the weapon quality (base and scaling) as well as what enemies drop it.
 > 
-> Weapon Playstyle (WP) - Determines the playstyle of the weapon
+Weapon Playstyle (WP) - Determines the playstyle of the weapon
 > 
-> Damage (DMG) - WC base damage range + (WC scaling damage range x primary Attribute) 
+Item Profile - Determines the look of the weapon
+>
+Weight - Determines the maximum load you can carry.
+>
+Buy Price
+>
+Sell Price
+>
+Rarity
+>
+Damage (DMG) - WC base damage range + (WC scaling damage range x primary Attribute) 
 > 
-> Magic Property MGC - Case by case scenario, will have to builds unique cases for each magic weapon that can alter playstyle or stats.
+Magic Property MGC - Case by case scenario, will have to builds unique cases for each magic weapon that can alter playstyle or stats.
  
-> Stat boosts (SB)
+Stat boosts (SB)
 > Skill 
 > Strength 
 > Speed 
@@ -238,7 +248,7 @@ WEAPON ITEMS
 
 > When no addition is made ie stat boost is zero, hide stat boost for that attribute in ui
 
-> Base Damage Ranges: numbers subject to change
+Base Damage Ranges: numbers subject to change
 
 > F 50-99 
 
@@ -254,7 +264,7 @@ WEAPON ITEMS
 
 > S 750-1000
 
-> Scaling Damage Ranges: numbers subject to change
+Scaling Damage Ranges: numbers subject to change
 
 > F 0-0.2
 
@@ -270,7 +280,7 @@ WEAPON ITEMS
 
 > S 1.5-3.0
 
-> Stat Boost Ranges: numbers subject to change
+Stat Boost Ranges: numbers subject to change
 
 > skill points to assign based on probability:
 
@@ -288,23 +298,35 @@ WEAPON ITEMS
 
 > S 75-100
 
-> Stat Boost Probability Range:
+Stat Boost Probability Range:
 
 > Primary Stats 60% Chance
 
 > Secondary Stats 40% Chance
 
-> Magic Wooden Sword EXAMPLE
+## EXAMPLE
 
-> Weapon Class: F
+> Name: Magic Wooden Sword
 
-> Weapon Playsyle: Sword
+Weapon Class: F
 
-> Damage: 57+(0.05*PA)
+Weapon Playsyle: Sword
 
-> Magic: All critical strikes and solid hits become light hits (for example, only a small number of magic items in the game.
+Weight: 75lbs
 
-> Skill Boosts
+Item Profile: Wood Sword Spriteset
+
+Buy Price:
+
+Sell Price:
+
+Rarity:1%
+
+Damage: 57+(0.05*PA)
+
+Magic: All critical strikes and solid hits become light hits (for example, only a small number of magic items in the game..
+
+Skill Boosts
 
 > SKL +3
 
@@ -321,3 +343,9 @@ WEAPON ITEMS
 > FWK +0
 
 > ARM +0
+
+|  | F | E | D | C | B | A | S |
+|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+|BDR|50-99|100-199|200-299|300-399|400-499|500-749|750-1000|
+|SDR|0.00-0.20|0.20-0.40|0.40-0.60|0.60-0.80|0.80-1.00|1.00-1.50|1.50-3.00|
+|SBR|0-10|10-20|20-30|30-40|40-50|50-75|75-100|
