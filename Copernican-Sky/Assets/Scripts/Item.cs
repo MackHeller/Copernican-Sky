@@ -12,15 +12,15 @@ public class Item {
     //sword, axe, spear, 
     int weaponGroup;
     int speed; 
-    public Item(double weight)
+    public Item(string itemName, double weight)
     {
         this.weight = weight;
-
+        this.itemName = itemName;
     }
 
 }
 
 public class ItemType
 {
-    public static readonly Item SWORD_BASIC = new Item(3.0);
+    public static readonly Item SWORD_BASIC = new Item("Basic Sword",3.0);
 }

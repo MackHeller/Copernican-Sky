@@ -3,12 +3,33 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class OverWorldController : MonoBehaviour {
+    private Inventory inventory;
+    private int carryCapacity;
     void Awake()
     {
-       DontDestroyOnLoad(this);
+        DontDestroyOnLoad(this);
         if (FindObjectsOfType(GetType()).Length > 1)
         {
             Destroy(gameObject);
+        }
+        else
+        {
+            //TODO non-dummy value
+            carryCapacity = 10;
+            inventory = new Inventory(carryCapacity);
+        }
+    }
+    public bool addItemToInventory(Item itemToAdd, int amount)
+    {
+        return inventory.addItem(itemToAdd, amount);
+    }
+    public Item getItemByName(string name)
+    {
+        switch (name){
+            case "wooden_sword":
+                return ItemType.SWORD_BASIC; 
+            default:
+                throw new System.Exception();
         }
     }
 }
