@@ -7,13 +7,13 @@
  * */
 public class Inventory {
     //the item and its amount
-    private HashDictionary<Item, int> inventory;
+    private HashDictionary<IItem, int> inventory;
     private int carryCapacity;
     private double currentWeight;
 
     public Inventory(int carryCapacity)
     {
-        inventory = new HashDictionary<Item, int>();
+        inventory = new HashDictionary<IItem, int>();
         this.carryCapacity = carryCapacity;
         currentWeight = 0.0;
     }
@@ -23,7 +23,7 @@ public class Inventory {
         get { return currentWeight; }
     }
 
-    public HashDictionary<Item, int> InventoryList
+    public HashDictionary<IItem, int> InventoryList
     {
         get{return inventory;}
     }
@@ -31,14 +31,14 @@ public class Inventory {
     /*
 * Adds an item to the inventory
 * */
-    public bool addItem(Item itemToAdd)
+    public bool addItem(IItem itemToAdd)
     {
         return addItem(itemToAdd, 1);
     }
     /*
      * Adds many items to the inventory
      * */
-    public bool addItem(Item itemToAdd, int amount)
+    public bool addItem(IItem itemToAdd, int amount)
     {
         if (currentWeight <= itemToAdd.Weight * amount)
         {
@@ -63,7 +63,7 @@ public class Inventory {
     /*
      * Adds an item to the inventory
      * */
-    public bool removeItem(Item itemToRemove)
+    public bool removeItem(IItem itemToRemove)
     {
         return removeItem(itemToRemove, 1);
     }
@@ -72,7 +72,7 @@ public class Inventory {
      * If amount given to remove is greater then the amount 
      * that exists in the bag return false 
      * */
-    public bool removeItem(Item itemToRemove, int amount)
+    public bool removeItem(IItem itemToRemove, int amount)
     {
         //if items in bag
         if (inventory.Contains(itemToRemove) && amount <= inventory[itemToRemove])

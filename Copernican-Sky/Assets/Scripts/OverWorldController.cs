@@ -19,11 +19,11 @@ public class OverWorldController : MonoBehaviour {
             inventory = new Inventory(carryCapacity);
         }
     }
-    public bool addItemToInventory(Item itemToAdd, int amount)
+    public bool addItemToInventory(IItem itemToAdd, int amount)
     {
         return inventory.addItem(itemToAdd, amount);
     }
-    public Item getItemByName(string name)
+    public IItem getItemByName(string name)
     {
         switch (name){
             case "wooden_sword":
