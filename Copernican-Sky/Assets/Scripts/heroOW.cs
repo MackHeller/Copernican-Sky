@@ -1,6 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/*
+ * holds functions and properties for the overworld character object. Properties that are character specific can
+ * be found in HeroCB.
+ * */
 public class HeroOW : MonoBehaviour {
     private float speed = 8.0f;
     private float distance = 5f;

@@ -2,29 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HeroCB : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-    //used for adding equip items buffs to flat skill values
-    public Skills addSkills(Skills flat, Skills toAdd)
+/**
+ * This is the hero class (one of three) that contains most of stats and information for the playable characters.
+ * While it is primarily used by the combat controller, the other two controllers will also use this class to get
+ * character information when they need it (for ex. party character names.) 
+ * */
+public class HeroCB  {
+    Skills playerSkills;
+    string name;
+    //TODO need an conversation tree
+    public HeroCB(string name)
     {
-        flat.skill += toAdd.skill;
-        flat.strength += toAdd.strength;
-        flat.speed += toAdd.speed;
-        flat.reaction += toAdd.reaction;
-        flat.initiative += toAdd.initiative;
-        flat.constitution += toAdd.constitution;
-        flat.armour += toAdd.armour;
-        flat.footwork += toAdd.footwork;
-        return flat;
+        this.name = name;
     }
 }
 
