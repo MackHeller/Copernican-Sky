@@ -35,7 +35,7 @@ public class Weapon : IItem{
         //TODO math to set these values. These are DUMMY VALUES
         baseDamage = 100;
         scalingDamage = 100;
-        skillBonus = new Skills(new int[7] { 1, 1, 1, 1, 1, 1, 1 });
+        skillBonus = new Skills(new int[8] { 1, 1, 1, 1, 1, 1, 1,1 });
 
     }
     //getters specific to weapons 
@@ -71,7 +71,7 @@ public class KeyItem : IItem
         this.questId = questId;
         this.itemClass = ItemClass.K;
         //TODO math to set these values. These are DUMMY VALUES
-        skillBonus = new Skills(new int[7] { 0, 0, 0, 0, 0, 0, 0 });
+        skillBonus = new Skills(new int[8] { 0, 0, 0, 0, 0, 0, 0,0 });
     }
     //getters specific to weapons 
     override public int getIntValue(string value)

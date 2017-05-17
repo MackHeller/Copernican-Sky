@@ -10,7 +10,7 @@ using UnityEngine;
 public class HeroCB  {
     Skills playerSkills;
     string name;
-    //TODO need an conversation tree
+    //TODO need an npm object 
     public HeroCB(string name)
     {
         this.name = name;

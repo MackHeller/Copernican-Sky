@@ -40,9 +40,11 @@ public class ConversationTreeNode {
     private string text;
     private int[] options;//-1 means not pickable
     private string[] optionsText;
-    public ConversationTreeNode()
+    public ConversationTreeNode(string text, int[] options, string[] optionsText)
     {
-        
+        this.text = text;
+        this.options = options;
+        this.optionsText = optionsText;
     }
     //getters
     public string Text
