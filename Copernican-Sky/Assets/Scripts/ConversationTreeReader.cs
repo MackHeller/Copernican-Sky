@@ -6,16 +6,16 @@ using UnityEngine;
 public class ConversationTreeReader {
     public static ConversationTree loadConversationTree(string name)
     {
-        return reader(Application.dataPath + "/JSONFiles/ConversationTrees");
+        return buildTreeFromJSON(readFile(Application.dataPath + "/JSONFiles/ConversationTrees"+name+ ".JSON"));
     }
 
-    private static ConversationTree reader(string filePath)
+    private static JsonData readFile(string filePath)
     {
         StreamReader sr = null;
         try
         {
             sr = new StreamReader(filePath);
-            return null;//JsonMapper.ToObject(sr.ReadToEnd());
+            return JsonMapper.ToObject(sr.ReadToEnd());
         }
         catch (IOException e)
         {
@@ -33,5 +33,11 @@ public class ConversationTreeReader {
                 sr.Dispose();
         }
         return null;
+    }
+    private ConversationTree buildTreeFromJSON(JsonData tree)
+    {
+
+        ConversationTree conversationTree = new ConversationTree();
+        return 
     }
 }

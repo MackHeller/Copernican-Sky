@@ -27,6 +27,7 @@ public class ConversationTree
         {
             return tree[currentIndex];
         }
+        currentIndex = newIndex;
         return tree[newIndex];
     }
     public void setStartIndex(int index)
@@ -62,5 +63,12 @@ public class ConversationTreeNode {
     {
         return optionsText[index];
     }
-    
+
+    public string[] OptionsText
+    {
+        get
+        {
+            return optionsText;
+        }
+    }
 }

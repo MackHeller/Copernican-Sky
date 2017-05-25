@@ -1,0 +1,57 @@
+{
+	"Name":"Thomdril Merrilin",
+	"StartIndex":0,
+	"Nodes":
+	[
+		{
+			"id": 0,
+			"text": "I'm only an old gleeman. Who could I possibly be dangerous to?"  ,
+			"optId": [1,2,3],
+			"optText": 
+			[
+				"Not a soul Thom. Would you join us on our way to Tar Valon?",
+				"Nevermind that, tell us more about your nephew Thom.",
+				"You're more dangerous then you look..."
+			]
+		},
+		{
+			"id": 1,
+			"text": "This village has no use for me, now, while on the other hand, I have never performed in Tar Valon. And though I usually journey alone, after last night I have no objections at all to traveling in company."  ,
+			"optId": [-1],
+			"optText": 
+			[
+				"Let's be off then"
+			]
+		},
+		{
+			"id": 2,
+			"text": "My brother's only son, my only living kin. He got in trouble with the Aes Sedai, but I was too busy with...other things.", 
+			"optId": [3,-1],
+			"optText": 
+			[
+				"Go on.",
+				"Borrrrring. Goodbye"
+			]
+		}, 
+		{
+			"id": 3,
+			"text": "Owyn died a few years later. You could say Aes Sedai killed him. If I can keep you two free of Tar Valon, maybe I can stop thinking about Owyn.", 
+			"optId": [1,-1],
+			"optText": 
+			[
+				"Would you join us on our way to Tar Valon?",
+				"Enough said, farewell."
+			]
+		}, 
+		{
+			"id": 4,
+			"text": "I say hold your peace. Don't tell anyone, for the time, at least. You can always change your mind, if you have to, but once you tell, it's done, and you're tied up worse than ever with...with her."  ,
+			"optId": [-1,-1],
+			"optText": 
+			[
+				"Thanks for the warning.",
+				"Your a crazy old man Thom."
+			]
+		}
+	]
+}
