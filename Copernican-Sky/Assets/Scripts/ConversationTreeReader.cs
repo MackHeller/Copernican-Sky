@@ -34,10 +34,10 @@ public class ConversationTreeReader {
         }
         return null;
     }
-    private ConversationTree buildTreeFromJSON(JsonData tree)
+    private static ConversationTree buildTreeFromJSON(JsonData tree)
     {
 
-        ConversationTree conversationTree = new ConversationTree();
-        return 
+        ConversationTree conversationTree = new ConversationTree(tree["Name"].ToString(), Convert.ToInt32(tree["StartIndex"]));
+        return conversationTree;
     }
 }
