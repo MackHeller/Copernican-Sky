@@ -5,12 +5,11 @@ public class ConversationTree
     ArrayList<ConversationTreeNode> tree;
     private int startIndex;
     private int currentIndex;
-    private ConversationTree(string fileName) : this(fileName, 0) { }
-    public ConversationTree(string fileName, int startIndex)
+    public ConversationTree(string name, int startIndex, ArrayList<ConversationTreeNode> tree)
     {
         this.startIndex = startIndex;
         currentIndex = startIndex;
-        //TODO use filename to create tree
+        this.tree = tree;
     }
     public ConversationTreeNode startConversation()
     {
@@ -18,12 +17,12 @@ public class ConversationTree
         return tree[currentIndex];
     }
     /*
-     * pick: a number between 1-4 representing the option the user picked
+     * pick: a number between 0-3 representing the option the user picked
      * */
     public ConversationTreeNode pickOption(int pick)
     {
         int newIndex = tree[currentIndex].getOptions(pick);
-        if (newIndex == -1)//not pickable
+        if (newIndex >= tree[currentIndex].OptionsText.Length)//not pickable
         {
             return tree[currentIndex];
         }
@@ -39,7 +38,7 @@ public class ConversationTree
 
 public class ConversationTreeNode {
     private string text;
-    private int[] options;//-1 means not pickable
+    private int[] options;//-1 means end conversation
     private string[] optionsText;
     public ConversationTreeNode(string text, int[] options, string[] optionsText)
     {
