@@ -2,7 +2,7 @@
 
 public class ConversationTree
 {
-    ArrayList<ConversationTreeNode> tree;
+    private ArrayList<ConversationTreeNode> tree;
     private int startIndex;
     private int currentIndex;
     public ConversationTree(string name, int startIndex, ArrayList<ConversationTreeNode> tree)
@@ -32,6 +32,10 @@ public class ConversationTree
     public void setStartIndex(int index)
     {
         startIndex = index;
+    }
+    public ConversationTreeNode getCurrentNode()
+    {
+        return tree[currentIndex];
     }
 }
 
