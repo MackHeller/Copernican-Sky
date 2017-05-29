@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class DoorOW : MonoBehaviour {
+public class doorOW : MonoBehaviour {
     public int level = 0;
     // Update is called once per frame
     void OnCollisionEnter2D(Collision2D collision)

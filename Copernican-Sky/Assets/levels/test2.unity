@@ -195,7 +195,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000013525347578, guid: 4f932587f096c7c44a5318158647629b, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4000013525347578, guid: 4f932587f096c7c44a5318158647629b, type: 2}
       propertyPath: m_LocalScale.y
@@ -241,7 +241,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000013525347578, guid: 4f932587f096c7c44a5318158647629b, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1000013080408140, guid: 4f932587f096c7c44a5318158647629b, type: 2}
       propertyPath: m_Name
@@ -254,6 +254,28 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4f932587f096c7c44a5318158647629b, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &920998708 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1000011880734628, guid: 45308ee12847b844a9f03ade3afe1d7f,
+    type: 2}
+  m_PrefabInternal: {fileID: 2123469774}
+--- !u!95 &920998709
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 920998708}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 726d9106523df5a43abaccb0d12cd53c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1001 &1303820016
 Prefab:
   m_ObjectHideFlags: 0
@@ -291,7 +313,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000013525347578, guid: 4f932587f096c7c44a5318158647629b, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1000013080408140, guid: 4f932587f096c7c44a5318158647629b, type: 2}
       propertyPath: m_Name
@@ -341,7 +363,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000012368394838, guid: 187612d979cf38343ac5819f054c53b6, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 114000012672140152, guid: 187612d979cf38343ac5819f054c53b6,
         type: 2}
