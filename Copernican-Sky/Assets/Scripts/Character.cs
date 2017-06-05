@@ -5,11 +5,14 @@
  * */
 
 public abstract class Character {
-    private ConversationTree conversationTree;
-    
+    protected  ConversationTree conversationTree;
+    //public abstract int checkState(int state);
     
 }
-public class ThomdrilMerrilin
+public class ThomdrilMerrilin : Character 
 {
-
+    public ThomdrilMerrilin()
+    {
+        conversationTree = ConversationTreeReader.loadConversationTree("ThomdrillMerrilin");
+    }
 }
