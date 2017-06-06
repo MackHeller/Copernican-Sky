@@ -1,15 +1,14 @@
-﻿public enum ItemClass
+﻿//item enums (hover over to see real value, if using MicroSoft visual studio)
+public enum ItemClass
 {
     F, E, D, C, B, A, S, K //k for key item
 }
-
 
 public enum EquipmentType
 {
     SWORD, AXE, SPEAR,
     HELMET, CHEST, GLOVES, BOOTS, PANTS
 }
-
 
 public enum ItemType
 {
@@ -19,7 +18,7 @@ public enum ItemType
     KEY
 }
 
-
+//abstract class the represents all types of items (currently Equipment and KeyItem)
 public abstract class IItem
 {
     protected double weight;
@@ -36,7 +35,7 @@ public abstract class IItem
     public int SellPrice { get { return sellPrice; } }
     public int BuyPrice { get { return buyPrice; } }
 
-    //factory method
+    //factory method TODO may need to OVERLOAD for additional params
     public static IItem buildItem(ItemType item)
     {
         switch (item) {

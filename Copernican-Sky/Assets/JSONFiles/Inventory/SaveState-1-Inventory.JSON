@@ -1,11 +1,19 @@
 {
 	"saveStateId":1,
 	"carryCapacity":30,
-	"Items":
+	"items":
 	[
 		{
+			"id": 2,
+			"amount":1
+		},
+		{
+			"id": 1,
+			"amount":100
+		},
+		{
 			"id": 0,
-			"name":"Aunt May's Cookies"
+			"amount":3
 		}
 	]
 }
