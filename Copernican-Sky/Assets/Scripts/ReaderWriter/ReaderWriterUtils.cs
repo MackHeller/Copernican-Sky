@@ -37,7 +37,7 @@ public static class ReaderWriterUtils {
         {
             sw = new StreamWriter(filePath);
             sw.WriteLine(json);
-            return true;
+            return true; 
         }
         catch (IOException e)
         {
@@ -50,5 +50,4 @@ public static class ReaderWriterUtils {
                 sw.Dispose();
         }
     }
-}
 }
