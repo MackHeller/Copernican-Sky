@@ -28,6 +28,14 @@ public class Inventory {
         get{return inventory;}
     }
 
+    public int CarryCapacity
+    {
+        get
+        {
+            return carryCapacity;
+        }
+    }
+
     /*
 * Adds an item to the inventory
 * */

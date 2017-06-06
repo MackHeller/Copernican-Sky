@@ -30,4 +30,25 @@ public static class ReaderWriterUtils {
         }
         return null;
     }
+    public static bool writeFile(string filePath, string json)
+    {
+        StreamWriter sw = null;
+        try
+        {
+            sw = new StreamWriter(filePath);
+            sw.WriteLine(json);
+            return true;
+        }
+        catch (IOException e)
+        {
+            Console.WriteLine(e.Message);
+            return false;
+        }
+        finally
+        {
+            if (sw != null)
+                sw.Dispose();
+        }
+    }
+}
 }

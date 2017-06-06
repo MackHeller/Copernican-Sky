@@ -22,6 +22,7 @@ public enum ItemType
 public abstract class IItem
 {
     protected double weight;
+    protected ItemType itemType;
     protected string itemName;
     protected int sellPrice;
     protected int buyPrice;
@@ -34,19 +35,20 @@ public abstract class IItem
     public Skills SkillBonus { get { return skillBonus; } }
     public int SellPrice { get { return sellPrice; } }
     public int BuyPrice { get { return buyPrice; } }
+    public ItemType ItemType { get { return itemType; } }
 
     //factory method TODO may need to OVERLOAD for additional params
     public static IItem buildItem(ItemType item)
     {
         switch (item) {
             case ItemType.SWORD_BASIC:
-                return new Equipment("Basic Sword", 3, 10, 20, ItemClass.F, EquipmentType.SWORD);
+                return new Equipment(item,"Basic Sword", 3, 10, 20, ItemClass.F, EquipmentType.SWORD);
             case ItemType.COIN:
-                return new KeyItem("Coin", 0.0, 1, 1, 0, 0);
+                return new KeyItem(item,"Coin", 0.0, 1, 1, 0, 0);
             case ItemType.AUNT_MAYS_COOKIES:
-                return new KeyItem("Aunt May's Cookies", 2, 0, 1, 1, 0);
+                return new KeyItem(item,"Aunt May's Cookies", 2, 0, 1, 1, 0);
             case ItemType.KEY:
-                return new KeyItem("Chest Key", 0.1, 0, 0, 0, 1);
+                return new KeyItem(item,"Chest Key", 0.1, 0, 0, 0, 1);
             default:
                 throw new System.Exception();
         }
@@ -62,7 +64,7 @@ public abstract class IItem
         protected int scalingValue;
         //combat
         //sword, axe, spear,
-        public Equipment(string itemName, double weight, int sellPrice, int buyPrice, ItemClass itemClass, EquipmentType equipmentType)
+        public Equipment(ItemType itemType, string itemName, double weight, int sellPrice, int buyPrice, ItemClass itemClass, EquipmentType equipmentType)
         {
             this.weight = weight;
             this.itemName = itemName;
@@ -98,7 +100,7 @@ public abstract class IItem
     {
         protected int itemId; //tag for item
         protected int questId; //item's quest 
-        public KeyItem(string itemName, double weight, int sellPrice, int buyPrice, int itemId, int questId)
+        public KeyItem(ItemType itemType, string itemName, double weight, int sellPrice, int buyPrice, int itemId, int questId)
         {
             this.weight = weight;
             this.itemName = itemName;

@@ -1,5 +1,4 @@
-﻿using C5;
-using LitJson;
+﻿using LitJson;
 using System;
 using UnityEngine;
 public class InventoryReader
