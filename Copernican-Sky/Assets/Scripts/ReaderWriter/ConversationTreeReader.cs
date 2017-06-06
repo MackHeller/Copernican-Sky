@@ -37,18 +37,18 @@ public class ConversationTreeReader {
     private static ConversationTree buildTreeFromJSON(JsonData tree)
     {
         ArrayList<ConversationTreeNode> nodes = new ArrayList<ConversationTreeNode>();
-        for (int i = 0; i < tree["Nodes"].Count; i++)
+        for (int i = 0; i < tree["nodes"].Count; i++)
         {
-            int len = tree["Nodes"][i]["optId"].Count;
+            int len = tree["nodes"][i]["optId"].Count;
             int[] options = new int[len];//-1 means end conversation
             string[] optionsText = new string[len];
             for(int j=0;j< len;j++)
             {
-                options[j] = Convert.ToInt32(tree["Nodes"][i]["optId"][j]);
-                optionsText[j] = tree["Nodes"][i]["optId"][j].ToString();
+                options[j] = Convert.ToInt32(tree["nodes"][i]["optId"][j]);
+                optionsText[j] = tree["nodes"][i]["optId"][j].ToString();
             }
-            nodes[i] = new ConversationTreeNode(tree["Nodes"][i]["text"].ToString(),options,optionsText);
+            nodes[i] = new ConversationTreeNode(tree["nodes"][i]["text"].ToString(),options,optionsText);
         }
-        return new ConversationTree(tree["Name"].ToString(), Convert.ToInt32(tree["StartIndex"]), nodes); 
+        return new ConversationTree(tree["name"].ToString(), Convert.ToInt32(tree["startIndex"]), nodes); 
     }
 }

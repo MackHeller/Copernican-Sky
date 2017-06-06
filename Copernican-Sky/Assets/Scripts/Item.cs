@@ -1,4 +1,25 @@
-﻿
+﻿public enum ItemClass
+{
+    F, E, D, C, B, A, S, K //k for key item
+}
+
+
+public enum EquipmentType
+{
+    SWORD, AXE, SPEAR,
+    HELMET, CHEST, GLOVES, BOOTS, PANTS
+}
+
+
+public enum ItemType
+{
+    SWORD_BASIC,
+    COIN,
+    AUNT_MAYS_COOKIES,
+    KEY
+}
+
+
 public abstract class IItem
 {
     protected double weight;
@@ -15,95 +36,95 @@ public abstract class IItem
     public int SellPrice { get { return sellPrice; } }
     public int BuyPrice { get { return buyPrice; } }
 
-    public abstract  int getIntValue(string value);
-}
-
-public class Equipment : IItem{
-    protected EquipmentType equipmentType;
-    protected int baseValue;
-    protected int scalingValue;
-    //combat
-    //sword, axe, spear,
-    public Equipment(string itemName, double weight, int sellPrice, int buyPrice, ItemClass itemClass, EquipmentType equipmentType)
+    //factory method
+    public static IItem buildItem(ItemType item)
     {
-        this.weight = weight;
-        this.itemName = itemName;
-        this.sellPrice = sellPrice;
-        this.buyPrice = buyPrice;
-        this.itemClass = itemClass;
-        this.equipmentType = equipmentType;
-        //TODO math to set these values. These are DUMMY VALUES
-        baseValue = 100;
-        scalingValue = 100;
-        skillBonus = new Skills(new int[8] { 1, 1, 1, 1, 1, 1, 1,1 });
-
-    }
-    //getters specific to weapons 
-    override public int getIntValue(string value)
-    {
-        switch (value)
-        {
-            case "equipmentType":
-                return (int)equipmentType;
-            case "baseValue":
-                return baseValue;
-            case "scalingValue":
-                return scalingValue;
-            default:
-                throw new System.Exception();
-        } 
-    }
-}
-
-//key(normal) item
-public class KeyItem : IItem
-{
-    protected int itemId; //tag for item
-    protected int questId; //item's quest 
-    public KeyItem(string itemName, double weight, int sellPrice, int buyPrice, int itemId, int questId)
-    {
-        this.weight = weight;
-        this.itemName = itemName;
-        this.sellPrice = sellPrice;
-        this.buyPrice = buyPrice;
-        this.itemId = itemId;
-        this.questId = questId;
-        this.itemClass = ItemClass.K;
-        //TODO math to set these values. These are DUMMY VALUES
-        skillBonus = new Skills(new int[8] { 0, 0, 0, 0, 0, 0, 0,0 });
-    }
-    //getters specific to weapons 
-    override public int getIntValue(string value)
-    {
-        switch (value)
-        {
-            case "itemId":
-                return itemId;
-            case "questId":
-                return questId;
+        switch (item) {
+            case ItemType.SWORD_BASIC:
+                return new Equipment("Basic Sword", 3, 10, 20, ItemClass.F, EquipmentType.SWORD);
+            case ItemType.COIN:
+                return new KeyItem("Coin", 0.0, 1, 1, 0, 0);
+            case ItemType.AUNT_MAYS_COOKIES:
+                return new KeyItem("Aunt May's Cookies", 2, 0, 1, 1, 0);
+            case ItemType.KEY:
+                return new KeyItem("Chest Key", 0.1, 0, 0, 0, 1);
             default:
                 throw new System.Exception();
         }
     }
+
+    //abstract methods
+    public abstract  int getIntValue(string value);
+
+    private class Equipment : IItem
+    {
+        protected EquipmentType equipmentType;
+        protected int baseValue;
+        protected int scalingValue;
+        //combat
+        //sword, axe, spear,
+        public Equipment(string itemName, double weight, int sellPrice, int buyPrice, ItemClass itemClass, EquipmentType equipmentType)
+        {
+            this.weight = weight;
+            this.itemName = itemName;
+            this.sellPrice = sellPrice;
+            this.buyPrice = buyPrice;
+            this.itemClass = itemClass;
+            this.equipmentType = equipmentType;
+            //TODO math to set these values. These are DUMMY VALUES
+            baseValue = 100;
+            scalingValue = 100;
+            skillBonus = new Skills(new int[8] { 1, 1, 1, 1, 1, 1, 1, 1 });
+
+        }
+        //getters specific to weapons 
+        override public int getIntValue(string value)
+        {
+            switch (value)
+            {
+                case "equipmentType":
+                    return (int)equipmentType;
+                case "baseValue":
+                    return baseValue;
+                case "scalingValue":
+                    return scalingValue;
+                default:
+                    throw new System.Exception();
+            }
+        }
+    }
+
+    //key(normal) item
+    protected class KeyItem : IItem
+    {
+        protected int itemId; //tag for item
+        protected int questId; //item's quest 
+        public KeyItem(string itemName, double weight, int sellPrice, int buyPrice, int itemId, int questId)
+        {
+            this.weight = weight;
+            this.itemName = itemName;
+            this.sellPrice = sellPrice;
+            this.buyPrice = buyPrice;
+            this.itemId = itemId;
+            this.questId = questId;
+            this.itemClass = ItemClass.K;
+            //TODO math to set these values. These are DUMMY VALUES
+            skillBonus = new Skills(new int[8] { 0, 0, 0, 0, 0, 0, 0, 0 });
+        }
+        //getters specific to weapons 
+        override public int getIntValue(string value)
+        {
+            switch (value)
+            {
+                case "itemId":
+                    return itemId;
+                case "questId":
+                    return questId;
+                default:
+                    throw new System.Exception();
+            }
+        }
+    }
 }
 
-public enum ItemClass
-{
-    F,E,D,C,B,A,S,K //k for key item
-}
 
-
-public enum EquipmentType
-{
-    SWORD, AXE, SPEAR,
-    HELMET, CHEST, GLOVES, BOOTS, PANTS
-}
-
-
-public class ItemType
-{
-    public static readonly IItem SWORD_BASIC = new Equipment("Basic Sword",3,10,20,ItemClass.F, EquipmentType.SWORD);
-    public static readonly IItem COIN = new KeyItem("Coin", 0.0, 1, 1, 0, 0);
-    public static readonly IItem AUNT_MAYS_COOKIES = new KeyItem("Aunt May's cookies", 2, 0, 1, 1, 0);
-    public static readonly IItem KEY = new KeyItem("Chest Key", 0.1,0,0,0,1);
-}

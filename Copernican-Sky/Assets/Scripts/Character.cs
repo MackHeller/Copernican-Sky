@@ -1,12 +1,13 @@
-﻿/**
- * TODO: are Characters just Conversation Trees. IN that case should this class just be for checking if 
- * anything happens when the Tree reaches a certain state?
- * 
- * */
+﻿
 
+using System;
+/**
+* TODO add more modify classes for additional things to modify
+* 
+* */
 public abstract class Character {
     protected  ConversationTree conversationTree;
-    //public abstract int checkState(int state);
+    public abstract Inventory checkModifyInventory(Inventory inventory);
     
 }
 public class ThomdrilMerrilin : Character 
@@ -14,5 +15,10 @@ public class ThomdrilMerrilin : Character
     public ThomdrilMerrilin()
     {
         conversationTree = ConversationTreeReader.loadConversationTree("ThomdrillMerrilin");
+    }
+
+    public override Inventory checkModifyInventory(Inventory inventory)
+    {
+        throw new NotImplementedException();
     }
 }

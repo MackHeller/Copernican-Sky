@@ -10,10 +10,11 @@ using UnityEngine;
 public class HeroCB  {
     Skills playerSkills;
     string name;
-    //TODO need an npm object 
-    public HeroCB(string name)
+    Character character;
+    public HeroCB(string name, Character character)
     {
         this.name = name;
+        this.character = character;
     }
 }
 

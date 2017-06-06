@@ -40,7 +40,7 @@ public class Inventory {
      * */
     public bool addItem(IItem itemToAdd, int amount)
     {
-        if (currentWeight <= itemToAdd.Weight * amount)
+        if (carryCapacity  > currentWeight + itemToAdd.Weight * amount)
         {
             //if item already in bag
             if (inventory.Contains(itemToAdd))

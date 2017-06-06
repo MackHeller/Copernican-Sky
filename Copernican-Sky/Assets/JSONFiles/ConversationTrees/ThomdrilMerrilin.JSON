@@ -1,7 +1,7 @@
 {
-	"Name":"Thomdril Merrilin",
-	"StartIndex":0,
-	"Nodes":
+	"name":"Thomdril Merrilin",
+	"startIndex":0,
+	"nodes":
 	[
 		{
 			"id": 0,
