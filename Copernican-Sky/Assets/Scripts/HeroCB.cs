@@ -1,8 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-/**
+﻿/**
  * This is the hero class (one of three) that contains most of stats and information for the playable characters.
  * While it is primarily used by the combat controller, the other two controllers will also use this class to get
  * character information when they need it (for ex. party character names.) 
@@ -11,10 +7,11 @@ public class HeroCB  {
     Skills playerSkills;
     string name;
     Character character;
-    public HeroCB(string name, Character character)
+    public HeroCB(string name, Character character, Skills playerSkills)
     {
         this.name = name;
         this.character = character;
+        this.playerSkills = playerSkills;
     }
 }
 
