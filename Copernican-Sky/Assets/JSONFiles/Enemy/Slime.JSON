@@ -1,0 +1,14 @@
+{
+	"name":"Slime",
+	"personality":3,
+	"skills":{
+		"skill":1,
+		"strength":2,
+        "speed":2,
+        "reaction":1,
+        "initiative":1,
+        "constitution":4,
+        "armour":2,
+        "footwork":1
+	}
+}
