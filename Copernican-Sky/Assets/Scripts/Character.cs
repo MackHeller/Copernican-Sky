@@ -8,6 +8,7 @@
 public abstract class Character {
     //the conversation tree object
     public  ConversationTree conversationTree;
+    public String characterName;
     /**
      * check if current state alters the inventory 
      * @param  inventory    the inventory to edit 
@@ -22,7 +23,9 @@ public class ThomdrilMerrilin : Character
 {
     public ThomdrilMerrilin()
     {
-        conversationTree = ConversationTreeReader.loadConversationTree("ThomdrillMerrilin");
+        characterName = "Thomdrill Merrilin";
+        conversationTree = ConversationTreeReader.loadConversationTree(characterName);
+        conversationTree.setStartIndex(CharacterWriter.loadStartIndex(characterName));
     }
 
     public override Inventory checkModifyInventory(Inventory inventory)

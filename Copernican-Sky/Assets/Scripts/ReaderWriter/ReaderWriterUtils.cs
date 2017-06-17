@@ -1,8 +1,7 @@
-﻿using C5;
-using LitJson;
+﻿using LitJson;
 using System;
 using System.IO;
-using UnityEngine;
+using System.Collections;
 public static class ReaderWriterUtils {
 
     public static JsonData readFile(string filePath)
@@ -49,5 +48,23 @@ public static class ReaderWriterUtils {
             if (sw != null)
                 sw.Dispose();
         }
+    }
+    public static bool jsonDataContainsKey(JsonData data, string key)
+    {
+        bool result = false;
+        if (data == null)
+            return result;
+        if (!data.IsObject)
+        {
+            return result;
+        }
+        IDictionary tdictionary = data as IDictionary;
+        if (tdictionary == null)
+            return result;
+        if (tdictionary.Contains(key))
+        {
+            result = true;
+        }
+        return result;
     }
 }

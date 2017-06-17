@@ -1,14 +1,10 @@
 ﻿using UnityEngine;
-using System.Collections;
-using LitJson;
-using System;
-using System.IO;
 using C5;
 
-public class LevelWriter
+public class InventoryWriter
 {
 
-    public static void saveAsNewLevel(Inventory inventory, int id)
+    public static void saveAsNewInventory(Inventory inventory, int id)
     {
         string filePath = Application.dataPath + "/JSONFiles/Inventory/SavedState-" + id + "-Inventory.JSON";
         string json = buildJSONFromObject(filePath, inventory, id);
