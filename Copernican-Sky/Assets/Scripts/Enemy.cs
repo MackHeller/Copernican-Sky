@@ -1,18 +1,18 @@
-﻿public class EnemyCB  {
+﻿public class Enemy{
     Skills enemySkills;
     string name;
     Personality personality;
-    public EnemyCB(string name, Skills enemySkills, PersonalityTypes type)
+    public Enemy(string name, Skills enemySkills, PersonalityTypes type)
     {
         this.name = name;
         this.enemySkills = enemySkills;
-        this.personality = Personality.buildItem(type);
+        this.personality = Personality.buildPersonality(type);
     }
 }
 
 public class Personality
 {
-    public static Personality buildItem(PersonalityTypes type)
+    public static Personality buildPersonality(PersonalityTypes type)
     {
         switch (type)
         {
