@@ -10,4 +10,9 @@ public class TextBoxController : MonoBehaviour {
 		textbox = GetComponent<Text> ();
 		textbox.text = "Hello World";
 	}
+
+	public void setText(string textinput)
+	{
+		textbox.text = textinput;
+	}
 }
