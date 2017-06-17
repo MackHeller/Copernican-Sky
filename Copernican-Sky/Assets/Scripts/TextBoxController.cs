@@ -5,8 +5,9 @@ using UnityEngine.UI;
 
 public class TextBoxController : MonoBehaviour {
 
-	public Text textbox;
+	private Text textbox;
 	void Start () {
+		textbox = GetComponent<Text> ();
 		textbox.text = "Hello World";
 	}
 }
