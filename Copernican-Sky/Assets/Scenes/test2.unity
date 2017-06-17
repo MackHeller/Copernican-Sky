@@ -537,6 +537,11 @@ Prefab:
       propertyPath: m_SortingLayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114000012672140152, guid: 187612d979cf38343ac5819f054c53b6,
+        type: 2}
+      propertyPath: sceneToTravelTo
+      value: test
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 187612d979cf38343ac5819f054c53b6, type: 2}
   m_IsPrefabParent: 0
@@ -553,7 +558,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000012248254490, guid: 45308ee12847b844a9f03ade3afe1d7f, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 2.61
+      value: 2.85
       objectReference: {fileID: 0}
     - target: {fileID: 4000012248254490, guid: 45308ee12847b844a9f03ade3afe1d7f, type: 2}
       propertyPath: m_LocalPosition.z
