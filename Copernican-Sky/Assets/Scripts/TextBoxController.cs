@@ -1,16 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TextBoxController : MonoBehaviour {
 
-	// Use this for initialization
+	public Text textbox;
 	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+		textbox.text = "Hello World";
 	}
 }
