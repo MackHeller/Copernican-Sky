@@ -8,7 +8,9 @@
 public class Inventory {
     //the item and its amount
     private HashDictionary<IItem, int> inventory;
+    //how much you can carry
     private int carryCapacity;
+    //how much you are carrying
     private double currentWeight;
 
     public Inventory(int carryCapacity)
@@ -17,7 +19,7 @@ public class Inventory {
         this.carryCapacity = carryCapacity;
         currentWeight = 0.0;
     }
-
+    //getter methods 
     public double CurrentWeight
     {
         get { return currentWeight; }
@@ -37,14 +39,19 @@ public class Inventory {
     }
 
     /*
-* Adds an item to the inventory
-* */
+    * Adds an item to the inventory
+    * @param    itemToAdd   item to add to inventory
+    * @return               true if the item was added else false
+    * */
     public bool addItem(IItem itemToAdd)
     {
         return addItem(itemToAdd, 1);
     }
     /*
      * Adds many items to the inventory
+     * @param    itemToAdd   item to add to inventory
+     * @param    amount      amount of the item to add
+     * @return               true if the item was added else false
      * */
     public bool addItem(IItem itemToAdd, int amount)
     {
@@ -69,7 +76,9 @@ public class Inventory {
     }
 
     /*
-     * Adds an item to the inventory
+     * Removes an item to the inventory
+     * @param    itemToRemove   item to remove to inventory
+     * @return                  true if the item was removed else false
      * */
     public bool removeItem(IItem itemToRemove)
     {
@@ -77,8 +86,10 @@ public class Inventory {
     }
     /*
      * Removes many items to the inventory
-     * If amount given to remove is greater then the amount 
-     * that exists in the bag return false 
+     * If amount given to remove is greater then the amount that exists in the bag return false 
+     * @param    itemToRemove   item to add to inventory
+     * @param    amount         amount of the item to add
+     * @return                  true if the item was added else false
      * */
     public bool removeItem(IItem itemToRemove, int amount)
     {
