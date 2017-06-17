@@ -6,44 +6,28 @@ using UnityEngine.EventSystems;
 
 public class Menu_TransitionScene : MonoBehaviour {
 
-    public void LoadNextIndex(string currentButton)
+    public void LoadNextName(string aScene)
     {
-        Debug.Log(currentButton);
-        string yup = SceneManager.GetActiveScene().name;
-        if (SceneManager.GetActiveScene().name == "StartMenu")
-        {
-            Debug.Log("start");
-            LoadNextScene("OptionScene", "OptionScene", currentButton);
-        }
-        else if (SceneManager.GetActiveScene().name == "OptionMenu")
-        {
-            LoadNextScene("StartMenu", "StartMenu" ,currentButton);
-        }
-
+        //Loads the scene by its name
+        SceneManager.LoadScene(aScene);
     }
-    public void LoadNextScene(string next, string previous, string but)
-    {
-        if (but == "Right")
-        {
-            Scene temp = SceneManager.GetSceneByName(next);
-            Debug.Log(temp.name);
-            if (temp.isLoaded == false)
-            {
-                SceneManager.LoadScene(temp.name);
-            }
-            Debug.Log(temp.isLoaded);
-            SceneManager.SetActiveScene(temp);
 
-        }
-        else if (but == "Left")
+    public void LoadNextIndex(int index)
+    {
+        //Loads the scene by its buildIndex
+        SceneManager.LoadScene(SceneManager.GetSceneByBuildIndex(index).name);
+    }
+
+    public void unloadAllScenes()
+    {
+        //Loops through the list of all loaded scene index, and unloads them
+        int x = SceneManager.sceneCount;
+        int y = 0;
+        while (y < x)
         {
-            Scene temp = SceneManager.GetSceneByName(previous);
-            Debug.Log(temp.isLoaded);
-            if (temp.isLoaded == false)
-            {
-                SceneManager.LoadScene(temp.name);
-            }
-            SceneManager.SetActiveScene(temp);
+            SceneManager.UnloadSceneAsync(y);
+            y = y + 1;
         }
+        
     }
 }
