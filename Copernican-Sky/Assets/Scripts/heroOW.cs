@@ -6,7 +6,7 @@ using System.Collections;
  * be found in HeroCB.
  * */
 public class heroOW : MonoBehaviour {
-    private float speed = 8.0f;
+    private float speed = 2f;
     private float distance = 5f;
     public Rigidbody2D rb;
     // Use this for initialization
@@ -16,7 +16,10 @@ public class heroOW : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        takeStep();
+	}
+
+	void FixedUpdate(){
+		takeStep();
 	}
 
     private void takeStep()
@@ -30,6 +33,8 @@ public class heroOW : MonoBehaviour {
             newPos.x = -distance;
         if (Input.GetKey(KeyCode.D))
             newPos.x = distance;
-        rb.AddForce(newPos * speed);
+		rb.velocity = (newPos * speed);
+        //rb.AddForce(newPos * speed);
     }
+		
 }

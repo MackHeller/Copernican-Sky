@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212658365018688260}
   - component: {fileID: 61703842673025500}
   - component: {fileID: 114669709069272252}
+  - component: {fileID: 114584686773901406}
   m_Layer: 0
   m_Name: Chest
   m_TagString: Untagged
@@ -67,6 +68,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.99999994, y: 0.99999994}
   m_EdgeRadius: 0
+--- !u!114 &114584686773901406
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1352595761020942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5aa3152aa718cb64e8de5ba82a50183a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114669709069272252
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -110,8 +122,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1085595855
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 66c85d24b996eba43a76b9d447980569, type: 3}
   m_Color: {r: 0.41198096, g: 0.7178887, b: 0.9338235, a: 1}
