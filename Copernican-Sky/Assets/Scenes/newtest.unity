@@ -789,6 +789,12 @@ SpriteRenderer:
   m_Size: {x: 16, y: 16}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
+--- !u!114 &640389216 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114304444708067920, guid: 9068edb9586d5d444957c6b33c7c0d0c,
+    type: 2}
+  m_PrefabInternal: {fileID: 1188789233}
+  m_Script: {fileID: 11500000, guid: 3b428c925df4e154ca3e71821839b9fc, type: 3}
 --- !u!1001 &657939100
 Prefab:
   m_ObjectHideFlags: 0
@@ -826,7 +832,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000012368394838, guid: 187612d979cf38343ac5819f054c53b6, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 187612d979cf38343ac5819f054c53b6, type: 2}
@@ -1257,7 +1263,7 @@ Transform:
   - {fileID: 1144655012}
   - {fileID: 2141441627}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &847630312
 Prefab:
@@ -1296,7 +1302,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4635019842205682, guid: 0d10108c2bca0434dbadcc98f20a4ebd, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 61703842673025500, guid: 0d10108c2bca0434dbadcc98f20a4ebd,
         type: 2}
@@ -1313,6 +1319,11 @@ Prefab:
       propertyPath: m_Offset.y
       value: -1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 114669709069272252, guid: 0d10108c2bca0434dbadcc98f20a4ebd,
+        type: 2}
+      propertyPath: textBoxController
+      value: 
+      objectReference: {fileID: 640389216}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0d10108c2bca0434dbadcc98f20a4ebd, type: 2}
   m_IsPrefabParent: 0
@@ -1853,7 +1864,7 @@ Prefab:
     - target: {fileID: 224115717028680442, guid: 9068edb9586d5d444957c6b33c7c0d0c,
         type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 224115717028680442, guid: 9068edb9586d5d444957c6b33c7c0d0c,
         type: 2}
@@ -1951,7 +1962,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1208632304
 GameObject:
