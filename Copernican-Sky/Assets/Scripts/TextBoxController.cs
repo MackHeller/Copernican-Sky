@@ -12,7 +12,9 @@ public class TextBoxController : MonoBehaviour {
 		//fetches the Text object from the object the script is attached to
 		textbox = GetComponent<Text> ();
 
-		textbox.text = "Hello World";
+		//Example: textbox.text = "Hello World";
+
+		textbox.text = "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWW";
 	}
 
 	// a very simple function that other classes can use to set the text onscreen
