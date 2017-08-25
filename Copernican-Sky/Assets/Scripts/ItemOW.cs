@@ -20,11 +20,13 @@ public class ItemOW : MonoBehaviour
     {
         if (collision.gameObject.name == "Hero")
         {
-            //if chest is closed open it and get item
+            //if chest is closed open it and get the item
             if(altSprite != spriteRenderer.sprite)
             {
 				spriteRenderer.sprite = altSprite;
                 overWorldController.addItemToInventory(overWorldController.getItemByName(itemName), amount);
+
+				//Set the text to tell the player what item they found
 				if (amount > 1) {
 					textBoxController.setText ("You found "+amount+" "+itemName+"'s!");
 				} else {

@@ -6,22 +6,25 @@ using System.Collections;
  * be found in HeroCB.
  * */
 public class heroOW : MonoBehaviour {
+	//Public variables can be changed/set from within the Unity Editor
     public float speed = 20f;
-    private float distance = 5f;
     public Rigidbody2D rb;
+
+	private float distance = 5f;
+
+
     // Use this for initialization
     void Start () {
         rb = GetComponent<Rigidbody2D>();
     }
-	
-	// Update is called once per frame
-	void Update () {
-	}
 
+	//Note, FixedUpdate is called based on physics frames, indepent of ingame frame rate, which can vary
+	//It should be used with any physics engine related functions
 	void FixedUpdate(){
 		takeStep();
 	}
 
+	//Simple movement code, will probably need to be updated at some point
     private void takeStep()
     {
         Vector2 newPos = new Vector2(0.0f,0.0f);
