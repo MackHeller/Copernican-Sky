@@ -14,7 +14,9 @@ public class TextBoxController : MonoBehaviour {
 
 		//Example: textbox.text = "Hello World";
 
-		textbox.text = "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWW";
+		textbox.text = "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW" +
+					   "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM"+
+			"This box can fit 40 W's & M's per line, generally the biggest Alnum chars in most fonts. This is a monospaced font, so are char's are same sized. There's 7 lines of space (280 chars total).";
 	}
 
 	// a very simple function that other classes can use to set the text onscreen
