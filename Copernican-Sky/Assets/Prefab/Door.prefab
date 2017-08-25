@@ -16,12 +16,12 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 4000012368394838}
-  - 212: {fileID: 212000013551815398}
-  - 114: {fileID: 114000012672140152}
-  - 61: {fileID: 61000011784354624}
+  - component: {fileID: 4000012368394838}
+  - component: {fileID: 212000013551815398}
+  - component: {fileID: 114000012672140152}
+  - component: {fileID: 61000011784354624}
   m_Layer: 0
   m_Name: Door
   m_TagString: Untagged
@@ -36,12 +36,12 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012528011924}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.15, y: 5.66, z: 0}
-  m_LocalScale: {x: 2.120663, y: 0.5517349, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 48, y: 64, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &61000011784354624
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -53,9 +53,20 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
+  m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 16, y: 16}
+    newSize: {x: 16, y: 16}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.99999994, y: 0.99999994}
+  m_Size: {x: 16, y: 16}
+  m_EdgeRadius: 0
 --- !u!114 &114000012672140152
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -67,7 +78,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac6d1f2df2d380b468c7cf1baa9b8aeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 1
+  sceneToTravelTo: altroomtest
 --- !u!212 &212000013551815398
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -82,7 +93,9 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 0
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_SubsetIndices: 
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
@@ -90,14 +103,19 @@ SpriteRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_SelectedWireframeHidden: 1
+  m_SelectedEditorRenderState: 0
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
+  m_SortingLayerID: 715758485
+  m_SortingLayer: -2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 7d4b76c723575fd46aab4d017c8f1ab7, type: 3}
-  m_Color: {r: 0.15700692, g: 0.24149865, b: 0.64705884, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 96f392c5bfb11d648a4693d6bfdefa6d, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 16, y: 16}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0

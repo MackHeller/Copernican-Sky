@@ -6,7 +6,7 @@ using System.Collections;
  * be found in HeroCB.
  * */
 public class heroOW : MonoBehaviour {
-    private float speed = 2f;
+    public float speed = 20f;
     private float distance = 5f;
     public Rigidbody2D rb;
     // Use this for initialization

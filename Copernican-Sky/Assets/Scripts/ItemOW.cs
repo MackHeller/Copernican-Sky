@@ -22,7 +22,7 @@ public class ItemOW : MonoBehaviour
             //if chest is closed open it and get item
             if(altSprite != spriteRenderer.sprite)
             {
-                spriteRenderer.sprite = altSprite;
+				spriteRenderer.sprite = altSprite;
                 overWorldController.addItemToInventory(overWorldController.getItemByName(itemName), amount);
             }
         }

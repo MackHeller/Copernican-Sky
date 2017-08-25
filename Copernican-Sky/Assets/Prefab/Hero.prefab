@@ -26,7 +26,6 @@ GameObject:
   - component: {fileID: 70054882246209962}
   - component: {fileID: 114508119450945374}
   - component: {fileID: 95192713145511962}
-  - component: {fileID: 114323209192249852}
   m_Layer: 0
   m_Name: Hero
   m_TagString: Untagged
@@ -61,7 +60,7 @@ Transform:
   m_GameObject: {fileID: 1000013918497018}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.030000053, y: 0.050000023, z: -10}
-  m_LocalScale: {x: 0.97367764, y: 0.9736775, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4000012248254490}
   m_RootOrder: 0
@@ -73,8 +72,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011880734628}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.01, y: 4.41, z: 0}
-  m_LocalScale: {x: 4.273787, y: 3.351618, z: 1}
+  m_LocalPosition: {x: 16, y: 8, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4000010618994606}
   m_Father: {fileID: 0}
@@ -100,7 +99,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 100
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -152,7 +151,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.13, y: 0.31}
+    oldSize: {x: 13, y: 31}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -178,8 +177,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.15}
-  m_Size: {x: 0.13, y: 0.06}
+  m_Offset: {x: 0, y: -15}
+  m_Size: {x: 13, y: 6}
   m_Direction: 1
 --- !u!81 &81000012588092140
 AudioListener:
@@ -223,18 +222,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5193230877d1622458e923cbebf00935, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 20
   rb: {fileID: 50000011773119468}
---- !u!114 &114323209192249852
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000011880734628}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5aa3152aa718cb64e8de5ba82a50183a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114508119450945374
 MonoBehaviour:
   m_ObjectHideFlags: 1
