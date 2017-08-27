@@ -13,6 +13,7 @@ public class heroOW : MonoBehaviour {
 	public Sprite rsprite;
 	public Sprite usprite;
 	public Sprite dsprite;
+	public Animator animator;
 
 	private SpriteRenderer spriteRenderer;
 
@@ -29,7 +30,7 @@ public class heroOW : MonoBehaviour {
     void Start () {
         rb = GetComponent<Rigidbody2D>();
 		spriteRenderer = GetComponent<SpriteRenderer>();
-		spriteRenderer.sprite = usprite;
+		animator = GetComponent<Animator>();
 
     }
 
@@ -73,14 +74,21 @@ public class heroOW : MonoBehaviour {
 			goingup = false;
 			goingdown = false;
 		}
-		changesprite();
+
+		animator.SetBool ("Walk Up", goingup);
+		animator.SetBool ("Walk Down", goingdown);
+		animator.SetBool ("Walk Right", goingright);
+		animator.SetBool ("Walk Left", goingleft);
+
+		//changesprite();
     }
 
 	private void changesprite()
 	{
 		if (goingup && !goingdown) {
-			Debug.Log("u");
-			spriteRenderer.sprite = usprite;
+			
+			//spriteRenderer.sprite = usprite;
+
 			if (goingright && !goingleft)
 			{
 				//up and right
@@ -95,7 +103,9 @@ public class heroOW : MonoBehaviour {
 			}
 		}
 		else if (!goingup && goingdown){
-			spriteRenderer.sprite = dsprite;
+
+			//spriteRenderer.sprite = dsprite;
+
 			if (goingright && !goingleft)
 			{
 				//down and right
@@ -112,12 +122,16 @@ public class heroOW : MonoBehaviour {
 		else if (!goingup && !goingdown){
 			if (goingright && !goingleft)
 			{
-				spriteRenderer.sprite = rsprite;
+				
+				//spriteRenderer.sprite = rsprite;
+
 				//right
 			}
 			else if (!goingright && goingleft)
 			{
-				spriteRenderer.sprite = lsprite;
+
+				//spriteRenderer.sprite = lsprite;
+
 				//left
 			}
 			else if (!goingright && !goingleft)
