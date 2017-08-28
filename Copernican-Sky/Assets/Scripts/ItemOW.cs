@@ -6,10 +6,10 @@ public class ItemOW : MonoBehaviour
 {
     private OverWorldController overWorldController;
     private SpriteRenderer spriteRenderer;
-	public TextBoxController textBoxController;
     public Sprite altSprite;
     public int amount;
     public string itemName;
+    public IItem item;
     private void Start()
     {
         overWorldController = GameObject.Find("GameController").GetComponent<OverWorldController>();
@@ -25,13 +25,6 @@ public class ItemOW : MonoBehaviour
             {
 				spriteRenderer.sprite = altSprite;
                 overWorldController.addItemToInventory(overWorldController.getItemByName(itemName), amount);
-
-				//Set the text to tell the player what item they found
-				if (amount > 1) {
-					textBoxController.setText ("You found "+amount+" "+itemName+"'s!");
-				} else {
-					textBoxController.setText ("You found "+amount+" "+itemName+"!");
-				}
             }
         }
     }

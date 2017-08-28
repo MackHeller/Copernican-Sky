@@ -10,18 +10,18 @@ public class TextBoxController : MonoBehaviour {
 
 	void Start () {
 		//fetches the Text object from the object the script is attached to
-		textbox = GetComponent<Text> ();
+		this.textbox = GetComponent<Text> ();
 
-		//Example: textbox.text = "Hello World";
-
-		textbox.text = "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW" +
-					   "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM"+
-			"This box can fit 40 W's & M's per line, generally the biggest Alnum chars in most fonts. This is a monospaced font, so all char's are same sized. There are 7 lines of space (280 chars total).";
+        //Example: textbox.text = "Hello World";
+        string words = "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW" +
+                       "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM" +
+            "This box can fit 40 W's & M's per line, generally the biggest Alnum chars in most fonts. This is a monospaced font, so all char's are same sized. There are 7 lines of space (280 chars total).";
+        this.setText(words);
 	}
 
 	// a very simple function that other classes can use to set the text onscreen
 	public void setText(string textinput)
 	{
-		textbox.text = textinput;
+		this.textbox.text = textinput;
 	}
 }

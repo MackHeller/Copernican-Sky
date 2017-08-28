@@ -5,6 +5,8 @@ using C5;
 
 public class OverWorldController : MonoBehaviour {
     private Inventory inventory;
+    public TextBoxController textBoxController;
+    public TextBoxController inventoryTextController;
     private int carryCapacity;
     void Awake()
     {
@@ -22,8 +24,22 @@ public class OverWorldController : MonoBehaviour {
     }
     public bool addItemToInventory(IItem itemToAdd, int amount)
     {
-        return inventory.addItem(itemToAdd, amount);
+        //Set the text to tell the player what item they found
+        if (inventory.addItem(itemToAdd, amount)) {
+            if (amount > 1)
+            {
+                textBoxController.setText("You found " + amount + " " + itemToAdd.ItemName + "'s!");
+            }
+            else
+            {
+                textBoxController.setText("You found " + amount + " " + itemToAdd.ItemName + "!");
+            }
+            return true;
+        }
+        return false;
+         
     }
+    //public void openInventory menu
     public IItem getItemByName(string name)
     {
         switch (name){
