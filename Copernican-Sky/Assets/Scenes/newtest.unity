@@ -1951,6 +1951,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9528b20723ed6f7409258c23c4675e5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  textBoxController: {fileID: 0}
+  inventoryTextController: {fileID: 0}
 --- !u!4 &1199512575
 Transform:
   m_ObjectHideFlags: 0
