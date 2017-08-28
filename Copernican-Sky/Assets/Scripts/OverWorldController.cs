@@ -8,6 +8,7 @@ public class OverWorldController : MonoBehaviour {
     public TextBoxController textBoxController;
     public TextBoxController inventoryTextController;
     private int carryCapacity;
+    private GameObject itemMenu;
     void Awake()
     {
         DontDestroyOnLoad(this);
@@ -20,7 +21,12 @@ public class OverWorldController : MonoBehaviour {
             //TODO non-dummy value
             carryCapacity = 10;
             inventory = new Inventory(carryCapacity);
+            itemMenu = GameObject.Find("InventoryMenu");
         }
+    }
+    void OnLevelWasLoaded()
+    {
+        itemMenu = GameObject.Find("InventoryMenu");
     }
     public bool addItemToInventory(IItem itemToAdd, int amount)
     {
@@ -39,7 +45,14 @@ public class OverWorldController : MonoBehaviour {
         return false;
          
     }
-    //public void openInventory menu
+    private void Update()
+    {
+        //Toggle menu
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            itemMenu.SetActive(!itemMenu.activeSelf);
+        }
+    }
     public IItem getItemByName(string name)
     {
         switch (name){
