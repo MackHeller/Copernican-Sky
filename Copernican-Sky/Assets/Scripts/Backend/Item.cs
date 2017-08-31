@@ -44,7 +44,7 @@ public abstract class IItem
             case "Wooden Sword":
                 return new Equipment(name, 3, 10, 20, ItemClass.F, EquipmentType.SWORD);
             case "Coin":
-                return new KeyItem("Coin(s)", 0.0, 1, 1, 0, 0);
+                return new KeyItem(name, 0.0, 1, 1, 0, 0);
             case "Aunt May's Cookies":
                 return new KeyItem(name, 2, 0, 1, 1, 0);
             case "Key":
