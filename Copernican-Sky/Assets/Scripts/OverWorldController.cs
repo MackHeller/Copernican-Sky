@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using C5;
+using UnityEngine.SceneManagement;
 
 public class OverWorldController : MonoBehaviour {
     private Inventory inventory;
@@ -9,6 +10,10 @@ public class OverWorldController : MonoBehaviour {
     public TextBoxController inventoryTextController;
     private int carryCapacity;
     private GameObject itemMenu;
+    /**
+     * put everything you want to happen when the FIRST scene is loaded
+     * 
+     * */
     void Awake()
     {
         DontDestroyOnLoad(this);
@@ -21,12 +26,18 @@ public class OverWorldController : MonoBehaviour {
             //TODO non-dummy value
             carryCapacity = 10;
             inventory = new Inventory(carryCapacity);
-            itemMenu = GameObject.Find("InventoryMenu");
+            SceneManager.sceneLoaded += SceneManager_sceneLoaded;
+
         }
     }
-    void OnLevelWasLoaded()
+    /*
+     * Put everything you want to happen when a scene is loaded here.
+     * 
+     * */
+    private void SceneManager_sceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        itemMenu = GameObject.Find("InventoryMenu");
+        itemMenu = GameObject.Find("ItemMenu");
+        itemMenu.SetActive(!itemMenu.activeSelf);
     }
     public bool addItemToInventory(IItem itemToAdd, int amount)
     {
