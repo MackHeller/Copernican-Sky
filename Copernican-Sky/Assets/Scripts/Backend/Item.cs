@@ -101,6 +101,11 @@ public abstract class IItem
                     throw new System.Exception();
             }
         }
+        public override string ToString()
+        {
+            string words = this.ItemName+" "+this.ItemClass+" "+this.Weight;
+            return words;
+        }
     }
 
     /**
@@ -139,6 +144,11 @@ public abstract class IItem
                 default:
                     throw new System.Exception();
             }
+        }
+        public override string ToString()
+        {
+            string words = this.ItemName + " " + this.ItemClass + " " + this.Weight;
+            return words;
         }
     }
 }

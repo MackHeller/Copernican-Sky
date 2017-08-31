@@ -112,4 +112,13 @@ public class Inventory {
             return false;
         }
     }
+    public override string ToString()
+    {
+        string words = "";
+        foreach (KeyValuePair<IItem, int> item in inventory)
+        {
+            words = words + item.Key.ToString()+"   "+item.Value+"\n";
+        }
+        return words;
+    }
 }
