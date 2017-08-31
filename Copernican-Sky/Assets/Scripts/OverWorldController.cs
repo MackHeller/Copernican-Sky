@@ -37,6 +37,9 @@ public class OverWorldController : MonoBehaviour {
     private void SceneManager_sceneLoaded(Scene scene, LoadSceneMode mode)
     {
         itemMenu = GameObject.Find("ItemMenu");
+        textBoxController = (TextBoxController)GameObject.Find("Text").GetComponent(typeof(TextBoxController));
+        inventoryTextController =  (TextBoxController)GameObject.Find("ItemText").GetComponent(typeof(TextBoxController));
+        inventoryTextController.setText(inventory.ToString());
         itemMenu.SetActive(!itemMenu.activeSelf);
     }
     public bool addItemToInventory(IItem itemToAdd, int amount)
@@ -62,6 +65,7 @@ public class OverWorldController : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             itemMenu.SetActive(!itemMenu.activeSelf);
+            inventoryTextController.setText(inventory.ToString());
         }
     }
     public IItem getItemByName(string name)

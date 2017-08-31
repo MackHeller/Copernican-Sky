@@ -50,7 +50,7 @@ public abstract class IItem
             case "Key":
                 return new KeyItem(name, 0.1, 0, 0, 0, 1);
             default:
-                throw new System.Exception("sdfs");
+                throw new System.Exception("Item not found");
         }
     }
 
