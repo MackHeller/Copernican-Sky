@@ -55,11 +55,6 @@ public class OverWorldController : MonoBehaviour {
     }
     public IItem getItemByName(string name)
     {
-        switch (name){
-            case "wooden_sword":
-                return IItem.buildItem(Item.SWORD_BASIC); 
-            default:
-                throw new System.Exception();
-        }
+        return IItem.buildItem(name);
     }
 }

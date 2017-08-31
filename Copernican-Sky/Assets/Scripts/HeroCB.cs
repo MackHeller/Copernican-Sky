@@ -14,6 +14,7 @@ public class HeroCB  {
         this.name = name;
         this.character = character;
         this.playerSkills = playerSkills;
+        this.expirence = 0;
     }
     public int getExpirence()
     {

@@ -4,16 +4,16 @@
 	"items":
 	[
 		{
-			"id": 2,
-			"amount":1
+			"name": "Wooden Sword",
+			"amount":3
 		},
 		{
-			"id": 1,
+			"name": "Coin",
 			"amount":100
 		},
 		{
-			"id": 0,
-			"amount":3
+			"name": "Aunt May's Cookies",
+			"amount":1
 		}
 	]
 }

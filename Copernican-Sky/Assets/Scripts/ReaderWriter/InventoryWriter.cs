@@ -21,7 +21,7 @@ public class InventoryWriter
         if (list.Count > 0)
             json = json + ",\n\"items\": [\n";
         foreach (KeyValuePair<IItem, int> entry in list)
-            json = json + "{\"id\": \"" + (int)entry.Key.ItemType + "\",\n\"amount\": " + entry.Value + "},\n";
+            json = json + "{\"name\": \"" + entry.Key.ItemName + "\",\n\"amount\": " + entry.Value + "},\n";
         if (list.Count > 0)
             json = json.Remove(json.Length - 2) + "\n]";
         return json + "\n}";
