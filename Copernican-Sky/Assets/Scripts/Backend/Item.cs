@@ -12,14 +12,6 @@ public enum EquipmentType
     //clothes 
     HELMET, CHEST, GLOVES, BOOTS, PANTS
 }
-//item is the actual item enum
-public enum Item
-{
-    SWORD_BASIC,
-    COIN,
-    AUNT_MAYS_COOKIES,
-    KEY
-}
 
 //abstract class the represents all types of items (currently Equipment and KeyItem)
 public abstract class IItem
@@ -48,7 +40,7 @@ public abstract class IItem
      * @param   item    item enum to build
      * @return          an IItem object
      * */
-    public static IItem buildItem(Item item)
+    public static IItem buildItem(string name)
     {
         switch (item) {
             case Item.SWORD_BASIC:
