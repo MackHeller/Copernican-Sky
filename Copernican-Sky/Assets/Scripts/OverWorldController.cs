@@ -42,22 +42,24 @@ public class OverWorldController : MonoBehaviour {
         inventoryTextController.setText(inventory.ToString());
         itemMenu.SetActive(!itemMenu.activeSelf);
     }
-    public bool addItemToInventory(IItem itemToAdd, int amount)
+    public void addItemToInventory(IItem itemToAdd, int amount)
     {
         //Set the text to tell the player what item they found
-        if (inventory.addItem(itemToAdd, amount)) {
-            if (amount > 1)
-            {
-                textBoxController.setText("You found " + amount + " " + itemToAdd.ItemName + "'s!");
-            }
-            else
-            {
-                textBoxController.setText("You found " + amount + " " + itemToAdd.ItemName + "!");
-            }
-            return true;
+        string text = "";
+        if (amount > 1)
+        {
+            text = "You found " + amount + " " + itemToAdd.ItemName + "'s!\n";
         }
-        return false;
-         
+        else
+        {
+            text = "You found " + amount + " " + itemToAdd.ItemName + "!\n";
+        }
+        if (!inventory.addItem(itemToAdd, amount)) 
+        {
+            text = text + "Not enough Room in your inventory!";
+        }
+        textBoxController.setText(text);
+
     }
     private void Update()
     {
