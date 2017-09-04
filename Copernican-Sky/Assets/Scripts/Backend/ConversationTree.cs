@@ -17,11 +17,14 @@ public class ConversationTree
     private int startIndex;
     //the current point in the conversation
     private int currentIndex;
-    public ConversationTree(string name, int startIndex, ArrayList<ConversationTreeNode> tree)
+    //if you leave
+    private string leaveText;
+    public ConversationTree(string name, int startIndex, ArrayList<ConversationTreeNode> tree, string leaveText)
     {
         this.startIndex = startIndex;
         currentIndex = startIndex;
         this.tree = tree;
+        this.leaveText = leaveText;
     }
     /**
      * begin a converstion.
@@ -62,6 +65,11 @@ public class ConversationTree
     public ConversationTreeNode getCurrentNode()
     {
         return tree[currentIndex];
+    }
+
+    public string getLeaveText()
+    {
+        return leaveText;
     }
 }
 

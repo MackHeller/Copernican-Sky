@@ -113,6 +113,10 @@ public class OverWorldController : MonoBehaviour {
         currentChar = getCharacterOrAdd(characterName);
         textBoxController.setText(currentChar.conversationTree.startConversation().Text);
     }
+    public void endConversation()
+    {
+        textBoxController.setText(currentChar.conversationTree.getLeaveText());
+    }
 
     //end character stuff
     //////////////////////////////

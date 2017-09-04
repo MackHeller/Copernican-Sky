@@ -15,12 +15,12 @@ public static class ReaderWriterUtils {
         }
         catch (IOException e)
         {
-            Debug.Log("Cannot read file");
+            Debug.Log("Cannot read file"+ filePath);
             Console.WriteLine(e.Message);
         }
         catch (UnauthorizedAccessException e)
         {
-            Debug.Log("Cannot access file");
+            Debug.Log("Cannot access file"+ filePath);
             Console.WriteLine(e.Message);
         }
         finally

@@ -15,16 +15,14 @@ public class NpcOW : MonoBehaviour
     //TODO On contact start conversation
     void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("boom");
         if (collision.gameObject.name == "Hero")
         {
-            Debug.Log("hero");
             overWorldController.beginConversation(characterName);
         }
     }
     void OnTriggerExit2D(Collider2D collision)
     {
-        //overWorldController.
+        overWorldController.endConversation();
     }
 
 }
