@@ -16,9 +16,8 @@ public class heroOW : MonoBehaviour {
 	public Animator animator;
 
 	private SpriteRenderer spriteRenderer;
-
-	//variables for tracking 8 directions of movement
-	private bool goingup = false;
+    //variables for tracking 8 directions of movement
+    private bool goingup = false;
 	private bool goingright = false;
 	private bool goingleft = false;
 	private bool goingdown = false;
@@ -31,7 +30,6 @@ public class heroOW : MonoBehaviour {
         rb = GetComponent<Rigidbody2D>();
 		spriteRenderer = GetComponent<SpriteRenderer>();
 		animator = GetComponent<Animator>();
-
     }
 
 	//Note, FixedUpdate is called based on physics frames, indepent of ingame frame rate, which can vary
@@ -40,7 +38,7 @@ public class heroOW : MonoBehaviour {
 		takeStep();
 	}
 
-	//Simple movement code, will probably need to be updated at some point
+    //Simple movement code, will probably need to be updated at some point
     private void takeStep()
 	{
 		Vector2 newPos = new Vector2 (0.0f, 0.0f);

@@ -12,7 +12,7 @@ public class NpcOW : MonoBehaviour
         this.characterName = this.transform.parent.gameObject.name;
 
     }
-    //TODO On contact start conversation
+    
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.name == "Hero")
@@ -20,6 +20,17 @@ public class NpcOW : MonoBehaviour
             overWorldController.beginConversation(characterName);
         }
     }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.name == "Hero") {
+            if ((Input.GetKey(KeyCode.E)) && !overWorldController.ConversationState)
+            {
+                overWorldController.displayOptions();
+            }
+        }
+    }
+
     void OnTriggerExit2D(Collider2D collision)
     {
         overWorldController.endConversation();

@@ -42,7 +42,7 @@ public class ConversationTree
      * */
     public ConversationTreeNode pickOption(int pick)
     {
-        int newIndex = tree[currentIndex].getOptions(pick);
+        int newIndex = tree[currentIndex].getNewIndex(pick);
         if (newIndex >= tree[currentIndex].OptionsText.Length)//not pickable
         {
             return tree[currentIndex];
@@ -95,7 +95,7 @@ public class ConversationTreeNode {
             return text;
         }
     }
-    public int getOptions(int index)
+    public int getNewIndex(int index)
     {
         return options[index];
     }

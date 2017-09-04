@@ -16,13 +16,21 @@ public class OverWorldController : MonoBehaviour {
     
     private C5.HashSet<Character> characters;
     private Character currentChar;
+    // false for NPC talking, true for dialogue options
+    private bool conversationState;
+    public bool ConversationState
+    {
+        get { return conversationState; }
+    }
 
     public TextBoxController textBoxController;
     public TextBoxController inventoryTextController;
     private GameObject itemMenu;
+
+    
     /**
-     * put everything you want to happen when the FIRST scene is loaded
-     * */
+* put everything you want to happen when the FIRST scene is loaded
+* */
     void Awake()
     {
         DontDestroyOnLoad(this);
@@ -37,6 +45,7 @@ public class OverWorldController : MonoBehaviour {
             inventory = new Inventory(carryCapacity);
             SceneManager.sceneLoaded += SceneManager_sceneLoaded;
             characters = new C5.HashSet<Character>();
+            conversationState = false;
 
         }
     }
@@ -112,10 +121,25 @@ public class OverWorldController : MonoBehaviour {
     {
         currentChar = getCharacterOrAdd(characterName);
         textBoxController.setText(currentChar.conversationTree.startConversation().Text);
+        conversationState = false;
     }
+
+    public void displayOptions()
+    {
+        string[] options = currentChar.conversationTree.getCurrentNode().OptionsText;
+        string words = "";
+        for(int i=0;i<options.Length;i++)
+        {
+            words = words + options[i] + " ("+i+")\n";
+        }
+        textBoxController.setText(words);
+        conversationState = true;
+    }
+
     public void endConversation()
     {
         textBoxController.setText(currentChar.conversationTree.getLeaveText());
+        conversationState = false;
     }
 
     //end character stuff

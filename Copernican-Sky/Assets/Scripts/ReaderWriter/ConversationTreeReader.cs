@@ -20,7 +20,7 @@ public static class ConversationTreeReader {
             for(int j=0;j< len;j++)
             {
                 options[j] = Convert.ToInt32(tree["nodes"][i]["optId"][j].ToString());
-                optionsText[j] = tree["nodes"][i]["optId"][j].ToString();
+                optionsText[j] = tree["nodes"][i]["optText"][j].ToString();
             }
             nodes.Add(new ConversationTreeNode(tree["nodes"][i]["text"].ToString(),options,optionsText));
         }
