@@ -11,8 +11,9 @@ public class EnemyReader {
         int[] list = new int[tree["skills"].Count];
         for (int i = 0; i < tree["skills"].Count; i++)
         {
-            list[i] = Convert.ToInt32(tree["skills"][i]);
+            list[i] = Convert.ToInt32(tree["skills"][i].ToString());
         }
-        return new Enemy(tree["name"].ToString(),new Skills(list), (PersonalityTypes)Convert.ToInt32(tree["personality"]));
+        return new Enemy(tree["name"].ToString(),new Skills(list), 
+            (PersonalityTypes)Convert.ToInt32(tree["personality"].ToString()));
     }
 }

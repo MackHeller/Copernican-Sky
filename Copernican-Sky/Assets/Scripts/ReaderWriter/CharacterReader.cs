@@ -2,7 +2,7 @@
 using LitJson;
 using System;
 using UnityEngine;
-public static class CharacterWriter
+public static class CharacterReader
 {
     public static int loadStartIndex(string name)
     {
@@ -13,7 +13,7 @@ public static class CharacterWriter
     private static int getIndexFromJSON(JsonData tree, string name)
     {
         if(ReaderWriterUtils.jsonDataContainsKey(tree, name))
-            return Convert.ToInt32(tree[name]);
+            return Convert.ToInt32(tree[name].ToString());
         return 0;
     }
 

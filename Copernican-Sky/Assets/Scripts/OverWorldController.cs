@@ -3,16 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 using C5;
 using UnityEngine.SceneManagement;
-
+/// <summary>
+/// Connects the frontend to the backend
+/// Sections should all be clearly labeled and in order:
+/// 1. What to do on start up and room enter 
+/// 2. Item/inventory methods
+/// 3. Character methods
+/// </summary>
 public class OverWorldController : MonoBehaviour {
     private Inventory inventory;
+    private int carryCapacity;
+    
+    private C5.HashSet<Character> characters;
+    private Character currentChar;
+
     public TextBoxController textBoxController;
     public TextBoxController inventoryTextController;
-    private int carryCapacity;
     private GameObject itemMenu;
     /**
      * put everything you want to happen when the FIRST scene is loaded
-     * 
      * */
     void Awake()
     {
@@ -27,12 +36,12 @@ public class OverWorldController : MonoBehaviour {
             carryCapacity = 10;
             inventory = new Inventory(carryCapacity);
             SceneManager.sceneLoaded += SceneManager_sceneLoaded;
+            characters = new C5.HashSet<Character>();
 
         }
     }
     /*
      * Put everything you want to happen when a scene is loaded here.
-     * 
      * */
     private void SceneManager_sceneLoaded(Scene scene, LoadSceneMode mode)
     {
@@ -42,6 +51,10 @@ public class OverWorldController : MonoBehaviour {
         inventoryTextController.setText(inventory.ToString());
         itemMenu.SetActive(!itemMenu.activeSelf);
     }
+
+    //////////////////////////////
+    //item stuff
+
     public void addItemToInventory(IItem itemToAdd, int amount)
     {
         //Set the text to tell the player what item they found
@@ -74,4 +87,33 @@ public class OverWorldController : MonoBehaviour {
     {
         return IItem.buildItem(name);
     }
+
+    //end item stuff
+    //////////////////////////////
+
+    //////////////////////////////
+    //character stuff
+    
+    public Character getCharacterOrAdd(string characterName)
+    {
+        foreach (Character ch in characters)
+        {
+            if (ch.getName() == characterName)
+            {
+                return ch;
+            }
+        }
+        Character newChar = Character.createCharacterByName(characterName);
+        characters.Add(newChar);
+        return newChar;
+    }
+
+    public void beginConversation(string characterName)
+    {
+        currentChar = getCharacterOrAdd(characterName);
+        textBoxController.setText(currentChar.conversationTree.startConversation().Text);
+    }
+
+    //end character stuff
+    //////////////////////////////
 }

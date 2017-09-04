@@ -2,6 +2,7 @@
 using System;
 using System.IO;
 using System.Collections;
+using UnityEngine;
 public static class ReaderWriterUtils {
 
     public static JsonData readFile(string filePath)
@@ -14,12 +15,12 @@ public static class ReaderWriterUtils {
         }
         catch (IOException e)
         {
-            Console.WriteLine("Cannot read file");
+            Debug.Log("Cannot read file");
             Console.WriteLine(e.Message);
         }
         catch (UnauthorizedAccessException e)
         {
-            Console.WriteLine("Cannot access file");
+            Debug.Log("Cannot access file");
             Console.WriteLine(e.Message);
         }
         finally

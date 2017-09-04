@@ -8,28 +8,44 @@
 public abstract class Character {
     //the conversation tree object
     public  ConversationTree conversationTree;
-    public String characterName;
+    private String characterName;
     /**
      * check if current state alters the inventory 
      * @param  inventory    the inventory to edit 
      * @return              the new version of the inventory 
      **/
     public abstract Inventory checkModifyInventory(Inventory inventory);
-}
-/**
- * an example character
- * */
-public class ThomdrilMerrilin : Character 
-{
-    public ThomdrilMerrilin()
+    public abstract string getName();
+    public static Character createCharacterByName(string name)
     {
-        characterName = "Thomdrill Merrilin";
-        conversationTree = ConversationTreeReader.loadConversationTree(characterName);
-        conversationTree.setStartIndex(CharacterWriter.loadStartIndex(characterName));
+        switch (name)
+        {
+            case "Thomdril Merrilin":
+                return new ThomdrilMerrilin();
+            default:
+                throw new Exception("name does not exist");
+        }
     }
+    /**
+    * an example character
+    * */
+    public class ThomdrilMerrilin : Character
+    {
+        public ThomdrilMerrilin()
+        {
+            characterName = "Thomdril Merrilin";
+            conversationTree = ConversationTreeReader.loadConversationTree("ThomdrilMerrilin");
+            conversationTree.setStartIndex(CharacterReader.loadStartIndex("ThomdrilMerrilin"));
+        }
 
-    public override Inventory checkModifyInventory(Inventory inventory)
-    {
-        throw new NotImplementedException();
+        public override Inventory checkModifyInventory(Inventory inventory)
+        {
+            throw new NotImplementedException();
+        }
+        public override string getName()
+        {
+            return characterName;
+        }
     }
 }
+
