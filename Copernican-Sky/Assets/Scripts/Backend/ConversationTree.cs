@@ -42,10 +42,14 @@ public class ConversationTree
      * */
     public ConversationTreeNode pickOption(int pick)
     {
-        int newIndex = tree[currentIndex].getNewIndex(pick);
-        if (newIndex >= tree[currentIndex].OptionsText.Length)//not pickable
+        if (pick > tree[currentIndex].OptionsText.Length)//not pickable
         {
-            return tree[currentIndex];
+            return null;
+        }
+        int newIndex = tree[currentIndex].getNewIndex(pick);
+        if (newIndex == -1)
+        {
+            return null;
         }
         currentIndex = newIndex;
         return tree[newIndex];

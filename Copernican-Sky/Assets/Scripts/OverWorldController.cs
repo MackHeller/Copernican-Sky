@@ -128,17 +128,35 @@ public class OverWorldController : MonoBehaviour {
     {
         string[] options = currentChar.conversationTree.getCurrentNode().OptionsText;
         string words = "";
-        for(int i=0;i<options.Length;i++)
+        for(int i=1;i<=options.Length;i++)
         {
-            words = words + options[i] + " ("+i+")\n";
+            words = words + options[i-1] + " ("+i+")\n";
         }
         textBoxController.setText(words);
         conversationState = true;
     }
 
+    public void selectOption(int selection)
+    {
+        ConversationTreeNode newNode = currentChar.conversationTree.pickOption(selection);
+        if (newNode != null)
+        {
+            textBoxController.setText(newNode.Text);
+            conversationState = false;
+        }
+        else if (currentChar.conversationTree.getCurrentNode().getNewIndex(selection) == -1)
+        {
+            textBoxController.setText("");
+            conversationState = false;
+        }
+    }
+
     public void endConversation()
     {
-        textBoxController.setText(currentChar.conversationTree.getLeaveText());
+        if (textBoxController.getText().Length != 0)
+        {
+            textBoxController.setText(currentChar.conversationTree.getLeaveText());
+        }
         conversationState = false;
     }
 

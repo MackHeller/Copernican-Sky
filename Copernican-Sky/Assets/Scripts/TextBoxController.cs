@@ -27,4 +27,9 @@ public class TextBoxController : MonoBehaviour {
 	{
 		this.textbox.text = textinput;
 	}
+
+    public string getText()
+    {
+        return textbox.text;
+    }
 }
