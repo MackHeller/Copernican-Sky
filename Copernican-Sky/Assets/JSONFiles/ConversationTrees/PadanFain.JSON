@@ -1,0 +1,81 @@
+{
+	"name":"Thomdril Merrilin",
+	"startIndex":0,
+	"leaveText":"Trying to slip away are we?",
+	"nodes":
+	[
+		{
+			"id": 0,
+			"text": "I have goods to buy and news of the world."  ,
+			"optId": [1,2,3,4],
+			"optText": 
+			[
+				"Buy",
+				"Sell",
+				"What news do you have?",
+				"I know who you are, Darkfriend!"
+			]
+		},
+		{
+			"id": 1,
+			"text": "You better have money"  ,
+			"optId": [5],
+			"optText": 
+			[
+				"Wooden Sword",
+				"Aunt May's Cookies"
+			]
+		},
+		{
+			"id": 2,
+			"text": "I doubt you'd have anything I wanted.", 
+			"optId": [5],
+			"optText": 
+			[
+				"We'll see"
+			]
+		}, 
+		{
+			"id": 3,
+			"text": "Owyn died a few years later. You could say Aes Sedai killed him. If I can keep you two free of Tar Valon, maybe I can stop thinking about Owyn.", 
+			"optId": [1,-1],
+			"optText": 
+			[
+				"Would you join us on our way to Tar Valon?",
+				"Enough said, farewell."
+			]
+		}, 
+		{
+			"id": 4,
+			"text": "How dare you! Leave me at once! You're the DarkFriend not I!"  ,
+			"optId": [-1,-1],
+			"optText": 
+			[
+				"Alright, sorry, sorry",
+				"I'll have you run out of town Fain."
+			]
+		},
+		{
+			"id": 5,
+			"text": "Anything else?",
+			"optId": [1,2,3,4],
+			"optText": 
+			[
+				"Buy",
+				"Sell",
+				"What news do you have?",
+				"I know who you are, Darkfriend!"
+			]
+		},
+		{
+			"id": 5,
+			"text": "Go away.",
+			"optId": [-1,-1],
+			"optText": 
+			[
+				"Sorry, I'll leave.",
+				"Poor Fain, all alone in the world."
+			]
+		}
+	]
+}

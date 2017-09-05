@@ -7,12 +7,12 @@
 		{
 			"id": 0,
 			"text": "I'm only an old gleeman. Who could I possibly be dangerous to?"  ,
-			"optId": [1,2,4,5],
+			"optId": [1,2,8,5],
 			"optText": 
 			[
 				"Not a soul Thom. Would you join us on our way to Tar Valon?",
 				"Nevermind that, tell us more about your nephew Thom.",
-				"You're more dangerous then you look...",
+				"What do you think of that shop keeper?",
 				"Do you have an extra cloak?"
 			]
 		},
@@ -48,7 +48,7 @@
 		}, 
 		{
 			"id": 4,
-			"text": "I say hold your peace. Don't tell anyone, for the time, at least. You can always change your mind, if you have to, but once you tell, it's done, and you're tied up worse than ever with...with her."  ,
+			"text": "I say hold your peace. Don't tell anyone, for the time, at least. You can always change your mind, if you have to, but once you tell, it's done, and you're tied up worse than ever."  ,
 			"optId": [-1,-1],
 			"optText": 
 			[
@@ -84,6 +84,16 @@
 			"optText": 
 			[
 				"This should not have been shown"
+			]
+		},
+		{
+			"id": 8,
+			"text": "Padan Fain? He's a Darkfriend no doubt about it."  ,
+			"optId": [4,-1],
+			"optText": 
+			[
+				"A Darkfriend? What should we do?",
+				"Nevermind forget I asked."
 			]
 		}
 	]
