@@ -19,10 +19,11 @@
 		{
 			"id": 1,
 			"text": "This village has no use for me, now, while on the other hand, I have never performed in Tar Valon. And though I usually journey alone, after last night I have no objections at all to traveling in company."  ,
-			"optId": [-1],
+			"optId": [-1,7],
 			"optText": 
 			[
-				"Let's be off then"
+				"Let's be off then",
+				"You SHOULD NOT see this"
 			]
 		},
 		{
@@ -62,6 +63,27 @@
 			"optText": 
 			[
 				"Thank you Thom."
+			]
+		},
+		{
+			"id": 6,
+			"text": "Back Again?"  ,
+			"optId": [1,2,4,5],
+			"optText": 
+			[
+				"Would you join us on our way to Tar Valon?",
+				"Nevermind that, tell us more about your nephew Thom.",
+				"You're more dangerous then you look...",
+				"Do you have an extra cloak?"
+			]
+		},
+		{
+			"id": 7,
+			"text": "FUUUUUCK"  ,
+			"optId": [-1],
+			"optText": 
+			[
+				"This should not have been shown"
 			]
 		}
 	]

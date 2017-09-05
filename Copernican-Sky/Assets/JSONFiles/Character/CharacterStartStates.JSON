@@ -1,4 +1,12 @@
 ﻿{
-	"ThomdrilMerrilin":0,
-	"MackHeller":8
+	"ThomdrilMerrilin":
+	{
+		"start":0,
+		"blacklist":[7]
+	},
+	"MackHeller":
+	{
+		"start":2,
+		"blacklist":[1,3]
+	}
 }

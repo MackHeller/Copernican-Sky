@@ -121,14 +121,15 @@ public class OverWorldController : MonoBehaviour {
     {
         currentChar = getCharacterOrAdd(characterName);
         textBoxController.setText(currentChar.conversationTree.startConversation().Text);
+        currentChar.checkAlterCharacter();
         conversationState = false;
     }
 
     public void displayOptions()
     {
-        string[] options = currentChar.conversationTree.getCurrentNode().OptionsText;
+        ArrayList<string> options = currentChar.getOptions();
         string words = "";
-        for(int i=1;i<=options.Length;i++)
+        for(int i=1;i<=options.Count;i++)
         {
             words = words + options[i-1] + " ("+i+")\n";
         }
@@ -143,6 +144,7 @@ public class OverWorldController : MonoBehaviour {
         {
             textBoxController.setText(newNode.Text);
             currentChar.checkModifyInventory(ref inventory);
+            currentChar.checkAlterCharacter();
             conversationState = false;
         }
         else if (currentChar.conversationTree.getCurrentNode().getNewIndex(selection) == -1)
