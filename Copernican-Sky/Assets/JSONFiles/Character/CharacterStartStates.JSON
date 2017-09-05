@@ -4,9 +4,9 @@
 		"start":0,
 		"blacklist":[7]
 	},
-	"MackHeller":
+	"PadanFain":
 	{
-		"start":2,
-		"blacklist":[1,3]
+		"start":0,
+		"blacklist":[4]
 	}
 }

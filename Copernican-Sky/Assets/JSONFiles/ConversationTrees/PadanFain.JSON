@@ -37,12 +37,11 @@
 		}, 
 		{
 			"id": 3,
-			"text": "Owyn died a few years later. You could say Aes Sedai killed him. If I can keep you two free of Tar Valon, maybe I can stop thinking about Owyn.", 
-			"optId": [1,-1],
+			"text": "They say the King is ill. He wanders the halls at night and coughs blood. None of his physicians know what to do.", 
+			"optId": [5],
 			"optText": 
 			[
-				"Would you join us on our way to Tar Valon?",
-				"Enough said, farewell."
+				"Interesting"
 			]
 		}, 
 		{

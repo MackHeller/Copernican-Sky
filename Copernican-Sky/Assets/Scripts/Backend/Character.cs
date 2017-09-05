@@ -30,8 +30,8 @@ public abstract class Character {
         {
             case "Thomdril Merrilin":
                 return new ThomdrilMerrilin();
-            case "PalanFain":
-                return new PalanFain();
+            case "Padan Fain":
+                return new PadanFain();
             default:
                 throw new Exception("name does not exist");
         }
@@ -90,34 +90,21 @@ public abstract class Character {
         }
         
     }
-    public class PalanFain : Character
+    public class PadanFain : Character
     {
-        public PalanFain()
+        public PadanFain()
         {
-            characterName = "Palan Fain";
-            fetchData("PalanFain");
+            characterName = "Padan Fain";
+            fetchData("PadanFain");
         }
 
         public override void checkModifyInventory(ref Inventory inventory)
         {
-            //get gleeman's cloak
-            if (conversationTree.CurrentIndex == 5)
-            {
-                inventory.addItem(IItem.buildItem("Gleeman Cloak"));
-            }
+            
         }
         public override void checkAlterCharacter()
         {
-            //not the first time you've talked
-            if (conversationTree.CurrentIndex == 0)
-            {
-                conversationTree.setStartIndex(6);
-            }
-            //got the cloak, can't get it again
-            if (conversationTree.CurrentIndex == 5)
-            {
-                blacklistIndexes.Add(5);
-            }
+            
         }
 
     }
