@@ -20,13 +20,18 @@ public abstract class Character {
      **/
     public abstract void checkModifyInventory(ref Inventory inventory);
     public abstract void checkAlterCharacter();
-    public abstract string getName();
+    public string getName()
+    {
+        return characterName;
+    }
     public static Character createCharacterByName(string name)
     {
         switch (name)
         {
             case "Thomdril Merrilin":
                 return new ThomdrilMerrilin();
+            case "PalanFain":
+                return new PalanFain();
             default:
                 throw new Exception("name does not exist");
         }
@@ -44,6 +49,13 @@ public abstract class Character {
         }
         return newList;
     }
+    private void fetchData(string name)
+    {
+        conversationTree = ConversationTreeReader.loadConversationTree(name);
+        JsonData json = CharacterReader.openCharacterJSON();
+        conversationTree.setStartIndex(CharacterReader.getIndexFromJSON(json, name));
+        blacklistIndexes = CharacterReader.getBlackListFromJSON(json, name);
+    }
     /**
     * an example character
     * */
@@ -52,10 +64,7 @@ public abstract class Character {
         public ThomdrilMerrilin()
         {
             characterName = "Thomdril Merrilin";
-            conversationTree = ConversationTreeReader.loadConversationTree("ThomdrilMerrilin");
-            JsonData json = CharacterReader.openCharacterJSON();
-            conversationTree.setStartIndex(CharacterReader.getIndexFromJSON(json, "ThomdrilMerrilin"));
-            blacklistIndexes = CharacterReader.getBlackListFromJSON(json, "ThomdrilMerrilin");
+            fetchData("ThomdrilMerrilin");
         }
 
         public override void checkModifyInventory(ref Inventory inventory)
@@ -65,10 +74,6 @@ public abstract class Character {
             {
                 inventory.addItem(IItem.buildItem("Gleeman Cloak"));
             }
-        }
-        public override string getName()
-        {
-            return characterName;
         }
         public override void checkAlterCharacter()
         {
@@ -84,6 +89,37 @@ public abstract class Character {
             }
         }
         
+    }
+    public class PalanFain : Character
+    {
+        public PalanFain()
+        {
+            characterName = "Palan Fain";
+            fetchData("PalanFain");
+        }
+
+        public override void checkModifyInventory(ref Inventory inventory)
+        {
+            //get gleeman's cloak
+            if (conversationTree.CurrentIndex == 5)
+            {
+                inventory.addItem(IItem.buildItem("Gleeman Cloak"));
+            }
+        }
+        public override void checkAlterCharacter()
+        {
+            //not the first time you've talked
+            if (conversationTree.CurrentIndex == 0)
+            {
+                conversationTree.setStartIndex(6);
+            }
+            //got the cloak, can't get it again
+            if (conversationTree.CurrentIndex == 5)
+            {
+                blacklistIndexes.Add(5);
+            }
+        }
+
     }
 }
 

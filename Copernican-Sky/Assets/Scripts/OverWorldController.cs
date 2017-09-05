@@ -25,7 +25,9 @@ public class OverWorldController : MonoBehaviour {
 
     public TextBoxController textBoxController;
     public TextBoxController inventoryTextController;
+    public TextBoxController storeTextController;
     private GameObject itemMenu;
+    private GameObject storeMenu;
 
     
     /**
@@ -55,10 +57,13 @@ public class OverWorldController : MonoBehaviour {
     private void SceneManager_sceneLoaded(Scene scene, LoadSceneMode mode)
     {
         itemMenu = GameObject.Find("ItemMenu");
+        storeMenu = GameObject.Find("StoreMenu");
         textBoxController = (TextBoxController)GameObject.Find("Text").GetComponent(typeof(TextBoxController));
+        storeTextController = (TextBoxController)GameObject.Find("StoreText").GetComponent(typeof(TextBoxController));
         inventoryTextController =  (TextBoxController)GameObject.Find("ItemText").GetComponent(typeof(TextBoxController));
         inventoryTextController.setText(inventory.ToString());
         itemMenu.SetActive(!itemMenu.activeSelf);
+        storeMenu.SetActive(!storeMenu.activeSelf);
     }
 
     //////////////////////////////
