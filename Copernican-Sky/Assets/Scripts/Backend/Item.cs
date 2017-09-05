@@ -49,6 +49,8 @@ public abstract class IItem
                 return new KeyItem(name, 2, 0, 1, 1, 0);
             case "Key":
                 return new KeyItem(name, 0.1, 0, 0, 0, 1);
+            case "Gleeman Cloak":
+                return new Equipment(name, 2, 5, 100, ItemClass.F, EquipmentType.CHEST);
             default:
                 throw new System.Exception("Item not found");
         }

@@ -19,6 +19,12 @@ public class ConversationTree
     private int currentIndex;
     //if you leave
     private string leaveText;
+
+    public int CurrentIndex
+    {
+        get{return currentIndex; }
+    }
+
     public ConversationTree(string name, int startIndex, ArrayList<ConversationTreeNode> tree, string leaveText)
     {
         this.startIndex = startIndex;

@@ -142,6 +142,7 @@ public class OverWorldController : MonoBehaviour {
         if (newNode != null)
         {
             textBoxController.setText(newNode.Text);
+            currentChar.checkModifyInventory(ref inventory);
             conversationState = false;
         }
         else if (currentChar.conversationTree.getCurrentNode().getNewIndex(selection) == -1)

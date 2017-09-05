@@ -7,12 +7,13 @@
 		{
 			"id": 0,
 			"text": "I'm only an old gleeman. Who could I possibly be dangerous to?"  ,
-			"optId": [1,2,4],
+			"optId": [1,2,4,5],
 			"optText": 
 			[
 				"Not a soul Thom. Would you join us on our way to Tar Valon?",
 				"Nevermind that, tell us more about your nephew Thom.",
-				"You're more dangerous then you look..."
+				"You're more dangerous then you look...",
+				"Do you have an extra cloak?"
 			]
 		},
 		{
@@ -52,6 +53,15 @@
 			[
 				"Thanks for the warning.",
 				"Your a crazy old man Thom."
+			]
+		},
+		{
+			"id": 5,
+			"text": "Yes I do, here you go. Keep yourself warm."  ,
+			"optId": [-1],
+			"optText": 
+			[
+				"Thank you Thom."
 			]
 		}
 	]

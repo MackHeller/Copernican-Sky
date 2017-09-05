@@ -14,7 +14,7 @@ public abstract class Character {
      * @param  inventory    the inventory to edit 
      * @return              the new version of the inventory 
      **/
-    public abstract Inventory checkModifyInventory(Inventory inventory);
+    public abstract void checkModifyInventory(ref Inventory inventory);
     public abstract string getName();
     public static Character createCharacterByName(string name)
     {
@@ -38,9 +38,13 @@ public abstract class Character {
             conversationTree.setStartIndex(CharacterReader.loadStartIndex("ThomdrilMerrilin"));
         }
 
-        public override Inventory checkModifyInventory(Inventory inventory)
+        public override void checkModifyInventory(ref Inventory inventory)
         {
-            throw new NotImplementedException();
+            //get gleeman's cloak
+            if(conversationTree.CurrentIndex == 5)
+            {
+                inventory.addItem(IItem.buildItem("Gleeman Cloak"));
+            }
         }
         public override string getName()
         {
