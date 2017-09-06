@@ -45,6 +45,10 @@ public class NpcOW : MonoBehaviour
                 {
                     overWorldController.selectOption(2);
                 }
+                else if (Input.GetKeyDown(KeyCode.Alpha4))
+                {
+                    overWorldController.selectOption(3);
+                }
                 else if (Input.GetKeyDown(KeyCode.Alpha5))
                 {
                     overWorldController.selectOption(4);
