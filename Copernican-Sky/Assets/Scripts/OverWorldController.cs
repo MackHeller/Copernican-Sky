@@ -94,7 +94,7 @@ public class OverWorldController : MonoBehaviour {
     private void Update()
     {
         //Toggle menu
-        if (Input.GetKeyDown(KeyCode.Tab))
+        if (Input.GetKeyDown(KeyCode.Tab) && !buyingAnItem)
         {
             itemMenu.SetActive(!itemMenu.activeSelf);
             inventoryTextController.setText(inventory.ToString());
@@ -102,7 +102,7 @@ public class OverWorldController : MonoBehaviour {
     }
     public IItem getItemByName(string name)
     {
-        return IItem.buildItem(name);
+        return inventory.buildItem(name);
     }
 
     //end item stuff
@@ -142,13 +142,15 @@ public class OverWorldController : MonoBehaviour {
         {
             for (int i = 1; i < options.Count; i++)
             {
-                IItem shopItem = IItem.buildItem(options[i - 1]);
+                IItem shopItem = inventory.buildItem(options[i - 1]);
                 words = words + shopItem.ItemName + " " + shopItem.Weight+"kg " + shopItem.BuyPrice +"g (" + i + ")\n";
             }
             words = words + options.Last + " (" + options.Count + ")\n";
             storeMenu.SetActive(true);
             storeTextController.setText(words);
             buyingAnItem = true;
+            itemMenu.SetActive(true);
+            inventoryTextController.setText(inventory.ToString());
         }
         else
         {
@@ -197,8 +199,8 @@ public class OverWorldController : MonoBehaviour {
         {
             if (oldIndex == currentChar.conversationTree.CurrentIndex)//if selected an item
             {
-                IItem itemToAdd = IItem.buildItem(currentChar.conversationTree.getCurrentNode().OptionsText[pick]);
-                if (inventory.exchangeItem(itemToAdd, 1, IItem.buildItem("Coin"), itemToAdd.BuyPrice))
+                IItem itemToAdd = inventory.buildItem(currentChar.conversationTree.getCurrentNode().OptionsText[pick]);
+                if (inventory.exchangeItem(itemToAdd, 1, inventory.buildItem("Coin"), itemToAdd.BuyPrice))
                 {
                     //we bought it 
                     textBoxController.setText("You have bought: " + itemToAdd.ItemName);
@@ -210,8 +212,8 @@ public class OverWorldController : MonoBehaviour {
                 }
                 currentChar.checkModifyInventory(ref inventory);
                 currentChar.checkAlterCharacter();
-                conversationState = true;
-                storeMenu.SetActive(true);
+                inventoryTextController.setText(inventory.ToString());
+
             }
             else
             {
@@ -236,6 +238,7 @@ public class OverWorldController : MonoBehaviour {
     public void conversationCleanUp()
     {
         storeMenu.SetActive(false);
+        itemMenu.SetActive(false);
         conversationState = false;
         buyingAnItem = false;
     }

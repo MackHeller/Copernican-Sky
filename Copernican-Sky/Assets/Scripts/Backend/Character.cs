@@ -85,7 +85,7 @@ public abstract class Character {
             //get gleeman's cloak
             if(conversationTree.CurrentIndex == 5)
             {
-                inventory.addItem(IItem.buildItem("Gleeman Cloak"));
+                inventory.addItem(inventory.buildItem("Gleeman Cloak"));
             }
         }
         public override void checkAlterCharacter()

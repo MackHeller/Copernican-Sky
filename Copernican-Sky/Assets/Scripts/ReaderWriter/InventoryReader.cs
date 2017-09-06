@@ -12,7 +12,7 @@ public class InventoryReader
         Inventory inventory = new Inventory(Convert.ToInt32(tree["carryCapacity"].ToString()));
         for (int i = 0; i < tree["items"].Count; i++)
         {
-            inventory.addItem((IItem.buildItem((string)tree["items"][i]["name"])), 
+            inventory.addItem((inventory.buildItem((string)tree["items"][i]["name"])), 
                 Convert.ToInt32(tree["items"][i]["amount"].ToString()));
         }
         return inventory;

@@ -1,4 +1,5 @@
 ﻿using C5;
+using UnityEngine;
 /**
  * inventory class. Holds items that the player collects overtime
  * items are stored in a HashDictionary where the key is the item 
@@ -58,7 +59,7 @@ public class Inventory {
         if (carryCapacity  >= currentWeight + itemToAdd.Weight * amount)
         {
             //if item already in bag
-            if (inventory.Contains(itemToAdd))
+            if (hasItem(itemToAdd)!=null)
             {
                 inventory[itemToAdd] = inventory[itemToAdd] + amount;
             }
@@ -94,7 +95,7 @@ public class Inventory {
     public bool removeItem(IItem itemToRemove, int amount)
     {
         //if items in bag
-        if (inventory.Contains(itemToRemove) && amount <= inventory[itemToRemove])
+        if (hasItem(itemToRemove)!=null && amount <= inventory[itemToRemove])
         {
             if (amount == inventory[itemToRemove])
             {
@@ -124,6 +125,29 @@ public class Inventory {
             addItem(itemToRemove, amountToRemove);//restore item you removed
         }
         return false;
+    }
+
+    public IItem hasItem(IItem item)
+    {
+        foreach(IItem i in inventory.Keys)
+        {
+            if(i.ItemName == item.ItemName)
+            {
+                return i;
+            }
+        }
+        return null;
+    }
+
+    public IItem buildItem(string itemName)
+    {
+        IItem newItem = IItem.buildItem(itemName);
+        IItem item = hasItem(newItem);
+        if(item == null)
+        {
+            return newItem; 
+        }
+        return item;
     }
 
     public override string ToString()
