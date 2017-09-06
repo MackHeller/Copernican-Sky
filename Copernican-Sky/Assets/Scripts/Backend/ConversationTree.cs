@@ -1,5 +1,4 @@
 ﻿using C5;
-using UnityEngine;
 /**
  * Handles the conversations for a Character. Structured like a tree where each node is a ConversationTreeNode.
  * Conversations start at the start index and progress as you select dialogue options.
@@ -59,7 +58,6 @@ public class ConversationTree
         int newIndex = tree[currentIndex].getNewIndex(pick);
         if (newIndex == -1)
         {
-            Debug.Log("pick" + pick);
             return null;
         }
         currentIndex = newIndex;
