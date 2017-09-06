@@ -115,15 +115,15 @@ public class Inventory {
 
     public bool exchangeItem(IItem itemToAdd, int amountToAdd, IItem itemToRemove, int amountToRemove)
     {
-        if (removeItem(itemToRemove,amountToRemove))
+        if (removeItem(itemToRemove, amountToRemove))
         {
-            return addItem(itemToAdd, amountToAdd);//try to add the item
+            if (addItem(itemToAdd, amountToAdd))//try to add the item
+            {
+                return true;
+            }
+            addItem(itemToRemove, amountToRemove);//restore item you removed
         }
-        else
-        {
-            addItem(itemToRemove,amountToRemove);//restore item you removed
-            return false;
-        }
+        return false;
     }
 
     public override string ToString()
