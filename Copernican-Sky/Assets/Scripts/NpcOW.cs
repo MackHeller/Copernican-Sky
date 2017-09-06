@@ -33,21 +33,41 @@ public class NpcOW : MonoBehaviour
             }
             else if (overWorldController.ConversationState)
             {
-                if (Input.GetKey(KeyCode.Alpha1))
+                if (Input.GetKeyDown(KeyCode.Alpha1))
                 {
                     overWorldController.selectOption(0);
                 }
-                else if (Input.GetKey(KeyCode.Alpha2))
+                else if (Input.GetKeyDown(KeyCode.Alpha2))
                 {
                     overWorldController.selectOption(1);
                 }
-                else if (Input.GetKey(KeyCode.Alpha3))
+                else if (Input.GetKeyDown(KeyCode.Alpha3))
                 {
                     overWorldController.selectOption(2);
                 }
-                else if (Input.GetKey(KeyCode.Alpha4))
+                else if (Input.GetKeyDown(KeyCode.Alpha5))
                 {
-                    overWorldController.selectOption(3);
+                    overWorldController.selectOption(4);
+                }
+                else if (Input.GetKeyDown(KeyCode.Alpha6))
+                {
+                    overWorldController.selectOption(5);
+                }
+                else if (Input.GetKeyDown(KeyCode.Alpha7))
+                {
+                    overWorldController.selectOption(6);
+                }
+                else if (Input.GetKeyDown(KeyCode.Alpha8))
+                {
+                    overWorldController.selectOption(7);
+                }
+                else if (Input.GetKeyDown(KeyCode.Alpha9))
+                {
+                    overWorldController.selectOption(8);
+                }
+                else if (Input.GetKeyDown(KeyCode.Alpha0))
+                {
+                    overWorldController.selectOption(9);
                 }
             }
         }
