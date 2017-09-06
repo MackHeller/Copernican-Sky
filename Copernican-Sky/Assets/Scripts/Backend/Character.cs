@@ -1,6 +1,7 @@
 ﻿using System;
 using C5;
 using System.Linq;
+using UnityEngine;
 using LitJson;
 /**
 * This class is a wrapper for Conversation Tree that handles changes to the rest of the game's systems if 
@@ -48,6 +49,21 @@ public abstract class Character {
             }
         }
         return newList;
+    }
+    public ConversationTreeNode pickOption(int pick)
+    {
+        return conversationTree.pickOption(adjustPickForBlackList(pick));
+    }
+    public int adjustPickForBlackList(int pick)
+    {
+        ConversationTreeNode oldNode = conversationTree.getCurrentNode();
+        //pick within range and blacklisted
+        while (oldNode.indexInRange(pick) && blacklistIndexes.Contains(oldNode.getNewIndex(pick)))
+        {
+            Debug.Log(pick);
+            pick = pick + 1;
+        }
+        return pick;
     }
     private void fetchData(string name)
     {

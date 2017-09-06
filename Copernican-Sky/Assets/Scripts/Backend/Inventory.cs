@@ -112,6 +112,20 @@ public class Inventory {
             return false;
         }
     }
+
+    public bool exchangeItem(IItem itemToAdd, int amountToAdd, IItem itemToRemove, int amountToRemove)
+    {
+        if (removeItem(itemToRemove,amountToRemove))
+        {
+            return addItem(itemToAdd, amountToAdd);//try to add the item
+        }
+        else
+        {
+            addItem(itemToRemove,amountToRemove);//restore item you removed
+            return false;
+        }
+    }
+
     public override string ToString()
     {
         string words = "";

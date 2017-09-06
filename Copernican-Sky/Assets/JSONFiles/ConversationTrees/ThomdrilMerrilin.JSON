@@ -1,6 +1,7 @@
 {
 	"name":"Thomdril Merrilin",
 	"startIndex":0,
+	"storeIndexes":[],
 	"leaveText":"Where are you going?",
 	"nodes":
 	[
@@ -68,12 +69,12 @@
 		{
 			"id": 6,
 			"text": "Back Again?"  ,
-			"optId": [1,2,4,5],
+			"optId": [1,2,8,5],
 			"optText": 
 			[
 				"Would you join us on our way to Tar Valon?",
 				"Nevermind that, tell us more about your nephew Thom.",
-				"You're more dangerous then you look...",
+				"What do you think of that shop keeper?",
 				"Do you have an extra cloak?"
 			]
 		},

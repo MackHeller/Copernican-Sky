@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using C5;
 using UnityEngine.SceneManagement;
 /// <summary>
@@ -21,6 +19,11 @@ public class OverWorldController : MonoBehaviour {
     public bool ConversationState
     {
         get { return conversationState; }
+    }
+    private bool buyingAnItem;
+    public bool BuyingAnItem
+    {
+        get { return buyingAnItem; }
     }
 
     public TextBoxController textBoxController;
@@ -134,28 +137,90 @@ public class OverWorldController : MonoBehaviour {
     {
         ArrayList<string> options = currentChar.getOptions();
         string words = "";
-        for(int i=1;i<=options.Count;i++)
+        //check if this is a store menu
+        if (currentChar.conversationTree.isStoreMenu())
         {
-            words = words + options[i-1] + " ("+i+")\n";
+            for (int i = 1; i < options.Count; i++)
+            {
+                IItem shopItem = IItem.buildItem(options[i - 1]);
+                words = words + shopItem.ItemName + " " + shopItem.Weight+"kg " + shopItem.BuyPrice +"g (" + i + ")\n";
+            }
+            words = words + options.Last + " (" + options.Count + ")\n";
+            storeMenu.SetActive(true);
+            storeTextController.setText(words);
+            buyingAnItem = true;
         }
-        textBoxController.setText(words);
+        else
+        {
+            for (int i = 1; i <= options.Count; i++)
+            {
+                words = words + options[i - 1] + " (" + i + ")\n";
+            }
+            textBoxController.setText(words);
+        }
         conversationState = true;
     }
 
-    public void selectOption(int selection)
+    public void selectOption(int pick)
     {
-        ConversationTreeNode newNode = currentChar.conversationTree.pickOption(selection);
-        if (newNode != null)
+        pick = currentChar.adjustPickForBlackList(pick);
+        if (buyingAnItem)//got to the item buying method
         {
-            textBoxController.setText(newNode.Text);
-            currentChar.checkModifyInventory(ref inventory);
-            currentChar.checkAlterCharacter();
-            conversationState = false;
+            buyItem(pick);
         }
-        else if (currentChar.conversationTree.getCurrentNode().getNewIndex(selection) == -1)
+        else
         {
-            textBoxController.setText("");
-            conversationState = false;
+            ConversationTreeNode currentNode = currentChar.conversationTree.getCurrentNode();
+            ConversationTreeNode newNode = currentChar.pickOption(pick);
+            if (newNode != null)//if it is a valid new conversation point
+            {
+                textBoxController.setText(newNode.Text);
+                currentChar.checkModifyInventory(ref inventory);
+                currentChar.checkAlterCharacter();
+                conversationCleanUp();
+            }
+            else if (currentNode.indexInRange(pick) && currentNode.getNewIndex(pick) == -1)//if not valid because it's the end
+            {
+                textBoxController.setText("");
+                currentChar.checkModifyInventory(ref inventory);
+                currentChar.checkAlterCharacter();
+                conversationCleanUp();
+            }
+        }
+    }
+
+    private void buyItem(int pick)
+    {
+        int oldIndex = currentChar.conversationTree.CurrentIndex;
+        ConversationTreeNode newNode = currentChar.pickOption(pick);
+        if (newNode != null)//if it is a valid new conversation point
+        {
+            if (oldIndex == currentChar.conversationTree.CurrentIndex)//if selected an item
+            {
+                IItem itemToAdd = IItem.buildItem(currentChar.conversationTree.getCurrentNode().OptionsText[pick]);
+                if (inventory.exchangeItem(itemToAdd, 1, IItem.buildItem("Coin"), itemToAdd.BuyPrice))
+                {
+                    //we bought it 
+                    textBoxController.setText("You have bought: " + itemToAdd.ItemName);
+                }
+                else
+                {
+                    //we could not buy it
+                    textBoxController.setText("You could not buy " + itemToAdd.ItemName);
+                }
+                currentChar.checkModifyInventory(ref inventory);
+                currentChar.checkAlterCharacter();
+                conversationState = true;
+                storeMenu.SetActive(true);
+            }
+            else
+            {
+                //done shopping
+                textBoxController.setText(newNode.Text);
+                currentChar.checkModifyInventory(ref inventory);
+                currentChar.checkAlterCharacter();
+                conversationCleanUp();
+            }
         }
     }
 
@@ -165,7 +230,14 @@ public class OverWorldController : MonoBehaviour {
         {
             textBoxController.setText(currentChar.conversationTree.getLeaveText());
         }
+        conversationCleanUp();
+    }
+
+    public void conversationCleanUp()
+    {
+        storeMenu.SetActive(false);
         conversationState = false;
+        buyingAnItem = false;
     }
 
     //end character stuff

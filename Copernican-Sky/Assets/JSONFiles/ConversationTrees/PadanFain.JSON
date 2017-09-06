@@ -1,6 +1,7 @@
 {
 	"name":"Thomdril Merrilin",
 	"startIndex":0,
+	"storeIndexes":[1],
 	"leaveText":"Trying to slip away are we?",
 	"nodes":
 	[
@@ -19,11 +20,12 @@
 		{
 			"id": 1,
 			"text": "You better have money"  ,
-			"optId": [5],
+			"optId": [1,1,5],
 			"optText": 
 			[
 				"Wooden Sword",
-				"Aunt May's Cookies"
+				"Aunt May's Cookies",
+				"Done Shopping"
 			]
 		},
 		{
@@ -57,13 +59,14 @@
 		{
 			"id": 5,
 			"text": "Anything else?",
-			"optId": [1,2,3,4],
+			"optId": [1,2,3,4,-1],
 			"optText": 
 			[
 				"Buy",
 				"Sell",
 				"What news do you have?",
-				"I know who you are, Darkfriend!"
+				"I know who you are, Darkfriend!",
+				"No, nothing else"
 			]
 		},
 		{

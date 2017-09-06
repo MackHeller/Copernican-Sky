@@ -1,4 +1,5 @@
 ﻿using C5;
+using UnityEngine;
 /**
  * Handles the conversations for a Character. Structured like a tree where each node is a ConversationTreeNode.
  * Conversations start at the start index and progress as you select dialogue options.
@@ -17,6 +18,8 @@ public class ConversationTree
     private int startIndex;
     //the current point in the conversation
     private int currentIndex;
+    //store indexes
+    private ArrayList<int> storeIndexes;
     //if you leave
     private string leaveText;
 
@@ -25,12 +28,13 @@ public class ConversationTree
         get{return currentIndex; }
     }
 
-    public ConversationTree(string name, int startIndex, ArrayList<ConversationTreeNode> tree, string leaveText)
+    public ConversationTree(string name, int startIndex, ArrayList<ConversationTreeNode> tree, string leaveText, ArrayList<int> storeIndexes)
     {
         this.startIndex = startIndex;
         currentIndex = startIndex;
         this.tree = tree;
         this.leaveText = leaveText;
+        this.storeIndexes = storeIndexes;
     }
     /**
      * begin a converstion.
@@ -48,17 +52,26 @@ public class ConversationTree
      * */
     public ConversationTreeNode pickOption(int pick)
     {
-        if (pick > tree[currentIndex].OptionsText.Length)//not pickable
+        if (!tree[currentIndex].indexInRange(pick))//not pickable
         {
             return null;
         }
         int newIndex = tree[currentIndex].getNewIndex(pick);
         if (newIndex == -1)
         {
+            Debug.Log("pick" + pick);
             return null;
         }
         currentIndex = newIndex;
         return tree[newIndex];
+    }
+    public bool isStoreMenu()
+    {
+        return storeIndexes.Contains(currentIndex);
+    }
+    public bool isStoreMenu(int currentIndex)
+    {
+        return storeIndexes.Contains(currentIndex);
     }
     /**
      * sets the index where conversations start from
@@ -104,6 +117,10 @@ public class ConversationTreeNode {
         {
             return text;
         }
+    }
+    public bool indexInRange(int pick)
+    {
+        return pick < OptionsText.Length;
     }
     public int getNewIndex(int index)
     {

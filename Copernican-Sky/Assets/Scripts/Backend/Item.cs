@@ -42,17 +42,17 @@ public abstract class IItem
     {
         switch (name) {
             case "Wooden Sword":
-                return new Equipment(name, 3, 10, 20, ItemClass.F, EquipmentType.SWORD);
+                return new Equipment(name, 2, 10, 20, ItemClass.F, EquipmentType.SWORD);
             case "Coin":
                 return new KeyItem(name, 0.0, 1, 1, 0, 0);
             case "Aunt May's Cookies":
-                return new KeyItem(name, 2, 0, 1, 1, 0);
+                return new KeyItem(name, 1, 0, 5, 1, 0);
             case "Key":
                 return new KeyItem(name, 0.1, 0, 0, 0, 1);
             case "Gleeman Cloak":
-                return new Equipment(name, 2, 5, 100, ItemClass.F, EquipmentType.CHEST);
+                return new Equipment(name, 1.5, 5, 100, ItemClass.F, EquipmentType.CHEST);
             default:
-                throw new System.Exception("Item not found");
+                throw new System.Exception("Item not found: "+name);
         }
     }
 

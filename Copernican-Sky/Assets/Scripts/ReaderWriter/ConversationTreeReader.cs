@@ -24,6 +24,11 @@ public static class ConversationTreeReader {
             }
             nodes.Add(new ConversationTreeNode(tree["nodes"][i]["text"].ToString(),options,optionsText));
         }
-        return new ConversationTree(tree["name"].ToString(), Convert.ToInt32(tree["startIndex"].ToString()), nodes, tree["leaveText"].ToString()); 
+        ArrayList<int> storeIndexes = new ArrayList<int>();
+        for (int i = 0; i < tree["storeIndexes"].Count; i++)
+        {
+            storeIndexes.Add(Convert.ToInt32(tree["storeIndexes"][i].ToString()));
+        }
+        return new ConversationTree(tree["name"].ToString(), Convert.ToInt32(tree["startIndex"].ToString()), nodes, tree["leaveText"].ToString(),storeIndexes); 
     }
 }

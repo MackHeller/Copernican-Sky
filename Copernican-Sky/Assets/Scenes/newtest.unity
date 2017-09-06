@@ -1277,7 +1277,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000012248254490, guid: 45308ee12847b844a9f03ade3afe1d7f, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -206.1
+      value: 64.7
       objectReference: {fileID: 0}
     - target: {fileID: 4000012248254490, guid: 45308ee12847b844a9f03ade3afe1d7f, type: 2}
       propertyPath: m_LocalPosition.z
@@ -4372,7 +4372,12 @@ Prefab:
     - target: {fileID: 114669709069272252, guid: 0d10108c2bca0434dbadcc98f20a4ebd,
         type: 2}
       propertyPath: itemName
-      value: Wooden Sword
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 114669709069272252, guid: 0d10108c2bca0434dbadcc98f20a4ebd,
+        type: 2}
+      propertyPath: amount
+      value: 25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0d10108c2bca0434dbadcc98f20a4ebd, type: 2}
@@ -10241,7 +10246,7 @@ GameObject:
   - component: {fileID: 1787604130}
   - component: {fileID: 1787604129}
   m_Layer: 5
-  m_Name: InventoryMenu
+  m_Name: StoreMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
