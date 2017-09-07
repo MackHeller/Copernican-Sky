@@ -129,7 +129,7 @@ public class OverWorldController : MonoBehaviour {
     {
         currentChar = getCharacterOrAdd(characterName);
         textBoxController.setText(currentChar.conversationTree.startConversation().Text);
-        currentChar.checkAlterCharacter();
+        currentChar.checkAlterCharacters(ref characters);
         conversationState = false;
     }
 
@@ -178,14 +178,14 @@ public class OverWorldController : MonoBehaviour {
             {
                 textBoxController.setText(newNode.Text);
                 currentChar.checkModifyInventory(ref inventory);
-                currentChar.checkAlterCharacter();
+                currentChar.checkAlterCharacters(ref characters);
                 conversationCleanUp();
             }
             else if (currentNode.indexInRange(pick) && currentNode.getNewIndex(pick) == -1)//if not valid because it's the end
             {
                 textBoxController.setText("");
                 currentChar.checkModifyInventory(ref inventory);
-                currentChar.checkAlterCharacter();
+                currentChar.checkAlterCharacters(ref characters);
                 conversationCleanUp();
             }
         }
@@ -211,7 +211,7 @@ public class OverWorldController : MonoBehaviour {
                     textBoxController.setText("You could not buy " + itemToAdd.ItemName);
                 }
                 currentChar.checkModifyInventory(ref inventory);
-                currentChar.checkAlterCharacter();
+                currentChar.checkAlterCharacters(ref characters);
                 inventoryTextController.setText(inventory.ToString());
 
             }
@@ -220,7 +220,7 @@ public class OverWorldController : MonoBehaviour {
                 //done shopping
                 textBoxController.setText(newNode.Text);
                 currentChar.checkModifyInventory(ref inventory);
-                currentChar.checkAlterCharacter();
+                currentChar.checkAlterCharacters(ref characters);
                 conversationCleanUp();
             }
         }

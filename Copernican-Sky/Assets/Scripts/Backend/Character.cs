@@ -18,7 +18,7 @@ public abstract class Character {
      * @return              the new version of the inventory 
      **/
     public abstract void checkModifyInventory(ref Inventory inventory);
-    public abstract void checkAlterCharacter();
+    public abstract void checkAlterCharacters(ref C5.HashSet<Character> characters);
     public string getName()
     {
         return characterName;
@@ -88,12 +88,21 @@ public abstract class Character {
                 inventory.addItem(inventory.buildItem("Gleeman Cloak"));
             }
         }
-        public override void checkAlterCharacter()
+        public override void checkAlterCharacters(ref C5.HashSet<Character> characters)
         {
-            //not the first time you've talked
+            //first time you've talked change starting text
             if(conversationTree.CurrentIndex == 0)
             {
                 conversationTree.setStartIndex(6);
+            }
+            //if you ask about padan Fain
+            if(conversationTree.CurrentIndex == 8)
+            {
+                Character fain = findCharacterByType(characters, typeof(PadanFain));
+                if (fain != null)
+                {
+                    fain.blacklistIndexes.Remove(4);
+                }
             }
             //got the cloak, can't get it again
             if (conversationTree.CurrentIndex == 5)
@@ -115,11 +124,36 @@ public abstract class Character {
         {
             
         }
-        public override void checkAlterCharacter()
+        public override void checkAlterCharacters(ref C5.HashSet<Character> characters)
         {
-            
+            //first time you've talked indicate that you've met
+            if (conversationTree.CurrentIndex == 0)
+            {
+                Character thom = findCharacterByType(characters, typeof(ThomdrilMerrilin));
+                if (thom != null)
+                {
+                    thom.blacklistIndexes.Remove(8);
+                }
+            }
+            //if you accuse him of being a darkfriend he wont talk to you anymore
+            if (conversationTree.CurrentIndex == 4)
+            {
+                conversationTree.setStartIndex(6);
+            }
         }
 
+    }
+
+    public static Character findCharacterByType(C5.HashSet<Character> characters, Type type)
+    {
+        foreach(Character cha in characters)
+        {
+            if(cha.GetType().Equals(type))
+            {
+                return cha;
+            }
+        }
+        return null;
     }
 }
 
