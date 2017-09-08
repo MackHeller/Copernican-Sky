@@ -136,8 +136,8 @@ public class OverWorldController : MonoBehaviour {
     {
         currentChar = getCharacterOrAdd(characterName);
 		//make the characters name pop up
-		nameTextController.setText (characterName);
 		nameMenu.SetActive(true);
+		nameTextController.setText (characterName);
 
         textBoxController.setText(currentChar.conversationTree.startConversation().Text);
         currentChar.checkAlterCharacters(ref characters);
@@ -148,6 +148,10 @@ public class OverWorldController : MonoBehaviour {
     {
         ArrayList<string> options = currentChar.getOptions();
         string words = "";
+
+		//make the characters name pop up
+		nameMenu.SetActive(true);
+
         //check if this is a store menu
         if (currentChar.conversationTree.isStoreMenu())
         {
@@ -191,6 +195,8 @@ public class OverWorldController : MonoBehaviour {
                 currentChar.checkModifyInventory(ref inventory);
                 currentChar.checkAlterCharacters(ref characters);
                 conversationCleanUp();
+				//make the characters name pop up
+				nameMenu.SetActive(true);
             }
             else if (currentNode.indexInRange(pick) && currentNode.getNewIndex(pick) == -1)//if not valid because it's the end
             {
@@ -233,6 +239,8 @@ public class OverWorldController : MonoBehaviour {
                 currentChar.checkModifyInventory(ref inventory);
                 currentChar.checkAlterCharacters(ref characters);
                 conversationCleanUp();
+				//make the characters name pop up
+				nameMenu.SetActive(true);
             }
         }
     }
