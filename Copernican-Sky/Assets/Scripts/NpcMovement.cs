@@ -20,6 +20,11 @@ public class NpcMovement : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate()
     {
+
+        animator.SetBool("Walk Right", false);
+        animator.SetBool("Walk Left", false);
+        animator.SetBool("Walk Up", false);
+        animator.SetBool("Walk Down", false);
         if (moving) {
             setDirectionOnPattern();
             switch (currentDir)
@@ -27,35 +32,24 @@ public class NpcMovement : MonoBehaviour {
                 case Direction.LEFT:
                     transform.Translate(Vector2.left * movementSpeed * Time.deltaTime);
                     animator.SetBool("Walk Left", true);
-                    animator.SetBool("Walk Right", false);
                     break;
                 case Direction.RIGHT:
                     transform.Translate(Vector2.right * movementSpeed * Time.deltaTime);
                     animator.SetBool("Walk Right", true);
-                    animator.SetBool("Walk Left", false);
                     break;
                 case Direction.UP:
-                    transform.Translate(Vector2.left * movementSpeed * Time.deltaTime);
+                    transform.Translate(Vector2.up * movementSpeed * Time.deltaTime);
                     animator.SetBool("Walk Up", true);
-                    animator.SetBool("Walk Down", false);
                     break;
                 case Direction.DOWN:
-                    transform.Translate(Vector2.right * movementSpeed * Time.deltaTime);
+                    transform.Translate(Vector2.down * movementSpeed * Time.deltaTime);
                     animator.SetBool("Walk Down", true);
-                    animator.SetBool("Walk Up", false);
                     break;
                 case Direction.STOP:
                     break;
                 default:
                     throw new System.Exception("error: " + currentDir);
             }
-        }
-        else
-        {
-            animator.SetBool("Walk Right", false);
-            animator.SetBool("Walk Left", false);
-            animator.SetBool("Walk Up", false);
-            animator.SetBool("Walk Down", false);
         }
     }
     private void setDirectionOnPattern()
@@ -64,6 +58,9 @@ public class NpcMovement : MonoBehaviour {
         {
             case "right, left":
                 rightLeft();
+                break;
+            case "right, down, left, up":
+                rightDownLeftUp();
                 break;
             case "stop":
                 noMovement();
@@ -82,6 +79,25 @@ public class NpcMovement : MonoBehaviour {
         else if(currentDir == Direction.RIGHT &&  this.transform.position.x >= rightBoarder)
         {
             currentDir = Direction.LEFT;
+        }
+    }
+    private void rightDownLeftUp()
+    {
+        if (currentDir == Direction.STOP || (currentDir == Direction.UP && this.transform.position.y >= upBoarder))
+        {
+            currentDir = Direction.RIGHT;
+        }
+        else if (currentDir == Direction.RIGHT && this.transform.position.x >= rightBoarder)
+        {
+            currentDir = Direction.DOWN;
+        }
+        else if (currentDir == Direction.DOWN && this.transform.position.y <= downBoarder)
+        {
+            currentDir = Direction.LEFT;
+        }
+        else if (currentDir == Direction.LEFT && this.transform.position.x <= leftBoarder)
+        {
+            currentDir = Direction.UP;
         }
     }
     private void noMovement()
