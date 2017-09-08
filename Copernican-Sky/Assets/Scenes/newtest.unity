@@ -6170,6 +6170,7 @@ GameObject:
   - component: {fileID: 895283057}
   - component: {fileID: 895283054}
   - component: {fileID: 895283053}
+  - component: {fileID: 895283055}
   m_Layer: 0
   m_Name: Thomdril Merrilin
   m_TagString: Untagged
@@ -6188,12 +6189,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95bb973ddccdb2244bd3dc6773eedc45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 40
+  movementSpeed: 50
   leftBoarder: -150
   rightBoarder: -80
   upBoarder: 0
   downBoarder: 0
   pattern: right, left
+  animator: {fileID: 0}
 --- !u!70 &895283054
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -6210,6 +6212,23 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: -14}
   m_Size: {x: 13, y: 6}
   m_Direction: 1
+--- !u!95 &895283055
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 895283052}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 726d9106523df5a43abaccb0d12cd53c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!212 &895283057
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10034,6 +10053,7 @@ GameObject:
   - component: {fileID: 1425174203}
   - component: {fileID: 1425174202}
   - component: {fileID: 1425174205}
+  - component: {fileID: 1425174206}
   m_Layer: 0
   m_Name: Padan Fain
   m_TagString: Untagged
@@ -10130,6 +10150,24 @@ MonoBehaviour:
   upBoarder: 0
   downBoarder: 0
   pattern: stop
+  animator: {fileID: 0}
+--- !u!95 &1425174206
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1425174201}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 726d9106523df5a43abaccb0d12cd53c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1460564429
 GameObject:
   m_ObjectHideFlags: 0

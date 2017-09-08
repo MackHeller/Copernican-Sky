@@ -10,31 +10,52 @@ public class NpcMovement : MonoBehaviour {
     public int downBoarder=0;
     public string pattern;
     private bool moving = true;
+    public Animator animator;
     private Direction currentDir = Direction.STOP;
+    // Use this for initialization
+    void Start () {
+        animator = GetComponent<Animator>();
+    }
 	
 	// Update is called once per frame
-	void FixedUpdate() {
+	void FixedUpdate()
+    {
         if (moving) {
             setDirectionOnPattern();
             switch (currentDir)
             {
                 case Direction.LEFT:
                     transform.Translate(Vector2.left * movementSpeed * Time.deltaTime);
+                    animator.SetBool("Walk Left", true);
+                    animator.SetBool("Walk Right", false);
                     break;
                 case Direction.RIGHT:
                     transform.Translate(Vector2.right * movementSpeed * Time.deltaTime);
+                    animator.SetBool("Walk Right", true);
+                    animator.SetBool("Walk Left", false);
                     break;
                 case Direction.UP:
                     transform.Translate(Vector2.left * movementSpeed * Time.deltaTime);
+                    animator.SetBool("Walk Up", true);
+                    animator.SetBool("Walk Down", false);
                     break;
                 case Direction.DOWN:
                     transform.Translate(Vector2.right * movementSpeed * Time.deltaTime);
+                    animator.SetBool("Walk Down", true);
+                    animator.SetBool("Walk Up", false);
                     break;
                 case Direction.STOP:
                     break;
                 default:
                     throw new System.Exception("error: " + currentDir);
             }
+        }
+        else
+        {
+            animator.SetBool("Walk Right", false);
+            animator.SetBool("Walk Left", false);
+            animator.SetBool("Walk Up", false);
+            animator.SetBool("Walk Down", false);
         }
     }
     private void setDirectionOnPattern()
