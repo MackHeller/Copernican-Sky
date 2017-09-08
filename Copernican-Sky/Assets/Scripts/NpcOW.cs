@@ -5,12 +5,14 @@ using UnityEngine;
 public class NpcOW : MonoBehaviour
 {
     private OverWorldController overWorldController;
+    private NpcMovement npcMovement;
     private string characterName;
     private bool talking;
     private void Start()
     {
         this.overWorldController = GameObject.Find("GameController").GetComponent<OverWorldController>();
         this.characterName = this.transform.parent.gameObject.name;
+        npcMovement = (NpcMovement)this.transform.parent.gameObject.GetComponent(typeof(NpcMovement));
         talking = false;
     }
     
@@ -20,6 +22,7 @@ public class NpcOW : MonoBehaviour
         {
             overWorldController.beginConversation(characterName);
             talking = true;
+            npcMovement.setMoving(false);
         }
     }
 
@@ -81,6 +84,7 @@ public class NpcOW : MonoBehaviour
     {
         overWorldController.endConversation();
         talking = false;
+        npcMovement.setMoving(true);
     }
 
 }
