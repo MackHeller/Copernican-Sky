@@ -29,8 +29,10 @@ public class OverWorldController : MonoBehaviour {
     public TextBoxController textBoxController;
     public TextBoxController inventoryTextController;
     public TextBoxController storeTextController;
+	public TextBoxController nameTextController;
     private GameObject itemMenu;
     private GameObject storeMenu;
+	private GameObject nameMenu;
 
     
     /**
@@ -61,12 +63,17 @@ public class OverWorldController : MonoBehaviour {
     {
         itemMenu = GameObject.Find("ItemMenu");
         storeMenu = GameObject.Find("StoreMenu");
+		nameMenu = GameObject.Find("NameMenu");
+
         textBoxController = (TextBoxController)GameObject.Find("Text").GetComponent(typeof(TextBoxController));
         storeTextController = (TextBoxController)GameObject.Find("StoreText").GetComponent(typeof(TextBoxController));
         inventoryTextController =  (TextBoxController)GameObject.Find("ItemText").GetComponent(typeof(TextBoxController));
+		nameTextController =  (TextBoxController)GameObject.Find("NameText").GetComponent(typeof(TextBoxController));
+
         inventoryTextController.setText(inventory.ToString());
         itemMenu.SetActive(!itemMenu.activeSelf);
         storeMenu.SetActive(!storeMenu.activeSelf);
+		nameMenu.SetActive(!nameMenu.activeSelf);
     }
 
     //////////////////////////////
@@ -128,6 +135,10 @@ public class OverWorldController : MonoBehaviour {
     public void beginConversation(string characterName)
     {
         currentChar = getCharacterOrAdd(characterName);
+		//make the characters name pop up
+		nameTextController.setText (characterName);
+		nameMenu.SetActive(true);
+
         textBoxController.setText(currentChar.conversationTree.startConversation().Text);
         currentChar.checkAlterCharacters(ref characters);
         conversationState = false;
@@ -239,6 +250,7 @@ public class OverWorldController : MonoBehaviour {
     {
         storeMenu.SetActive(false);
         itemMenu.SetActive(false);
+		nameMenu.SetActive(false);
         conversationState = false;
         buyingAnItem = false;
     }
