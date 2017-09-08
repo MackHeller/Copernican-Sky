@@ -2,30 +2,34 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NpcMovement : MonoBehaviour {
+public class NpcMovement : MonoBehaviour
+{
     public float movementSpeed = 20f;
-    public int leftBoarder =0;
-    public int rightBoarder=0;
-    public int upBoarder=0;
-    public int downBoarder=0;
+    public int leftBoarder = 0;
+    public int rightBoarder = 0;
+    public int upBoarder = 0;
+    public int downBoarder = 0;
+    public int[] additionalCoods;
     public string pattern;
     private bool moving = true;
     public Animator animator;
     private Direction currentDir = Direction.STOP;
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
         animator = GetComponent<Animator>();
     }
-	
-	// Update is called once per frame
-	void FixedUpdate()
+
+    // Update is called once per frame
+    void FixedUpdate()
     {
 
         animator.SetBool("Walk Right", false);
         animator.SetBool("Walk Left", false);
         animator.SetBool("Walk Up", false);
         animator.SetBool("Walk Down", false);
-        if (moving) {
+        if (moving)
+        {
             setDirectionOnPattern();
             switch (currentDir)
             {
@@ -62,21 +66,46 @@ public class NpcMovement : MonoBehaviour {
             case "right, down, left, up":
                 rightDownLeftUp();
                 break;
+            case "right, down, right, reverse":
+                rightDownRightReverse();
+                break;
             case "stop":
                 noMovement();
                 break;
             default:
-                throw new System.Exception("pattern does not exist: "+ pattern);
+                throw new System.Exception("pattern does not exist: " + pattern);
         }
     }
 
+    private void noMovement()
+    {
+        currentDir = Direction.STOP;
+    }
+
+    public void switchMoving()
+    {
+        setMoving(!moving);
+    }
+    public void setMoving(bool set)
+    {
+        moving = set;
+    }
+
+    private enum Direction
+    {
+        LEFT, RIGHT, UP, DOWN, STOP
+    }
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // patterns 
+
     private void rightLeft()
     {
-        if(currentDir == Direction.STOP || (currentDir == Direction.LEFT && this.transform.position.x<=leftBoarder))
+        if (currentDir == Direction.STOP || (currentDir == Direction.LEFT && this.transform.position.x <= leftBoarder))
         {
             currentDir = Direction.RIGHT;
         }
-        else if(currentDir == Direction.RIGHT &&  this.transform.position.x >= rightBoarder)
+        else if (currentDir == Direction.RIGHT && this.transform.position.x >= rightBoarder)
         {
             currentDir = Direction.LEFT;
         }
@@ -100,22 +129,31 @@ public class NpcMovement : MonoBehaviour {
             currentDir = Direction.UP;
         }
     }
-    private void noMovement()
+    private void rightDownRightReverse()
     {
-        currentDir = Direction.STOP;
-    }
-
-    public void switchMoving()
-    {
-        setMoving(!moving);
-    }
-    public void setMoving(bool set)
-    {
-        moving = set;
-    }
-
-    private enum Direction
-    {
-        LEFT,RIGHT,UP,DOWN,STOP
+        if (currentDir == Direction.STOP || (currentDir == Direction.LEFT && this.transform.position.x <= additionalCoods[0]))
+        {
+            currentDir = Direction.RIGHT;
+        }
+        else if (currentDir == Direction.RIGHT && this.transform.position.x >= rightBoarder && this.transform.position.y > downBoarder)
+        {
+            currentDir = Direction.DOWN;
+        }
+        else if(currentDir == Direction.DOWN && this.transform.position.y <= downBoarder)
+        {
+            currentDir = Direction.RIGHT;
+        }
+        else if (currentDir == Direction.RIGHT && this.transform.position.x >= additionalCoods[1])
+        {
+            currentDir = Direction.LEFT;
+        }
+        else if (currentDir == Direction.LEFT && this.transform.position.x <= leftBoarder && this.transform.position.y < upBoarder)
+        {
+            currentDir = Direction.UP;
+        }
+        else if (currentDir == Direction.UP && this.transform.position.y >= upBoarder)
+        {
+            currentDir = Direction.LEFT;
+        }
     }
 }

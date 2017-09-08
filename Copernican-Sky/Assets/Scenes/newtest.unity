@@ -1553,11 +1553,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4000012248254490, guid: 45308ee12847b844a9f03ade3afe1d7f, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 46.8
+      value: 48.7
       objectReference: {fileID: 0}
     - target: {fileID: 4000012248254490, guid: 45308ee12847b844a9f03ade3afe1d7f, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 64.7
+      value: 63.8
       objectReference: {fileID: 0}
     - target: {fileID: 4000012248254490, guid: 45308ee12847b844a9f03ade3afe1d7f, type: 2}
       propertyPath: m_LocalPosition.z
@@ -6263,11 +6263,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 50
-  leftBoarder: -150
-  rightBoarder: -80
+  leftBoarder: -110
+  rightBoarder: -110
   upBoarder: -30
   downBoarder: -80
-  pattern: right, down, left, up
+  additionalCoods: 6affffffb0ffffff
+  pattern: right, down, right, reverse
   animator: {fileID: 0}
 --- !u!70 &895283054
 CapsuleCollider2D:
@@ -10314,6 +10315,7 @@ MonoBehaviour:
   rightBoarder: 0
   upBoarder: 0
   downBoarder: 0
+  additionalCoods: 
   pattern: stop
   animator: {fileID: 0}
 --- !u!95 &1425174206
