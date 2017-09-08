@@ -152,7 +152,7 @@ public class OverWorldController : MonoBehaviour {
             itemMenu.SetActive(true);
             inventoryTextController.setText(inventory.ToString());
         }
-        else
+        else//A conversation
         {
             for (int i = 1; i <= options.Count; i++)
             {
