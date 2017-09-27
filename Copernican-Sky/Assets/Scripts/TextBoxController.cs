@@ -11,9 +11,7 @@ public class TextBoxController : MonoBehaviour {
 	void Awake () {
 		//fetches the Text object from the object the script is attached to
 		this.textbox = GetComponent<Text> ();
-        string words = "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW" +
-                       "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM" +
-            "This box can fit 40 W's & M's per line, generally the biggest Alnum chars in most fonts. This is a monospaced font, so all char's are same sized. There are 7 lines of space (280 chars total).";
+        string words = "";
 
         this.setText(words);
     }
