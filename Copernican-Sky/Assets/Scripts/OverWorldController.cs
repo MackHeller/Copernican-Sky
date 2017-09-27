@@ -65,7 +65,7 @@ public class OverWorldController : MonoBehaviour {
         storeMenu = GameObject.Find("StoreMenu");
 		nameMenu = GameObject.Find("NameMenu");
 
-        textBoxController = (TextBoxController)GameObject.Find("Text").GetComponent(typeof(TextBoxController));
+        textBoxController = (TextBoxController)GameObject.Find("MainBoxText").GetComponent(typeof(TextBoxController));
         storeTextController = (TextBoxController)GameObject.Find("StoreText").GetComponent(typeof(TextBoxController));
         inventoryTextController =  (TextBoxController)GameObject.Find("ItemText").GetComponent(typeof(TextBoxController));
 		nameTextController =  (TextBoxController)GameObject.Find("NameText").GetComponent(typeof(TextBoxController));
