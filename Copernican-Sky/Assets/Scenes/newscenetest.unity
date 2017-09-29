@@ -1187,6 +1187,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 45308ee12847b844a9f03ade3afe1d7f, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &243821207 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1000011880734628, guid: 45308ee12847b844a9f03ade3afe1d7f,
+    type: 2}
+  m_PrefabInternal: {fileID: 243821206}
 --- !u!1 &274930319
 GameObject:
   m_ObjectHideFlags: 0
@@ -4792,7 +4797,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba43eaef4e02a6d4bae6eb4681f8b32b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 243821207}
 --- !u!81 &1146234588
 AudioListener:
   m_ObjectHideFlags: 0
@@ -4857,7 +4862,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1146234586}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 48.7, y: 52.04, z: -10}
+  m_LocalPosition: {x: -57.8, y: -68, z: -10}
   m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_Children:
   - {fileID: 846397455}
