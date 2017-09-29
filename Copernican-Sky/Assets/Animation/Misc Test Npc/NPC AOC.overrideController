@@ -7,4 +7,20 @@ AnimatorOverrideController:
   m_PrefabInternal: {fileID: 0}
   m_Name: NPC AOC
   m_Controller: {fileID: 9100000, guid: f910a3ce7342bdb498d84f263ff0ed7f, type: 2}
-  m_Clips: []
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: a8f36fdfc7878994792e18e0e48d7768, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: fc20a205707e77e4095a5d56769cbd14, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: ec76cbd240c316049afa19689c3e7633, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 8217c9c433a87f349a8e01c3c03b9448, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: f20f216998800594d89a8ce27b324b61, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 74b095e6ce96da24c85bbdc3a7aa0241, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 694d5e26d46ece642bdcfaa71ed82a82, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: e41757d4d2357c243a412ab5258f7a66, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: a43eb33ea880d7d438b49b6c54d738cb, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: d31b828a306d31341855fc121bd18017, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 28673c91e5267044e9512cde89feda61, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 35a9ad074acb2854b838dbe1621145cc, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 6f954ce2485ba99458082cb0c0039907, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 39415f1422716d14c97b01aea6439da1, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 267cd016488d76944aa9d89963094174, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: ada89c499126be840a232e56df8bfdbf, type: 2}

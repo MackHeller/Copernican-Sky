@@ -12564,18 +12564,6 @@ GameObject:
   m_PrefabParentObject: {fileID: 1411518004972932, guid: 1a3ba7a99c0121e40bff8d4ff0100f68,
     type: 2}
   m_PrefabInternal: {fileID: 2118962521}
---- !u!114 &1878244911
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1878244910}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74896fc7c2b967545a84309a6fbe7b63, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SpriteSheetName: 16bitAiva_walk_down
 --- !u!114 &1878244916
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14213,8 +14201,7 @@ Prefab:
         type: 2}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 22100000, guid: 0ddc20ef4cb0b5648b55045557a8055c,
-        type: 2}
+      objectReference: {fileID: 9100000, guid: f910a3ce7342bdb498d84f263ff0ed7f, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1a3ba7a99c0121e40bff8d4ff0100f68, type: 2}
   m_IsPrefabParent: 0
