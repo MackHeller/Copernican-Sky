@@ -11205,6 +11205,18 @@ Prefab:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 95834535370977590, guid: fb3744827c2635f4b8d19ab14f21566f,
+        type: 2}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 22100000, guid: 0ddc20ef4cb0b5648b55045557a8055c,
+        type: 2}
+    - target: {fileID: 212325490649985938, guid: fb3744827c2635f4b8d19ab14f21566f,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300030, guid: c71b05d778a142f40a22542545f48c2a,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fb3744827c2635f4b8d19ab14f21566f, type: 2}
   m_IsPrefabParent: 0
@@ -13501,6 +13513,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114000011378285724, guid: 45308ee12847b844a9f03ade3afe1d7f,
+        type: 2}
+      propertyPath: speed
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 45308ee12847b844a9f03ade3afe1d7f, type: 2}
   m_IsPrefabParent: 0
@@ -14192,6 +14209,12 @@ Prefab:
       propertyPath: m_ApplyRootMotion
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 95935666308053660, guid: 1a3ba7a99c0121e40bff8d4ff0100f68,
+        type: 2}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 22100000, guid: 0ddc20ef4cb0b5648b55045557a8055c,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1a3ba7a99c0121e40bff8d4ff0100f68, type: 2}
   m_IsPrefabParent: 0

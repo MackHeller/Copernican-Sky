@@ -531,7 +531,7 @@ AnimatorState:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Aiva_Left_Idle
+  m_Name: Left_Idle
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -558,7 +558,7 @@ AnimatorState:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Aiva_Down_Idle
+  m_Name: Down_Idle
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -585,7 +585,7 @@ AnimatorState:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Aiva_Right
+  m_Name: Right
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -609,7 +609,7 @@ AnimatorState:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Aiva_Left
+  m_Name: Left
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -633,7 +633,7 @@ AnimatorState:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Aiva_Up_Idle
+  m_Name: Up_Idle
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -660,7 +660,7 @@ AnimatorState:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Aiva_Up
+  m_Name: Up
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -684,7 +684,7 @@ AnimatorState:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Aiva_Right_Idle
+  m_Name: Right_Idle
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -711,7 +711,7 @@ AnimatorState:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Aiva_Down
+  m_Name: Down
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
