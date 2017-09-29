@@ -3676,22 +3676,6 @@ SpriteRenderer:
   m_Size: {x: 0.16, y: 0.16}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
---- !u!1 &607728306 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1000011880734628, guid: 45308ee12847b844a9f03ade3afe1d7f,
-    type: 2}
-  m_PrefabInternal: {fileID: 2050363748}
---- !u!114 &607728312
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 607728306}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5aa3152aa718cb64e8de5ba82a50183a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &625078919
 GameObject:
   m_ObjectHideFlags: 0
@@ -12568,6 +12552,18 @@ GameObject:
   m_PrefabParentObject: {fileID: 1411518004972932, guid: 1a3ba7a99c0121e40bff8d4ff0100f68,
     type: 2}
   m_PrefabInternal: {fileID: 2118962521}
+--- !u!114 &1878244911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1878244910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74896fc7c2b967545a84309a6fbe7b63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SpriteSheetName: 16bitAiva_walk_down
 --- !u!114 &1878244916
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13503,11 +13499,6 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000012248254490, guid: 45308ee12847b844a9f03ade3afe1d7f, type: 2}
       propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 70054882246209962, guid: 45308ee12847b844a9f03ade3afe1d7f,
-        type: 2}
-      propertyPath: m_Offset.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
