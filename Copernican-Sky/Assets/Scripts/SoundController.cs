@@ -4,6 +4,7 @@ using UnityEngine;
 
 // A pretty basic script that handles the muting of audio, and the displaying of icons to the player
 // Will definetly need to be expanded on to contain the ability to switch tracks, change volume, and to keep tracks going through scene changes
+// Press M to mute
 
 public class SoundController : MonoBehaviour {
 

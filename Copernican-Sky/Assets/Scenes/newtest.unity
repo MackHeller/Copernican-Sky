@@ -1381,7 +1381,7 @@ GameObject:
   - component: {fileID: 223046306}
   - component: {fileID: 223046308}
   - component: {fileID: 223046309}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Sound Controller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
