@@ -1,5 +1,14 @@
 ﻿using C5;
 using UnityEngine;
+
+public enum InventorySlot
+{
+    //weapons
+    LEFT_HAND, RIGHT_HAND,
+    //clothes 
+    HEAD, BODY_TOP, BODY_BOT, IMPLANT
+}
+
 /**
  * inventory class. Holds items that the player collects overtime
  * items are stored in a HashDictionary where the key is the item 

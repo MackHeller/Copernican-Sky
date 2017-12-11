@@ -8,9 +8,9 @@ public enum ItemClass
 public enum EquipmentType
 {
     //weapons
-    SWORD, AXE, SPEAR,
+    CLUB, SPEAR, PISTOL, SHOTGUN, RIFLE, TASOR,
     //clothes 
-    HELMET, CHEST, GLOVES, BOOTS, PANTS
+    HELMET, CHEST, PANTS
 }
 
 //abstract class the represents all types of items (currently Equipment and KeyItem)
@@ -42,7 +42,7 @@ public abstract class IItem
     {
         switch (name) {
             case "Wooden Sword":
-                return new Equipment(name, 2, 10, 20, ItemClass.F, EquipmentType.SWORD);
+                return new Equipment(name, 2, 10, 20, ItemClass.F, EquipmentType.CLUB);
             case "Coin":
                 return new KeyItem(name, 0.0, 1, 1, 0, 0);
             case "Aunt May's Cookies":
