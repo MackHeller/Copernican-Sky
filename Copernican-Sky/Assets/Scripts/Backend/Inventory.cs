@@ -1,7 +1,7 @@
 ﻿using C5;
 using UnityEngine;
 
-public enum InventorySlot
+public enum EquipSlot
 {
     //weapons
     LEFT_HAND, RIGHT_HAND,
@@ -18,6 +18,7 @@ public enum InventorySlot
 public class Inventory {
     //the item and its amount
     private HashDictionary<IItem, int> inventory;
+    private HashDictionary<EquipSlot, IItem> equiped;
     //how much you can carry
     private int carryCapacity;
     //how much you are carrying
@@ -26,6 +27,7 @@ public class Inventory {
     public Inventory(int carryCapacity)
     {
         inventory = new HashDictionary<IItem, int>();
+        equiped = new HashDictionary<EquipSlot, IItem>();
         this.carryCapacity = carryCapacity;
         currentWeight = 0.0;
     }
@@ -46,6 +48,24 @@ public class Inventory {
         {
             return carryCapacity;
         }
+    }
+
+    public IItem getEquipSlot(EquipSlot slot)
+    {
+        if (slotEquiped(slot) && hasItem(equiped[slot]) != null && inventory[equiped[slot]] >0) {
+            return equiped[slot]; 
+        }
+        return null;
+    }
+
+    public bool setEquipSlot(EquipSlot slot, IItem item)
+    {
+        if (hasItem(equiped[slot]) != null && inventory[equiped[slot]] > 0)
+        {
+            equiped[slot] = item;
+            return true;
+        }
+        return false;
     }
 
     /*
@@ -146,6 +166,17 @@ public class Inventory {
             }
         }
         return null;
+    }
+    public bool slotEquiped(EquipSlot slot)
+    {
+        foreach (EquipSlot i in equiped.Keys)
+        {
+            if (i == slot)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
     public IItem buildItem(string itemName)
