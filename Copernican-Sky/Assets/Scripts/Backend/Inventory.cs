@@ -52,11 +52,11 @@ public class Inventory {
                 return equiped[slot];
             }
             //if you have that item equiped and you dont own the item 
-            emptyItemSlot(slot);
+            emptyEquipSlot(slot);
         }
         return null;
     }
-    public bool emptyItemSlot(EquipSlot slot)
+    public bool emptyEquipSlot(EquipSlot slot)
     {
         //if items in bag
         if (slotEquiped(slot))
