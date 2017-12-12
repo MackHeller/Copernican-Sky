@@ -4325,6 +4325,18 @@ GameObject:
   m_PrefabParentObject: {fileID: 1000011880734628, guid: 45308ee12847b844a9f03ade3afe1d7f,
     type: 2}
   m_PrefabInternal: {fileID: 830614658}
+--- !u!114 &538562439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 538562438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13f9c3a8169d7f94a9955c971d0d0f97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SpriteSheetName: Sprites/AivaGun_Sheet
 --- !u!1 &554825200
 GameObject:
   m_ObjectHideFlags: 0
