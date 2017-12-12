@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Main_Menu
   - NPC
+  - Wall
+  - Floor
   layers:
   - Default
   - TransparentFX
