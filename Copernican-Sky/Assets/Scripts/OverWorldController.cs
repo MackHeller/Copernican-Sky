@@ -30,7 +30,9 @@ public class OverWorldController : MonoBehaviour {
     public TextBoxController inventoryTextController;
     public TextBoxController storeTextController;
 	public TextBoxController nameTextController;
+    public TextBoxController equipBoxController;
     private GameObject itemMenu;
+    private GameObject equipMenu;
     private GameObject storeMenu;
 	private GameObject nameMenu;
 
@@ -62,9 +64,11 @@ public class OverWorldController : MonoBehaviour {
     private void SceneManager_sceneLoaded(Scene scene, LoadSceneMode mode)
     {
         itemMenu = GameObject.Find("ItemMenu");
+        equipMenu = GameObject.Find("EquipMenu");
         storeMenu = GameObject.Find("StoreMenu");
 		nameMenu = GameObject.Find("NameMenu");
 
+        equipBoxController = (TextBoxController)GameObject.Find("EquipText").GetComponent(typeof(TextBoxController));
         textBoxController = (TextBoxController)GameObject.Find("MainBoxText").GetComponent(typeof(TextBoxController));
         storeTextController = (TextBoxController)GameObject.Find("StoreText").GetComponent(typeof(TextBoxController));
         inventoryTextController =  (TextBoxController)GameObject.Find("ItemText").GetComponent(typeof(TextBoxController));
@@ -72,6 +76,7 @@ public class OverWorldController : MonoBehaviour {
 
         inventoryTextController.setText(inventory.ToString());
         itemMenu.SetActive(!itemMenu.activeSelf);
+        equipMenu.SetActive(!equipMenu.activeSelf);
         storeMenu.SetActive(!storeMenu.activeSelf);
 		nameMenu.SetActive(!nameMenu.activeSelf);
     }
@@ -104,7 +109,9 @@ public class OverWorldController : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Tab) && !buyingAnItem)
         {
             itemMenu.SetActive(!itemMenu.activeSelf);
+            equipMenu.SetActive(!equipMenu.activeSelf);
             inventoryTextController.setText(inventory.ToString());
+            equipBoxController.setText(inventory.ToStringInventory());
         }
     }
     public IItem getItemByName(string name)
@@ -258,7 +265,8 @@ public class OverWorldController : MonoBehaviour {
     {
         storeMenu.SetActive(false);
         itemMenu.SetActive(false);
-		nameMenu.SetActive(false);
+        equipMenu.SetActive(false);
+        nameMenu.SetActive(false);
         conversationState = false;
         buyingAnItem = false;
     }

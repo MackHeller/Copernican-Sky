@@ -216,6 +216,10 @@ public class Inventory {
     public string ToStringInventory()
     {
         string words = "";
-        for
+        foreach (KeyValuePair<EquipSlot,IItem> item in equiped)
+        {
+            words = words + item.Key.ToString() + "   " + item.Value + "\n";
+        }
+        return words;
     }
 }
