@@ -18,43 +18,46 @@ public class NpcMovement : MonoBehaviour
 
     void Start()
     {
-
-        animator = GetComponent<Animator>();
+        if (pattern != "nevermove")
+        {
+            animator = GetComponent<Animator>();
+        }
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-
-        animator.SetBool("Walk Right", false);
-        animator.SetBool("Walk Left", false);
-        animator.SetBool("Walk Up", false);
-        animator.SetBool("Walk Down", false);
-        if (moving)
-        {
-            setDirectionOnPattern();
-            switch (currentDir)
+        if (pattern != "nevermove") {
+            animator.SetBool("Walk Right", false);
+            animator.SetBool("Walk Left", false);
+            animator.SetBool("Walk Up", false);
+            animator.SetBool("Walk Down", false);
+            if (moving)
             {
-                case Direction.LEFT:
-                    transform.Translate(Vector2.left * movementSpeed * Time.deltaTime);
-                    animator.SetBool("Walk Left", true);
-                    break;
-                case Direction.RIGHT:
-                    transform.Translate(Vector2.right * movementSpeed * Time.deltaTime);
-                    animator.SetBool("Walk Right", true);
-                    break;
-                case Direction.UP:
-                    transform.Translate(Vector2.up * movementSpeed * Time.deltaTime);
-                    animator.SetBool("Walk Up", true);
-                    break;
-                case Direction.DOWN:
-                    transform.Translate(Vector2.down * movementSpeed * Time.deltaTime);
-                    animator.SetBool("Walk Down", true);
-                    break;
-                case Direction.STOP:
-                    break;
-                default:
-                    throw new System.Exception("error: " + currentDir);
+                setDirectionOnPattern();
+                switch (currentDir)
+                {
+                    case Direction.LEFT:
+                        transform.Translate(Vector2.left * movementSpeed * Time.deltaTime);
+                        animator.SetBool("Walk Left", true);
+                        break;
+                    case Direction.RIGHT:
+                        transform.Translate(Vector2.right * movementSpeed * Time.deltaTime);
+                        animator.SetBool("Walk Right", true);
+                        break;
+                    case Direction.UP:
+                        transform.Translate(Vector2.up * movementSpeed * Time.deltaTime);
+                        animator.SetBool("Walk Up", true);
+                        break;
+                    case Direction.DOWN:
+                        transform.Translate(Vector2.down * movementSpeed * Time.deltaTime);
+                        animator.SetBool("Walk Down", true);
+                        break;
+                    case Direction.STOP:
+                        break;
+                    default:
+                        throw new System.Exception("error: " + currentDir);
+                }
             }
         }
     }
