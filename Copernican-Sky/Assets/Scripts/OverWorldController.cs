@@ -21,6 +21,7 @@ public class OverWorldController : MonoBehaviour {
         get { return conversationState; }
     }
     private bool buyingAnItem;
+    private bool inConversation;
     public bool BuyingAnItem
     {
         get { return buyingAnItem; }
@@ -106,7 +107,7 @@ public class OverWorldController : MonoBehaviour {
     private void Update()
     {
         //Toggle menu
-        if (Input.GetKeyDown(KeyCode.Tab) && !buyingAnItem)
+        if (Input.GetKeyDown(KeyCode.Tab) && !inConversation)
         {
             itemMenu.SetActive(!itemMenu.activeSelf);
             equipMenu.SetActive(!equipMenu.activeSelf);
@@ -148,7 +149,13 @@ public class OverWorldController : MonoBehaviour {
 
         textBoxController.setText(currentChar.conversationTree.startConversation().Text);
         currentChar.checkAlterCharacters(ref characters);
+
+        //close item menus and let other systems know your in  a convo
         conversationState = false;
+        itemMenu.SetActive(false);
+        equipMenu.SetActive(false);
+        //set talking person to ai
+        inConversation = true;
     }
 
     public void displayOptions()
@@ -269,6 +276,7 @@ public class OverWorldController : MonoBehaviour {
         nameMenu.SetActive(false);
         conversationState = false;
         buyingAnItem = false;
+        inConversation = false;
     }
 
     //end character stuff
