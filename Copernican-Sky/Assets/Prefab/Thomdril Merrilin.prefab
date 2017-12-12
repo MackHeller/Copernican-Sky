@@ -24,9 +24,9 @@ GameObject:
   - component: {fileID: 114122917219874318}
   - component: {fileID: 95834535370977590}
   - component: {fileID: 114937877215957556}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Thomdril Merrilin
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 212315997273473242}
   - component: {fileID: 70361175368238812}
   - component: {fileID: 114528632565034676}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: conversationArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58,7 +58,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4835426137365908}
   - component: {fileID: 212119065101474714}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}

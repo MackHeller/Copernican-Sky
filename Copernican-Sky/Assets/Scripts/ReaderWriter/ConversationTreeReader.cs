@@ -1,4 +1,4 @@
-﻿using C5;
+using C5;
 using LitJson;
 using System;
 using UnityEngine;

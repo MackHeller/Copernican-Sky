@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -15,8 +15,10 @@ public class NpcMovement : MonoBehaviour
     public Animator animator;
     private Direction currentDir = Direction.STOP;
     // Use this for initialization
+
     void Start()
     {
+
         animator = GetComponent<Animator>();
     }
 

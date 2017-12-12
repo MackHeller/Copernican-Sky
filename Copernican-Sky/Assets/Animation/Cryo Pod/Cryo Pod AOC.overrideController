@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Cryo Pod AOC
+  m_Controller: {fileID: 9100000, guid: f910a3ce7342bdb498d84f263ff0ed7f, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: a8f36fdfc7878994792e18e0e48d7768, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: a30d932bfcba37840bf77aee089be6c1, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: ec76cbd240c316049afa19689c3e7633, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: a30d932bfcba37840bf77aee089be6c1, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: f20f216998800594d89a8ce27b324b61, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: a30d932bfcba37840bf77aee089be6c1, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 694d5e26d46ece642bdcfaa71ed82a82, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: a30d932bfcba37840bf77aee089be6c1, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: a43eb33ea880d7d438b49b6c54d738cb, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: a30d932bfcba37840bf77aee089be6c1, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 28673c91e5267044e9512cde89feda61, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: a30d932bfcba37840bf77aee089be6c1, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 6f954ce2485ba99458082cb0c0039907, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: a30d932bfcba37840bf77aee089be6c1, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 267cd016488d76944aa9d89963094174, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: a30d932bfcba37840bf77aee089be6c1, type: 2}

@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4937137407391946}
   - component: {fileID: 212387190572235826}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,9 +40,9 @@ GameObject:
   - component: {fileID: 114286190068168442}
   - component: {fileID: 95935666308053660}
   - component: {fileID: 114257957360706792}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Padan Fain
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -58,7 +58,7 @@ GameObject:
   - component: {fileID: 212930918658645796}
   - component: {fileID: 70546092281230896}
   - component: {fileID: 114752479621461962}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: conversationArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}

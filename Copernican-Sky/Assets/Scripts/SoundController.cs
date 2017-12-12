@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -21,7 +21,16 @@ public class SoundController : MonoBehaviour {
 		spriteRenderer = GetComponent<SpriteRenderer>();
 		spriteRenderer.sprite = OnSprite;
 		spriteRenderer.FadeSprite(this, 2);
-	}
+
+        //turn it off automatically
+        audioSource.mute = !audioSource.mute;
+        if (spriteRenderer.sprite == OnSprite)
+            spriteRenderer.sprite = OffSprite;
+        else
+            spriteRenderer.sprite = OnSprite;
+
+        spriteRenderer.FadeSprite(this, 2);
+    }
 
 	void Update()
 	{

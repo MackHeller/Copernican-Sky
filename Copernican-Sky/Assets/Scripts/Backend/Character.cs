@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using C5;
 using LitJson;
 /**
@@ -31,6 +31,8 @@ public abstract class Character {
                 return new ThomdrilMerrilin();
             case "Padan Fain":
                 return new PadanFain();
+            case "Cryo Pod":
+                return new CryoPod();
             default:
                 throw new Exception("name does not exist");
         }
@@ -112,6 +114,25 @@ public abstract class Character {
         }
         
     }
+
+    public class CryoPod : Character
+    {
+        public CryoPod()
+        {
+            characterName = "Cryo Pod";
+            fetchData("CryoPod");
+        }
+
+        public override void checkModifyInventory(ref Inventory inventory)
+        {
+
+        }
+        public override void checkAlterCharacters(ref C5.HashSet<Character> characters)
+        {
+
+        }
+    }
+
     public class PadanFain : Character
     {
         public PadanFain()

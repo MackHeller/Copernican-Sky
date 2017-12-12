@@ -8,5 +8,10 @@
 	{
 		"start":0,
 		"blacklist":[4]
+	},
+	"CryoPod":
+	{
+		"start":0,
+		"blacklist":[]
 	}
 }
