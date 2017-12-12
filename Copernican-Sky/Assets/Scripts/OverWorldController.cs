@@ -27,6 +27,14 @@ public class OverWorldController : MonoBehaviour {
         get { return buyingAnItem; }
     }
 
+    public bool IsPaused
+    {
+        get
+        {
+            return isPaused;
+        }
+    }
+
     public TextBoxController textBoxController;
     public TextBoxController inventoryTextController;
     public TextBoxController storeTextController;
@@ -37,7 +45,7 @@ public class OverWorldController : MonoBehaviour {
     private GameObject storeMenu;
 	private GameObject nameMenu;
 
-    
+    private bool isPaused;
     /**
 * put everything you want to happen when the FIRST scene is loaded
 * */
@@ -56,6 +64,7 @@ public class OverWorldController : MonoBehaviour {
             SceneManager.sceneLoaded += SceneManager_sceneLoaded;
             characters = new C5.HashSet<Character>();
             conversationState = false;
+            isPaused = false;
 
         }
     }
@@ -113,6 +122,7 @@ public class OverWorldController : MonoBehaviour {
             equipMenu.SetActive(!equipMenu.activeSelf);
             inventoryTextController.setText(inventory.ToString());
             equipBoxController.setText(inventory.ToStringInventory());
+            isPaused = !isPaused;
         }
     }
     public IItem getItemByName(string name)

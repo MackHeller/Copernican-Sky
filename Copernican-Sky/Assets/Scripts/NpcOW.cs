@@ -18,7 +18,7 @@ public class NpcOW : MonoBehaviour
     
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.name == "Hero")
+        if (collision.gameObject.name == "Hero" && !overWorldController.IsPaused)
         {
             overWorldController.beginConversation(characterName);
             talking = true;

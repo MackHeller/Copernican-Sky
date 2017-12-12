@@ -13,6 +13,7 @@ public class heroOW : MonoBehaviour {
 	public Sprite usprite;
 	public Sprite dsprite;
 	public Animator animator;
+    private OverWorldController overWorldController;
 
 	private SpriteRenderer spriteRenderer;
     //variables for tracking 8 directions of movement
@@ -29,12 +30,16 @@ public class heroOW : MonoBehaviour {
         rb = GetComponent<Rigidbody2D>();
 		spriteRenderer = GetComponent<SpriteRenderer>();
 		animator = GetComponent<Animator>();
+        overWorldController = GameObject.Find("GameController").GetComponent<OverWorldController>();
     }
 
 	//Note, FixedUpdate is called based on physics frames, indepent of ingame frame rate, which can vary
 	//It should be used with any physics engine related functions
 	void FixedUpdate(){
-		takeStep();
+        if (!overWorldController.IsPaused)
+        {
+            takeStep();
+        }
 	}
 
     //Simple movement code, will probably need to be updated at some point
@@ -76,66 +81,7 @@ public class heroOW : MonoBehaviour {
 		animator.SetBool ("Walk Down", goingdown);
 		animator.SetBool ("Walk Right", goingright);
 		animator.SetBool ("Walk Left", goingleft);
-
-		//changesprite();
+        
     }
-
-	private void changesprite()
-	{
-		if (goingup && !goingdown) {
-			
-			//spriteRenderer.sprite = usprite;
-
-			if (goingright && !goingleft)
-			{
-				//up and right
-			}
-			else if (!goingright && goingleft)
-			{
-				//up and left
-			}
-			else if (!goingright && !goingleft)
-			{
-				//up
-			}
-		}
-		else if (!goingup && goingdown){
-
-			//spriteRenderer.sprite = dsprite;
-
-			if (goingright && !goingleft)
-			{
-				//down and right
-			}
-			else if (!goingright && goingleft)
-			{
-				//down and left
-			}
-			else if (!goingright && !goingleft)
-			{
-				//down
-			}
-		}
-		else if (!goingup && !goingdown){
-			if (goingright && !goingleft)
-			{
-				
-				//spriteRenderer.sprite = rsprite;
-
-				//right
-			}
-			else if (!goingright && goingleft)
-			{
-
-				//spriteRenderer.sprite = lsprite;
-
-				//left
-			}
-			else if (!goingright && !goingleft)
-			{
-				//not moving
-			}
-		}
-	}
 		
 }

@@ -14,10 +14,13 @@ public class NpcMovement : MonoBehaviour
     private bool moving = true;
     public Animator animator;
     private Direction currentDir = Direction.STOP;
+    private OverWorldController overWorldController;
+    
     // Use this for initialization
 
     void Start()
     {
+        overWorldController = GameObject.Find("GameController").GetComponent<OverWorldController>();
         if (pattern != "nevermove")
         {
             animator = GetComponent<Animator>();
@@ -27,7 +30,7 @@ public class NpcMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (pattern != "nevermove") {
+        if (pattern != "nevermove" && !overWorldController.IsPaused) {
             animator.SetBool("Walk Right", false);
             animator.SetBool("Walk Left", false);
             animator.SetBool("Walk Up", false);
