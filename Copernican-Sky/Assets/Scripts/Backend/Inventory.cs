@@ -1,13 +1,6 @@
 ﻿using C5;
 using UnityEngine;
 
-public enum EquipSlot
-{
-    //weapons
-    LEFT_HAND, RIGHT_HAND,
-    //clothes 
-    HEAD, BODY_TOP, BODY_BOT, IMPLANT
-}
 
 /**
  * inventory class. Holds items that the player collects overtime
@@ -52,15 +45,35 @@ public class Inventory {
 
     public IItem getEquipSlot(EquipSlot slot)
     {
-        if (slotEquiped(slot) && hasItem(equiped[slot]) != null && inventory[equiped[slot]] >0) {
-            return equiped[slot]; 
+        //if you have an equipment in that slot and you own that equipment
+        if (slotEquiped(slot)) {
+            if (hasItem(equiped[slot]) != null && inventory[equiped[slot]] > 0)
+            {
+                return equiped[slot];
+            }
+            //if you have that item equiped and you dont own the item 
+            emptyItemSlot(slot);
         }
         return null;
+    }
+    public bool emptyItemSlot(EquipSlot slot)
+    {
+        //if items in bag
+        if (slotEquiped(slot))
+        {
+            equiped.Remove(slot);
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     public bool setEquipSlot(EquipSlot slot, IItem item)
     {
-        if (hasItem(equiped[slot]) != null && inventory[equiped[slot]] > 0)
+        //if the item goes in that slot and you have more then 1 of that item
+        if ((EquipSlot)item.getIntValue("equipSlot") == slot && hasItem(equiped[slot]) != null && inventory[equiped[slot]] > 0)
         {
             equiped[slot] = item;
             return true;
@@ -198,5 +211,11 @@ public class Inventory {
             words = words + item.Key.ToString()+"   "+item.Value+"\n";
         }
         return words;
+    }
+
+    public string ToStringInventory()
+    {
+        string words = "";
+        for
     }
 }

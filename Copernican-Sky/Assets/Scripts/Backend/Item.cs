@@ -10,8 +10,17 @@ public enum EquipmentType
     //weapons
     CLUB, SPEAR, PISTOL, SHOTGUN, RIFLE, TASOR,
     //clothes 
-    HELMET, CHEST, PANTS
+    HELEMET, ARMOUR, SHIRT, PANTS, IMPLANT, CAPE
 }
+
+public enum EquipSlot
+{
+    //weapons
+    HAND,
+    //clothes 
+    HEAD, BODY_TOP, BODY_BOT, IMPLANT
+}
+
 
 //abstract class the represents all types of items (currently Equipment and KeyItem)
 public abstract class IItem
@@ -42,7 +51,7 @@ public abstract class IItem
     {
         switch (name) {
             case "Wooden Sword":
-                return new Equipment(name, 2, 10, 20, ItemClass.F, EquipmentType.CLUB);
+                return new Equipment(name, 2, 10, 20, ItemClass.F, EquipmentType.CLUB, EquipSlot.HAND);
             case "Coin":
                 return new KeyItem(name, 0.0, 1, 1, 0, 0);
             case "Aunt May's Cookies":
@@ -50,7 +59,7 @@ public abstract class IItem
             case "Key":
                 return new KeyItem(name, 0.1, 0, 0, 0, 1);
             case "Gleeman Cloak":
-                return new Equipment(name, 1.5, 5, 100, ItemClass.F, EquipmentType.CHEST);
+                return new Equipment(name, 1.5, 5, 100, ItemClass.F, EquipmentType.CAPE, EquipSlot.IMPLANT);
             default:
                 throw new System.Exception("Item not found: "+name);
         }
@@ -65,11 +74,12 @@ public abstract class IItem
     private class Equipment : IItem
     {
         protected EquipmentType equipmentType;
+        protected EquipSlot equipSlot;
         protected int baseValue;
         protected int scalingValue;
         //combat
         //sword, axe, spear,
-        public Equipment(string itemName, double weight, int sellPrice, int buyPrice, ItemClass itemClass, EquipmentType equipmentType)
+        public Equipment(string itemName, double weight, int sellPrice, int buyPrice, ItemClass itemClass, EquipmentType equipmentType, EquipSlot equipSlot)
         {
             this.weight = weight;
             this.itemName = itemName;
@@ -77,6 +87,7 @@ public abstract class IItem
             this.buyPrice = buyPrice;
             this.itemClass = itemClass;
             this.equipmentType = equipmentType;
+            this.equipSlot = equipSlot;
             //TODO math to set these values. These are DUMMY VALUES
             baseValue = 100;
             scalingValue = 100;
@@ -95,6 +106,8 @@ public abstract class IItem
             {
                 case "equipmentType":
                     return (int)equipmentType;
+                case "equipSlot":
+                    return (int)equipSlot;
                 case "baseValue":
                     return baseValue;
                 case "scalingValue":
