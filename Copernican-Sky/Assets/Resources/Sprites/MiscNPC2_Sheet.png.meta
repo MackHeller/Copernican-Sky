@@ -1,29 +1,29 @@
 fileFormatVersion: 2
-guid: cf16773bf5feb2b458b6934e23e90e88
-timeCreated: 1506652496
+guid: 3c07d2956c92dda4d89743654fc46e4c
+timeCreated: 1513109672
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Aiva_Sheet_0
-    21300002: Aiva_Sheet_1
-    21300004: Aiva_Sheet_2
-    21300006: Aiva_Sheet_3
-    21300008: Aiva_Sheet_4
-    21300010: Aiva_Sheet_5
-    21300012: Aiva_Sheet_6
-    21300014: Aiva_Sheet_7
-    21300016: Aiva_Sheet_8
-    21300018: Aiva_Sheet_9
-    21300020: Aiva_Sheet_10
-    21300022: Aiva_Sheet_11
-    21300024: Aiva_Sheet_12
-    21300026: Aiva_Sheet_13
-    21300028: Aiva_Sheet_14
-    21300030: Aiva_Sheet_15
-    21300032: Aiva_Sheet_16
-    21300034: Aiva_Sheet_17
-    21300036: Aiva_Sheet_18
-    21300038: Aiva_Sheet_19
+    21300000: L0
+    21300002: L1
+    21300004: L2
+    21300006: L3
+    21300008: L4
+    21300010: R0
+    21300012: R1
+    21300014: R2
+    21300016: R3
+    21300018: R4
+    21300020: U0
+    21300022: U1
+    21300024: U2
+    21300026: U3
+    21300028: U4
+    21300030: D0
+    21300032: D1
+    21300034: D2
+    21300036: D3
+    21300038: D4
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -106,7 +106,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Aiva_Sheet_0
+      name: L0
       rect:
         serializedVersion: 2
         x: 0
@@ -119,7 +119,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Aiva_Sheet_1
+      name: L1
       rect:
         serializedVersion: 2
         x: 16
@@ -132,7 +132,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Aiva_Sheet_2
+      name: L2
       rect:
         serializedVersion: 2
         x: 32
@@ -145,7 +145,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Aiva_Sheet_3
+      name: L3
       rect:
         serializedVersion: 2
         x: 48
@@ -158,7 +158,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Aiva_Sheet_4
+      name: L4
       rect:
         serializedVersion: 2
         x: 64
@@ -171,7 +171,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Aiva_Sheet_5
+      name: R0
       rect:
         serializedVersion: 2
         x: 0
@@ -184,7 +184,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Aiva_Sheet_6
+      name: R1
       rect:
         serializedVersion: 2
         x: 16
@@ -197,7 +197,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Aiva_Sheet_7
+      name: R2
       rect:
         serializedVersion: 2
         x: 32
@@ -210,7 +210,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Aiva_Sheet_8
+      name: R3
       rect:
         serializedVersion: 2
         x: 48
@@ -223,7 +223,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Aiva_Sheet_9
+      name: R4
       rect:
         serializedVersion: 2
         x: 64
@@ -236,7 +236,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Aiva_Sheet_10
+      name: U0
       rect:
         serializedVersion: 2
         x: 0
@@ -249,7 +249,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Aiva_Sheet_11
+      name: U1
       rect:
         serializedVersion: 2
         x: 16
@@ -262,7 +262,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Aiva_Sheet_12
+      name: U2
       rect:
         serializedVersion: 2
         x: 32
@@ -275,7 +275,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Aiva_Sheet_13
+      name: U3
       rect:
         serializedVersion: 2
         x: 48
@@ -288,7 +288,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Aiva_Sheet_14
+      name: U4
       rect:
         serializedVersion: 2
         x: 64
@@ -301,7 +301,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Aiva_Sheet_15
+      name: D0
       rect:
         serializedVersion: 2
         x: 0
@@ -314,7 +314,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Aiva_Sheet_16
+      name: D1
       rect:
         serializedVersion: 2
         x: 16
@@ -327,7 +327,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Aiva_Sheet_17
+      name: D2
       rect:
         serializedVersion: 2
         x: 32
@@ -340,7 +340,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Aiva_Sheet_18
+      name: D3
       rect:
         serializedVersion: 2
         x: 48
@@ -353,7 +353,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Aiva_Sheet_19
+      name: D4
       rect:
         serializedVersion: 2
         x: 64
