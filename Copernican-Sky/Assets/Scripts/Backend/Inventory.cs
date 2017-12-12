@@ -16,7 +16,7 @@ public class Inventory {
     private int carryCapacity;
     //how much you are carrying
     private double currentWeight;
-
+    public bool currentlySelected;
     public Inventory(int carryCapacity)
     {
         inventory = new HashDictionary<IItem, int>();
@@ -69,7 +69,10 @@ public class Inventory {
             return false;
         }
     }
-
+    public bool setEquipSlot(IItem item)
+    {
+        return setEquipSlot((EquipSlot)item.getIntValue("equipSlot"), item);
+    }
     public bool setEquipSlot(EquipSlot slot, IItem item)
     {
         //if the item goes in that slot and you have more then 1 of that item
