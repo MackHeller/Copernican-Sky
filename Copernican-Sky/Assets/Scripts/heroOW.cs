@@ -102,6 +102,14 @@ public class HeroOW : MonoBehaviour {
         {
             overWorldController.equipItem();
         }
+        if (Input.GetKey(KeyCode.D))
+        {
+            overWorldController.TogglePerks = true;
+        }
+        if (Input.GetKey(KeyCode.A))
+        {
+            overWorldController.TogglePerks = false;
+        }
         overWorldController.updateInventoryField();
     }
 		

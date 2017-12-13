@@ -292,7 +292,7 @@ public class Inventory {
         return words;
     }
 
-    public string ToStringInventory()
+    public string ToStringEquip()
     {
         string words = "";
         foreach (KeyValuePair<EquipSlot,IItem> item in equiped)

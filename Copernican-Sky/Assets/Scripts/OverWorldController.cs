@@ -10,6 +10,7 @@ using UnityEngine.SceneManagement;
 /// </summary>
 public class OverWorldController : MonoBehaviour {
     private Inventory inventory;
+    private Inventory perks;
     private int carryCapacity;
     
     private C5.HashSet<Character> characters;
@@ -43,6 +44,19 @@ public class OverWorldController : MonoBehaviour {
         }
     }
 
+    public bool TogglePerks
+    {
+        get
+        {
+            return togglePerks;
+        }
+
+        set
+        {
+            togglePerks = value;
+        }
+    }
+
     public TextBoxController textBoxController;
     public TextBoxController inventoryTextController;
     public TextBoxController storeTextController;
@@ -55,6 +69,7 @@ public class OverWorldController : MonoBehaviour {
 
     private bool isPaused;
     private bool inInventory;
+    private bool togglePerks;
     /**
 * put everything you want to happen when the FIRST scene is loaded
 * */
@@ -70,12 +85,13 @@ public class OverWorldController : MonoBehaviour {
             //TODO non-dummy value
             carryCapacity = 10;
             inventory = new Inventory(carryCapacity);
+            perks = new Inventory(carryCapacity);
             SceneManager.sceneLoaded += SceneManager_sceneLoaded;
             characters = new C5.HashSet<Character>();
             conversationState = false;
             isPaused = false;
             inInventory = false;
-
+            togglePerks = false;
         }
     }
     /*
@@ -131,7 +147,6 @@ public class OverWorldController : MonoBehaviour {
             itemMenu.SetActive(!itemMenu.activeSelf);
             equipMenu.SetActive(!equipMenu.activeSelf);
             updateInventoryField();
-            equipBoxController.setText(inventory.ToStringInventory());
             isPaused = !isPaused;
             inInventory = !inInventory;
         }
@@ -140,24 +155,34 @@ public class OverWorldController : MonoBehaviour {
     {
         return inventory.buildItem(name);
     }
-
+    public Inventory getCurrentInventory()
+    {
+        if (togglePerks)
+        {
+            return perks;
+        }else
+        {
+            return inventory;
+        }
+    }
     public void updateInventoryField()
     {
-        inventoryTextController.setText(inventory.ToString());
+            inventoryTextController.setText(getCurrentInventory().ToString());
+            equipBoxController.setText(getCurrentInventory().ToStringEquip());
     }
 
     public void moveItemSelectUp()
     {
-        inventory.CurrentlySelected = inventory.getPreviousItem(inventory.CurrentlySelected);
+        getCurrentInventory().CurrentlySelected = getCurrentInventory().getPreviousItem(getCurrentInventory().CurrentlySelected);
     }
     public void moveItemSelectDown()
     {
-        inventory.CurrentlySelected = inventory.getNextItem(inventory.CurrentlySelected);
+        getCurrentInventory().CurrentlySelected = getCurrentInventory().getNextItem(getCurrentInventory().CurrentlySelected);
     }
     public void equipItem()
     {
-        inventory.setEquipSlot(inventory.CurrentlySelected);
-        equipBoxController.setText(inventory.ToStringInventory());
+        getCurrentInventory().setEquipSlot(getCurrentInventory().CurrentlySelected);
+        equipBoxController.setText(getCurrentInventory().ToStringEquip());
     }
 
     //end item stuff
@@ -186,7 +211,8 @@ public class OverWorldController : MonoBehaviour {
 		//make the characters name pop up
 		nameMenu.SetActive(true);
 		nameTextController.setText (characterName);
-
+        //not looking at perks
+        togglePerks = false;
         textBoxController.setText(currentChar.conversationTree.startConversation().Text);
         currentChar.checkAlterCharacters(ref characters);
 
