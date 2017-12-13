@@ -35,6 +35,14 @@ public class OverWorldController : MonoBehaviour {
         }
     }
 
+    public bool InInventory
+    {
+        get
+        {
+            return inInventory;
+        }
+    }
+
     public TextBoxController textBoxController;
     public TextBoxController inventoryTextController;
     public TextBoxController storeTextController;
@@ -46,6 +54,7 @@ public class OverWorldController : MonoBehaviour {
 	private GameObject nameMenu;
 
     private bool isPaused;
+    private bool inInventory;
     /**
 * put everything you want to happen when the FIRST scene is loaded
 * */
@@ -65,6 +74,7 @@ public class OverWorldController : MonoBehaviour {
             characters = new C5.HashSet<Character>();
             conversationState = false;
             isPaused = false;
+            inInventory = false;
 
         }
     }
@@ -84,7 +94,7 @@ public class OverWorldController : MonoBehaviour {
         inventoryTextController =  (TextBoxController)GameObject.Find("ItemText").GetComponent(typeof(TextBoxController));
 		nameTextController =  (TextBoxController)GameObject.Find("NameText").GetComponent(typeof(TextBoxController));
 
-        inventoryTextController.setText(inventory.ToString());
+        updateInventoryField();
         itemMenu.SetActive(!itemMenu.activeSelf);
         equipMenu.SetActive(!equipMenu.activeSelf);
         storeMenu.SetActive(!storeMenu.activeSelf);
@@ -120,9 +130,10 @@ public class OverWorldController : MonoBehaviour {
         {
             itemMenu.SetActive(!itemMenu.activeSelf);
             equipMenu.SetActive(!equipMenu.activeSelf);
-            inventoryTextController.setText(inventory.ToString());
+            updateInventoryField();
             equipBoxController.setText(inventory.ToStringInventory());
             isPaused = !isPaused;
+            inInventory = !inInventory;
         }
     }
     public IItem getItemByName(string name)
@@ -130,12 +141,26 @@ public class OverWorldController : MonoBehaviour {
         return inventory.buildItem(name);
     }
 
+    public void updateInventoryField()
+    {
+        inventoryTextController.setText(inventory.ToString());
+    }
+
+    public void moveItemSelectUp()
+    {
+        inventory.CurrentlySelected = inventory.getPreviousItem(inventory.CurrentlySelected);
+    }
+    public void moveItemSelectDown()
+    {
+        inventory.CurrentlySelected = inventory.getNextItem(inventory.CurrentlySelected);
+    }
+
     //end item stuff
     //////////////////////////////
 
     //////////////////////////////
     //character stuff
-    
+
     public Character getCharacterOrAdd(string characterName)
     {
         foreach (Character ch in characters)
@@ -189,7 +214,7 @@ public class OverWorldController : MonoBehaviour {
             storeTextController.setText(words);
             buyingAnItem = true;
             itemMenu.SetActive(true);
-            inventoryTextController.setText(inventory.ToString());
+            updateInventoryField();
         }
         else//A conversation
         {
@@ -253,7 +278,7 @@ public class OverWorldController : MonoBehaviour {
                 }
                 currentChar.checkModifyInventory(ref inventory);
                 currentChar.checkAlterCharacters(ref characters);
-                inventoryTextController.setText(inventory.ToString());
+                updateInventoryField();
 
             }
             else

@@ -16,7 +16,8 @@ public class Inventory {
     private int carryCapacity;
     //how much you are carrying
     private double currentWeight;
-    public bool currentlySelected;
+    //what item is currently highlighted by the player
+    private IItem currentlySelected = null;
     public Inventory(int carryCapacity)
     {
         inventory = new HashDictionary<IItem, int>();
@@ -40,6 +41,19 @@ public class Inventory {
         get
         {
             return carryCapacity;
+        }
+    }
+
+    public IItem CurrentlySelected
+    {
+        get
+        {
+            return currentlySelected;
+        }
+
+        set
+        {
+            currentlySelected = value;
         }
     }
 
@@ -111,6 +125,10 @@ public class Inventory {
             else // else make a new entry
             {
                 inventory.Add(itemToAdd, amount);
+                if(currentlySelected == null)
+                {
+                    currentlySelected = itemToAdd;
+                }
             }
             currentWeight = CurrentWeight + itemToAdd.Weight * amount;
             return true;
@@ -145,6 +163,10 @@ public class Inventory {
             if (amount == inventory[itemToRemove])
             {
                 inventory.Remove(itemToRemove);
+                if(itemToRemove == currentlySelected)
+                {
+                    currentlySelected = null;
+                }
             }
             else
             {
@@ -205,12 +227,59 @@ public class Inventory {
         }
         return item;
     }
+    //gets the next item, if there is no next returns same item
+    public IItem getNextItem(IItem item)
+    {
+        bool foundItem = false;
+        foreach (KeyValuePair<IItem, int> itemPair in inventory)
+        {
+            if (foundItem)
+            {
+                return itemPair.Key;
+            }
+            if(itemPair.Key == item)
+            {
+                foundItem = true;
+            }
+        }
+        if (foundItem)
+        {
+            return item;
+        }
+        else
+        {
+            return null;
+        }
+    }
+    //gets the previous item, if there is no previous returns same item
+    public IItem getPreviousItem(IItem item)
+    {
+        IItem lastItem = item;
+        foreach (KeyValuePair<IItem, int> itemPair in inventory)
+        {
+            if (itemPair.Key == item)
+            {
+                return lastItem;
+            }
+            lastItem = itemPair.Key;
+        }
+        return null;
+    }
 
     public override string ToString()
     {
         string words = "";
         foreach (KeyValuePair<IItem, int> item in inventory)
         {
+            //set selected indicator
+            if (item.Key == currentlySelected)
+            {
+                words = words + "-> ";
+            }
+            else
+            {
+                words = words + "  ";
+            }
             words = words + item.Key.ToString()+"   "+item.Value+"\n";
         }
         return words;

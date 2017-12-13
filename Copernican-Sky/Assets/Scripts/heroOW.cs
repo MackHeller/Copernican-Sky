@@ -40,6 +40,10 @@ public class heroOW : MonoBehaviour {
         {
             takeStep();
         }
+        else if (overWorldController.InInventory)
+        {
+            navigateInventory();
+        }
 	}
 
     //Simple movement code, will probably need to be updated at some point
@@ -82,6 +86,19 @@ public class heroOW : MonoBehaviour {
 		animator.SetBool ("Walk Right", goingright);
 		animator.SetBool ("Walk Left", goingleft);
         
+    }
+
+    private void navigateInventory()
+    {
+        if (Input.GetKey(KeyCode.W))
+        {
+            overWorldController.moveItemSelectUp();
+        }
+        if (Input.GetKey(KeyCode.S))
+        {
+            overWorldController.moveItemSelectDown();
+        }
+        overWorldController.updateInventoryField();
     }
 		
 }
