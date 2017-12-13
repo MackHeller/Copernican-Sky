@@ -5047,7 +5047,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000012368394838, guid: 187612d979cf38343ac5819f054c53b6, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 212000013551815398, guid: 187612d979cf38343ac5819f054c53b6,
         type: 2}
@@ -5055,6 +5055,11 @@ Prefab:
       value: 
       objectReference: {fileID: 21300000, guid: f4c9655371d2eb4498b8e3cd534efa0d,
         type: 3}
+    - target: {fileID: 114000012672140152, guid: 187612d979cf38343ac5819f054c53b6,
+        type: 2}
+      propertyPath: sceneToTravelTo
+      value: shiproom2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 187612d979cf38343ac5819f054c53b6, type: 2}
   m_IsPrefabParent: 0
@@ -6504,7 +6509,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000012248254490, guid: 45308ee12847b844a9f03ade3afe1d7f, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 45308ee12847b844a9f03ade3afe1d7f, type: 2}
@@ -6893,7 +6898,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4635019842205682, guid: 0d10108c2bca0434dbadcc98f20a4ebd, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 114669709069272252, guid: 0d10108c2bca0434dbadcc98f20a4ebd,
         type: 2}
@@ -10700,7 +10705,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1208632304
 GameObject:
@@ -11871,7 +11876,7 @@ Transform:
   m_Children:
   - {fileID: 1104363057}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1328817023
 MonoBehaviour:
