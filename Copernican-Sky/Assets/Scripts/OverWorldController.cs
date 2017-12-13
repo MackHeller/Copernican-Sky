@@ -12,6 +12,7 @@ public class OverWorldController : MonoBehaviour {
     private Inventory inventory;
     private Inventory perks;
     private int carryCapacity;
+    private int perkEquipLimit;
     
     private C5.HashSet<Character> characters;
     private Character currentChar;
@@ -132,7 +133,7 @@ public class OverWorldController : MonoBehaviour {
         {
             text = "You found " + amount + " " + itemToAdd.ItemName + "!\n";
         }
-        if (!inventory.addItem(itemToAdd, amount)) 
+        if (!getCurrentInventory().addItem(itemToAdd, amount)) 
         {
             text = text + "Not enough Room in your inventory!";
         }

@@ -22,6 +22,10 @@ public class ItemOW : MonoBehaviour
             if(altSprite != spriteRenderer.sprite)
             {
 				spriteRenderer.sprite = altSprite;
+                overWorldController.TogglePerks = true;
+                overWorldController.addItemToInventory(overWorldController.getItemByName("Mildmannered"), 1);
+                overWorldController.addItemToInventory(overWorldController.getItemByName("Wildwoman"), 1);
+                overWorldController.TogglePerks = false;
                 overWorldController.addItemToInventory(overWorldController.getItemByName(itemName), amount);
             }
         }

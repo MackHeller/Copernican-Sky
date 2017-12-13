@@ -4,7 +4,7 @@ using System;
 
 public enum ItemClass
 {
-    F, E, D, C, B, A, S, K //k for key item
+    F, E, D, C, B, A, S, K ,P//k for key item P for perk
 }
 //type is what kind of an item an item is
 public enum EquipmentType
@@ -17,10 +17,14 @@ public enum EquipmentType
 
 public enum EquipSlot
 {
+    //perks 
+    P1, P2, P3, P4, P5,
     //weapons
     HAND,
     //clothes 
     HEAD, BODY_TOP, BODY_BOT, IMPLANT
+    
+
 }
 
 
@@ -64,8 +68,10 @@ public abstract class IItem
                 return new Equipment(name, 1.5, 5, 100, ItemClass.F, EquipmentType.CAPE, EquipSlot.IMPLANT);
             case "IPlant":
                 return new Equipment(name, 1.5, 5, 10, ItemClass.F, EquipmentType.IMPLANT, EquipSlot.IMPLANT);
-            case "Dev":
-                return new Equipment(name, 1.5, 5, 100, ItemClass.F, EquipmentType.CAPE, EquipSlot.IMPLANT);
+            case "Wildwoman":
+                return new Perk(name, EquipSlot.P1);
+            case "Mildmannered":
+                return new Perk(name, EquipSlot.P1);
             default:
                 throw new System.Exception("Item not found: "+name);
         }
@@ -74,6 +80,10 @@ public abstract class IItem
     public static bool isEquipment(IItem item)
     {
         return Object.ReferenceEquals(item.GetType(), typeof(Equipment));
+    }
+    public static bool isPerk(IItem item)
+    {
+        return Object.ReferenceEquals(item.GetType(), typeof(Perk));
     }
 
     //abstract methods
@@ -130,6 +140,44 @@ public abstract class IItem
         public override string ToString()
         {
             string words = this.ItemName+" "+this.ItemClass+" "+this.Weight;
+            return words;
+        }
+    }
+
+    /**
+    * object for equipable objects such as clothes and weapons
+    * */
+    private class Perk : IItem
+    {
+        protected EquipSlot equipSlot;
+        public Perk(string itemName,EquipSlot equipSlot)
+        {
+            this.itemName = itemName;
+            this.equipSlot = equipSlot;
+            this.weight = 0;
+            this.sellPrice = 0;
+            this.buyPrice = 0;
+            this.itemClass = ItemClass.P;
+        }
+        /*  
+         *  getters specific to equiment
+         *  @param  value   the name of the item you want 
+         *                  currently "equipmentType" or "baseValue" or "scalingValue"
+         *  @return         the value you requested                  
+         * */
+        override public int getIntValue(string value)
+        {
+            switch (value)
+            {
+                case "equipSlot":
+                    return (int)equipSlot;
+                default:
+                    throw new System.Exception();
+            }
+        }
+        public override string ToString()
+        {
+            string words = "Perk: "+this.ItemName;
             return words;
         }
     }

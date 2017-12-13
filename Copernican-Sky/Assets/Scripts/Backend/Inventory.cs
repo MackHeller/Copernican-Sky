@@ -18,6 +18,8 @@ public class Inventory {
     private double currentWeight;
     //what item is currently highlighted by the player
     private IItem currentlySelected = null;
+
+    private int perkLimit;
     public Inventory(int carryCapacity)
     {
         inventory = new HashDictionary<IItem, int>();
@@ -57,6 +59,19 @@ public class Inventory {
         }
     }
 
+    public int PerkLimit
+    {
+        get
+        {
+            return perkLimit;
+        }
+
+        set
+        {
+            perkLimit = value;
+        }
+    }
+
     public IItem getEquipSlot(EquipSlot slot)
     {
         //if you have an equipment in that slot and you own that equipment
@@ -85,19 +100,21 @@ public class Inventory {
     }
     public bool setEquipSlot(IItem item)
     {
-        if (IItem.isEquipment(item))
-        {
+        if (IItem.isPerk(item) || IItem.isEquipment(item))
             return setEquipSlot((EquipSlot)item.getIntValue("equipSlot"), item);
-        }
-        else
-        {
-            return false;
-        }
+        return false;
     }
     public bool setEquipSlot(EquipSlot slot, IItem item)
     {
+        //if this is a perk
+        if (IItem.isPerk(item) && (EquipSlot)item.getIntValue("equipSlot") == EquipSlot.P1 && hasItem(item) != null && inventory[item] > 0)
+        {
+            //TODO add perks correctly
+            equiped[slot] = item;
+            return true;
+        }
         //if the item goes in that slot and you have more then 1 of that item
-        if (IItem.isEquipment(item)  && (EquipSlot)item.getIntValue("equipSlot") == slot && hasItem(item) != null && inventory[item] > 0)
+        else if (IItem.isEquipment(item)  && (EquipSlot)item.getIntValue("equipSlot") == slot && hasItem(item) != null && inventory[item] > 0)
         {
             equiped[slot] = item;
             return true;
