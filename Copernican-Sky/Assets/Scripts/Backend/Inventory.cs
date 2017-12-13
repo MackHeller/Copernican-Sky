@@ -85,12 +85,19 @@ public class Inventory {
     }
     public bool setEquipSlot(IItem item)
     {
-        return setEquipSlot((EquipSlot)item.getIntValue("equipSlot"), item);
+        if (IItem.isEquipment(item))
+        {
+            return setEquipSlot((EquipSlot)item.getIntValue("equipSlot"), item);
+        }
+        else
+        {
+            return false;
+        }
     }
     public bool setEquipSlot(EquipSlot slot, IItem item)
     {
         //if the item goes in that slot and you have more then 1 of that item
-        if ((EquipSlot)item.getIntValue("equipSlot") == slot && hasItem(equiped[slot]) != null && inventory[equiped[slot]] > 0)
+        if (IItem.isEquipment(item)  && (EquipSlot)item.getIntValue("equipSlot") == slot && hasItem(item) != null && inventory[item] > 0)
         {
             equiped[slot] = item;
             return true;

@@ -98,6 +98,10 @@ public class heroOW : MonoBehaviour {
         {
             overWorldController.moveItemSelectDown();
         }
+        if (Input.GetKey(KeyCode.E))
+        {
+            overWorldController.equipItem();
+        }
         overWorldController.updateInventoryField();
     }
 		
