@@ -8,6 +8,8 @@ TagManager:
   - NPC
   - Wall
   - Floor
+  - Front Wall
+  - Projectile
   layers:
   - Default
   - TransparentFX
@@ -19,9 +21,9 @@ TagManager:
   - 
   - NPC
   - Player
+  - Walls
   - 
-  - 
-  - 
+  - Projectiles
   - 
   - 
   - 
