@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 /*
  * holds functions and properties for the overworld character object. Properties that are character specific can
