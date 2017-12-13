@@ -20,11 +20,12 @@
 		{
 			"id": 1,
 			"text": "You better have money"  ,
-			"optId": [1,1,5],
+			"optId": [1,1,1,5],
 			"optText": 
 			[
 				"Wooden Sword",
 				"Aunt May's Cookies",
+				"IPlant",
 				"Done Shopping"
 			]
 		},

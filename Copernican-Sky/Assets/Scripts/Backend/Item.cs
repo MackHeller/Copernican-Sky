@@ -62,6 +62,8 @@ public abstract class IItem
                 return new KeyItem(name, 0.1, 0, 0, 0, 1);
             case "Gleeman Cloak":
                 return new Equipment(name, 1.5, 5, 100, ItemClass.F, EquipmentType.CAPE, EquipSlot.IMPLANT);
+            case "IPlant":
+                return new Equipment(name, 1.5, 5, 10, ItemClass.F, EquipmentType.IMPLANT, EquipSlot.IMPLANT);
             case "Dev":
                 return new Equipment(name, 1.5, 5, 100, ItemClass.F, EquipmentType.CAPE, EquipSlot.IMPLANT);
             default:
