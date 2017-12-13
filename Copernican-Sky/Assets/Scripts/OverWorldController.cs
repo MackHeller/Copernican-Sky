@@ -154,6 +154,11 @@ public class OverWorldController : MonoBehaviour {
     {
         inventory.CurrentlySelected = inventory.getNextItem(inventory.CurrentlySelected);
     }
+    public void equipItem()
+    {
+        inventory.setEquipSlot(inventory.CurrentlySelected);
+        equipBoxController.setText(inventory.ToStringInventory());
+    }
 
     //end item stuff
     //////////////////////////////

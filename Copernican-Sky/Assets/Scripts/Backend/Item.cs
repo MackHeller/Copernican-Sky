@@ -1,5 +1,7 @@
 ﻿//item enums (hover over to see real value, if using MicroSoft visual studio)
 //class is how good an item is 
+using System;
+
 public enum ItemClass
 {
     F, E, D, C, B, A, S, K //k for key item
@@ -60,9 +62,16 @@ public abstract class IItem
                 return new KeyItem(name, 0.1, 0, 0, 0, 1);
             case "Gleeman Cloak":
                 return new Equipment(name, 1.5, 5, 100, ItemClass.F, EquipmentType.CAPE, EquipSlot.IMPLANT);
+            case "Dev":
+                return new Equipment(name, 1.5, 5, 100, ItemClass.F, EquipmentType.CAPE, EquipSlot.IMPLANT);
             default:
                 throw new System.Exception("Item not found: "+name);
         }
+    }
+
+    public static bool isEquipment(IItem item)
+    {
+        return Object.ReferenceEquals(item.GetType(), typeof(Equipment));
     }
 
     //abstract methods
