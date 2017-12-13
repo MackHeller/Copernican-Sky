@@ -90,15 +90,15 @@ public class heroOW : MonoBehaviour {
 
     private void navigateInventory()
     {
-        if (Input.GetKey(KeyCode.W))
+        if (Input.GetKeyDown(KeyCode.W))
         {
             overWorldController.moveItemSelectUp();
         }
-        if (Input.GetKey(KeyCode.S))
+        if (Input.GetKeyDown(KeyCode.S))
         {
             overWorldController.moveItemSelectDown();
         }
-        if (Input.GetKey(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E))
         {
             overWorldController.equipItem();
         }
