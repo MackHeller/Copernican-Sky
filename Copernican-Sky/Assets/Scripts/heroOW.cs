@@ -4,7 +4,7 @@
  * holds functions and properties for the overworld character object. Properties that are character specific can
  * be found in HeroCB.
  * */
-public class heroOW : MonoBehaviour {
+public class HeroOW : MonoBehaviour {
 	//Public variables can be changed/set from within the Unity Editor
     public float speed = 20f;
     public Rigidbody2D rb;
