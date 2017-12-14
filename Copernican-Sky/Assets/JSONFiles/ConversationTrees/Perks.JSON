@@ -7,7 +7,7 @@
 	[
 		{
 			"id": 0,
-			"text": "Which slot do you want to add this perk to?"  ,
+			"text": "Hover over a perk and then select a slot"  ,
 			"optId": [1,2,3,4,5,-1],
 			"optText": 
 			[
@@ -22,7 +22,7 @@
 		{
 			"id": 1,
 			"text": "Added to slot 1"  ,
-			"optId": [-1],
+			"optId": [0],
 			"optText": 
 			[
 				"Done"
@@ -31,7 +31,7 @@
 		{
 			"id": 2,
 			"text": "Added to slot 2"  ,
-			"optId": [-1],
+			"optId": [0],
 			"optText": 
 			[
 				"Done"
@@ -40,7 +40,7 @@
 		{
 			"id": 3,
 			"text": "Added to slot 3"  ,
-			"optId": [-1],
+			"optId": [0],
 			"optText": 
 			[
 				"Done"
@@ -49,7 +49,7 @@
 		{
 			"id": 4,
 			"text": "Added to slot 4"  ,
-			"optId": [-1],
+			"optId": [0],
 			"optText": 
 			[
 				"Done"
@@ -58,7 +58,7 @@
 		{
 			"id": 5,
 			"text": "Added to slot 5"  ,
-			"optId": [-1],
+			"optId": [0],
 			"optText": 
 			[
 				"Done"
