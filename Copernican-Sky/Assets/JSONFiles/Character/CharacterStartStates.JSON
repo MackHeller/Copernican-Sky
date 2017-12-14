@@ -13,5 +13,10 @@
 	{
 		"start":0,
 		"blacklist":[]
+	},
+	"Perks":
+	{
+		"start":0,
+		"blacklist":[4,5]
 	}
 }

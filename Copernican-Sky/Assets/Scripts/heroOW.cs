@@ -40,7 +40,7 @@ public class HeroOW : MonoBehaviour {
         {
             takeStep();
         }
-        else if (overWorldController.InInventory)
+        else if (overWorldController.InInventory && !overWorldController.InConversation)
         {
             navigateInventory();
         }
@@ -100,7 +100,11 @@ public class HeroOW : MonoBehaviour {
         }
         if (Input.GetKeyDown(KeyCode.E))
         {
-            overWorldController.equipItem();
+            if (!overWorldController.TogglePerks)
+            {
+                Debug.Log(overWorldController.InConversation);    
+                overWorldController.equipItem();
+            }
         }
         if (Input.GetKey(KeyCode.D))
         {

@@ -58,6 +58,14 @@ public class OverWorldController : MonoBehaviour {
         }
     }
 
+    public bool InConversation
+    {
+        get
+        {
+            return inConversation;
+        }
+    }
+
     public TextBoxController textBoxController;
     public TextBoxController inventoryTextController;
     public TextBoxController storeTextController;
@@ -143,18 +151,22 @@ public class OverWorldController : MonoBehaviour {
     private void Update()
     {
         //Toggle menu
-        if (Input.GetKeyDown(KeyCode.Tab) && !inConversation)
+        if (Input.GetKeyDown(KeyCode.Tab) && !buyingAnItem)
         {
             itemMenu.SetActive(!itemMenu.activeSelf);
             equipMenu.SetActive(!equipMenu.activeSelf);
-            updateInventoryField();
-            isPaused = !isPaused;
-            inInventory = !inInventory;
+            flipInInventoryStatus();
         }
     }
     public IItem getItemByName(string name)
     {
         return inventory.buildItem(name);
+    }
+    public void flipInInventoryStatus()
+    {
+        updateInventoryField();
+        isPaused = !isPaused;
+        inInventory = !inInventory;
     }
     public Inventory getCurrentInventory()
     {
@@ -219,8 +231,6 @@ public class OverWorldController : MonoBehaviour {
 
         //close item menus and let other systems know your in  a convo
         conversationState = false;
-        itemMenu.SetActive(false);
-        equipMenu.SetActive(false);
         //set talking person to ai
         inConversation = true;
     }
@@ -236,6 +246,8 @@ public class OverWorldController : MonoBehaviour {
         //check if this is a store menu
         if (currentChar.conversationTree.isStoreMenu())
         {
+            itemMenu.SetActive(false);
+            equipMenu.SetActive(false);
             for (int i = 1; i < options.Count; i++)
             {
                 IItem shopItem = inventory.buildItem(options[i - 1]);
@@ -274,10 +286,9 @@ public class OverWorldController : MonoBehaviour {
             {
                 textBoxController.setText(newNode.Text);
                 currentChar.checkModifyInventory(ref inventory);
+                currentChar.checkModifyPerks(ref inventory);
                 currentChar.checkAlterCharacters(ref characters);
-                conversationCleanUp();
-				//make the characters name pop up
-				nameMenu.SetActive(true);
+                conversationState = false;
             }
             else if (currentNode.indexInRange(pick) && currentNode.getNewIndex(pick) == -1)//if not valid because it's the end
             {
@@ -319,9 +330,13 @@ public class OverWorldController : MonoBehaviour {
                 textBoxController.setText(newNode.Text);
                 currentChar.checkModifyInventory(ref inventory);
                 currentChar.checkAlterCharacters(ref characters);
-                conversationCleanUp();
-				//make the characters name pop up
-				nameMenu.SetActive(true);
+                storeMenu.SetActive(false);
+                itemMenu.SetActive(false);
+                equipMenu.SetActive(false);
+                buyingAnItem = false;
+                isPaused = false;
+                inInventory = false;
+                conversationState = false;
             }
         }
     }
@@ -338,8 +353,6 @@ public class OverWorldController : MonoBehaviour {
     public void conversationCleanUp()
     {
         storeMenu.SetActive(false);
-        itemMenu.SetActive(false);
-        equipMenu.SetActive(false);
         nameMenu.SetActive(false);
         conversationState = false;
         buyingAnItem = false;

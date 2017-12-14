@@ -1,0 +1,68 @@
+{
+	"name":"Perks",
+	"startIndex":0,
+	"storeIndexes":[],
+	"leaveText":"Done for Now",
+	"nodes":
+	[
+		{
+			"id": 0,
+			"text": "Which slot do you want to add this perk to?"  ,
+			"optId": [1,2,3,4,5,-1],
+			"optText": 
+			[
+				"Slot 1",
+				"Slot 2",
+				"Slot 3",
+				"Slot 4",
+				"Slot 5",
+				"Cancle"
+			]
+		},
+		{
+			"id": 1,
+			"text": "Added to slot 1"  ,
+			"optId": [-1],
+			"optText": 
+			[
+				"Done"
+			]
+		},
+		{
+			"id": 2,
+			"text": "Added to slot 2"  ,
+			"optId": [-1],
+			"optText": 
+			[
+				"Done"
+			]
+		}, 
+		{
+			"id": 3,
+			"text": "Added to slot 3"  ,
+			"optId": [-1],
+			"optText": 
+			[
+				"Done"
+			]
+		}, 
+		{
+			"id": 4,
+			"text": "Added to slot 4"  ,
+			"optId": [-1],
+			"optText": 
+			[
+				"Done"
+			]
+		}, 
+		{
+			"id": 5,
+			"text": "Added to slot 5"  ,
+			"optId": [-1],
+			"optText": 
+			[
+				"Done"
+			]
+		}
+	]
+}

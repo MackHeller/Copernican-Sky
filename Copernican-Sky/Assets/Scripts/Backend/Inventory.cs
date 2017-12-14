@@ -100,21 +100,21 @@ public class Inventory {
     }
     public bool setEquipSlot(IItem item)
     {
-        if (IItem.isPerk(item) || IItem.isEquipment(item))
+        if (item != null && (IItem.isPerk(item) || IItem.isEquipment(item)))
             return setEquipSlot((EquipSlot)item.getIntValue("equipSlot"), item);
         return false;
     }
     public bool setEquipSlot(EquipSlot slot, IItem item)
     {
         //if this is a perk
-        if (IItem.isPerk(item) && (EquipSlot)item.getIntValue("equipSlot") == EquipSlot.P1 && hasItem(item) != null && inventory[item] > 0)
+        if (item != null && IItem.isPerk(item) && (EquipSlot)item.getIntValue("equipSlot") == EquipSlot.P1 && hasItem(item) != null && inventory[item] > 0)
         {
             //TODO add perks correctly
             equiped[slot] = item;
             return true;
         }
         //if the item goes in that slot and you have more then 1 of that item
-        else if (IItem.isEquipment(item)  && (EquipSlot)item.getIntValue("equipSlot") == slot && hasItem(item) != null && inventory[item] > 0)
+        else if (item != null && IItem.isEquipment(item)  && (EquipSlot)item.getIntValue("equipSlot") == slot && hasItem(item) != null && inventory[item] > 0)
         {
             equiped[slot] = item;
             return true;
