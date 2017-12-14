@@ -40,7 +40,7 @@ public class HeroOW : MonoBehaviour {
         {
             takeStep();
         }
-        else if (overWorldController.InInventory && !overWorldController.InConversation)
+        else if (overWorldController.InInventory && !overWorldController.BuyingAnItem)
         {
             navigateInventory();
         }
@@ -90,6 +90,14 @@ public class HeroOW : MonoBehaviour {
 
     private void navigateInventory()
     {
+        if (Input.GetKeyDown(KeyCode.E) && !overWorldController.InConversation)
+        {
+            if (!overWorldController.TogglePerks)
+            {
+                Debug.Log(overWorldController.InConversation);
+                overWorldController.equipItem();
+            }
+        }
         if (Input.GetKeyDown(KeyCode.W))
         {
             overWorldController.moveItemSelectUp();
@@ -98,14 +106,7 @@ public class HeroOW : MonoBehaviour {
         {
             overWorldController.moveItemSelectDown();
         }
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            if (!overWorldController.TogglePerks)
-            {
-                Debug.Log(overWorldController.InConversation);    
-                overWorldController.equipItem();
-            }
-        }
+        
         if (Input.GetKey(KeyCode.D))
         {
             overWorldController.TogglePerks = true;
