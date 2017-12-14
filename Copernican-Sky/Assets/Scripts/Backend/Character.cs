@@ -17,8 +17,9 @@ public abstract class Character {
      * @param  inventory    the inventory to edit 
      * @return              the new version of the inventory 
      **/
-    public abstract void checkModifyInventory(ref Inventory inventory);
-    public abstract void checkAlterCharacters(ref C5.HashSet<Character> characters);
+    public virtual void checkModifyInventory(ref Inventory inventory) { }
+    public virtual void checkModifyPerks(ref Inventory inventory) { }
+    public virtual void checkAlterCharacters(ref C5.HashSet<Character> characters) { }
     public string getName()
     {
         return characterName;
@@ -33,6 +34,8 @@ public abstract class Character {
                 return new PadanFain();
             case "Cryo Pod":
                 return new CryoPod();
+            case "Perks":
+                return new Perks();
             default:
                 throw new Exception("name does not exist");
         }
@@ -122,14 +125,22 @@ public abstract class Character {
             characterName = "Cryo Pod";
             fetchData("CryoPod");
         }
+    }
 
-        public override void checkModifyInventory(ref Inventory inventory)
+    public class Perks : Character
+    {
+        public Perks()
         {
-
+            characterName = "Perks Menu";
+            fetchData("Perks");
         }
-        public override void checkAlterCharacters(ref C5.HashSet<Character> characters)
-        {
 
+        public override void checkModifyPerks(ref Inventory inventory)
+        {
+            if (conversationTree.CurrentIndex < 6 && conversationTree.CurrentIndex != 0)
+            {
+                inventory.setEquipSlot(((EquipSlot)conversationTree.CurrentIndex) - 1, inventory.CurrentlySelected);
+            }
         }
     }
 
@@ -139,11 +150,6 @@ public abstract class Character {
         {
             characterName = "Padan Fain";
             fetchData("PadanFain");
-        }
-
-        public override void checkModifyInventory(ref Inventory inventory)
-        {
-            
         }
         public override void checkAlterCharacters(ref C5.HashSet<Character> characters)
         {
