@@ -286,7 +286,7 @@ public class OverWorldController : MonoBehaviour {
             {
                 textBoxController.setText(newNode.Text);
                 currentChar.checkModifyInventory(ref inventory);
-                currentChar.checkModifyPerks(ref inventory);
+                currentChar.checkModifyPerks(ref perks);
                 currentChar.checkAlterCharacters(ref characters);
                 conversationState = false;
             }
