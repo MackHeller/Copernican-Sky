@@ -1318,8 +1318,8 @@ GameObject:
   - component: {fileID: 158872850}
   - component: {fileID: 158872849}
   - component: {fileID: 158872848}
-  - component: {fileID: 158872847}
   - component: {fileID: 158872846}
+  - component: {fileID: 158872847}
   m_Layer: 8
   m_Name: Perks
   m_TagString: NPC
@@ -1346,8 +1346,8 @@ MonoBehaviour:
   additionalCoods: 
   pattern: nevermove
   animator: {fileID: 0}
---- !u!70 &158872847
-CapsuleCollider2D:
+--- !u!61 &158872847
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -1358,9 +1358,19 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -3}
-  m_Size: {x: 10, y: 18}
-  m_Direction: 0
+  m_Offset: {x: 3.5, y: -2}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 16, y: 16}
+    newSize: {x: 16, y: 16}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 9, y: 12}
+  m_EdgeRadius: 0
 --- !u!114 &158872848
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1404,7 +1414,7 @@ SpriteRenderer:
   m_SortingLayerID: -1432349897
   m_SortingLayer: -3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f16fc120876892b4b836e1c955d25734, type: 3}
+  m_Sprite: {fileID: 21300000, guid: df2397b6ace7c72478ebde0c23de6d3e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1419,7 +1429,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 158872845}
   m_LocalRotation: {x: 0.010102814, y: -0, z: -0, w: 0.999949}
-  m_LocalPosition: {x: 2.1, y: 52, z: 0}
+  m_LocalPosition: {x: 0, y: 56, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 904730846}
