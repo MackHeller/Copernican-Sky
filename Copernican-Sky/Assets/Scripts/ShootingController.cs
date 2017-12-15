@@ -22,36 +22,31 @@ public class ShootingController : MonoBehaviour
 
     //speed variables
     private float moveSpeed = 75.0f;
-    private float bulletSpeed = 5000.0f;
     private float grenadeSpeed = 125.0f;
     private float grenadeMaxDistance = 50.0f;
 
-    //shooting variables
-    private float timeBetweenShots;
-    private float timeBetweenBullets;
-    private float spreadAngle;
-    private float nextShot;
-    private float inaccuracy;
-    private int numShots;
-    private float nextBullet;
-
     //other stats
     private float health = 10.0f;
-    private int currentGun;
-    private int[] ammoClip;
-    private int[] ammoStorage;
     private bool[] doesHave;
 
     //a bool to make it so the player is only notified they are out of ammo on the first hold down click
     private bool firstOut = true;
 
-    //a bool to record how many shots are left
     private int multiShot = 0;
+    private float nextShot;
+    private float nextBullet;
 
     //some 'final' variables set in Start()
     private int numOfGuns = 4;
-    private int[] ammoMaxClip;
-    private int[] ammoMaxStorage;
+
+    //An array of all the weapons in the game
+    private Weapon[] weapons;
+
+    //A list of all the weapons the player currently has equipped
+    private List<Weapon> playersWeapons;
+
+    //The currently held weapon
+    private Weapon currentWeapon;
 
     private Animator anim;
 
@@ -82,59 +77,87 @@ public class ShootingController : MonoBehaviour
     //sets all the 'final' variables for the guns, subject to upgrades
     void GunInit()
     {
+        weapons = new Weapon[numOfGuns];
+
         //set gun variables
-        ammoClip = new int[numOfGuns];
-        ammoStorage = new int[numOfGuns];
-        ammoMaxClip = new int[numOfGuns];
-        ammoMaxStorage = new int[numOfGuns];
         doesHave = new bool[numOfGuns];
 
         //Shotgun
-        ammoMaxClip[0] = 2;
-        ammoMaxStorage[0] = 24;
+        weapons[0] = new Weapon();
+        weapons[0].name = "Shotgun";
+        weapons[0].weaponType = 0;
+        weapons[0].ammoMaxClip = 2;
+        weapons[0].ammoMaxStorage = 24;
+        weapons[0].timeBetweenShots = 1.1f;
+        weapons[0].spreadAngle = 7.0f;
+        weapons[0].numShots = 5;
+        weapons[0].inaccuracy = 3.0f;
+        weapons[0].bulletSpeed = 5000.0f;
+
         doesHave[0] = false;
 
         //SMG
-        ammoMaxClip[1] = 20;
-        ammoMaxStorage[1] = 100;
+        weapons[1] = new Weapon();
+        weapons[1].name = "SMG";
+        weapons[1].weaponType = 1;
+        weapons[1].ammoMaxClip = 20;
+        weapons[1].ammoMaxStorage = 100;
+        weapons[1].timeBetweenShots = 0.1f;
+        weapons[1].spreadAngle = 3.0f;
+        weapons[1].inaccuracy = 6.0f;
+        weapons[1].numShots = 1;
+        weapons[1].bulletSpeed = 5000.0f;
+
         doesHave[1] = false;
 
         //AR
-        ammoMaxClip[2] = 30;
-        ammoMaxStorage[2] = 120;
+        weapons[2] = new Weapon();
+        weapons[2].name = "AR";
+        weapons[2].weaponType = 2;
+        weapons[2].ammoMaxClip = 30;
+        weapons[2].ammoMaxStorage = 120;
+        weapons[2].timeBetweenShots = 0.15f;
+        weapons[2].timeBetweenBullets = 0.05f;
+        weapons[2].spreadAngle = 2.0f;
+        weapons[2].inaccuracy = 3.0f;
+        weapons[2].numShots = 1;
+        weapons[2].bulletSpeed = 5000.0f;
+
         doesHave[2] = false;
 
         //Pistol
-        ammoMaxClip[3] = 12;
-        ammoMaxStorage[3] = 48;
+        weapons[3] = new Weapon();
+        weapons[3].name = "Pistol";
+        weapons[3].weaponType = 0;
+        weapons[3].ammoMaxClip = 12;
+        weapons[3].ammoMaxStorage = 48;
+        weapons[3].timeBetweenShots = 0.1f;
+        weapons[3].spreadAngle = 3.0f;
+        weapons[3].inaccuracy = 5.0f;
+        weapons[3].numShots = 1;
+        weapons[3].bulletSpeed = 5000.0f;
+
         doesHave[3] = false;
+
+
     }
+
+
 
     //a method that controls what the player gets when they start
     public void GivePlayer()
     {
-        //Give the player a shotgun with full ammo to start
-        doesHave[0] = true;
-        ammoClip[0] = ammoMaxClip[0];
-        ammoStorage[0] = ammoMaxStorage[0];
+        playersWeapons = new List<Weapon>();
 
-        //Give the player an SMG with full ammo to start
-        doesHave[1] = true;
-        ammoClip[1] = ammoMaxClip[1];
-        ammoStorage[1] = ammoMaxStorage[1];
+        //Give the player all the guns with full ammo
+        for (int x = 0; x < numOfGuns; x++)
+        {
+            playersWeapons.Add(weapons[x]);
+            playersWeapons[x].ammoClip = playersWeapons[x].ammoMaxClip;
+            playersWeapons[x].ammoStorage = playersWeapons[x].ammoMaxStorage;
+        }
 
-        //Give the player an AR with full ammo to start
-        doesHave[2] = true;
-        ammoClip[2] = ammoMaxClip[2];
-        ammoStorage[2] = ammoMaxStorage[2];
-
-        //Give the player an AR with full ammo to start
-        doesHave[3] = true;
-        ammoClip[3] = ammoMaxClip[3];
-        ammoStorage[3] = ammoMaxStorage[3];
-
-
-        SetGun(0);
+        currentWeapon = playersWeapons[0];
     }
 
     void Update()
@@ -153,7 +176,7 @@ public class ShootingController : MonoBehaviour
         {
             Shoot();
             multiShot -= 1;
-            ammoClip[currentGun] -= 1;
+            currentWeapon.ammoClip -= 1;
             SetUI();
         }
 
@@ -167,24 +190,27 @@ public class ShootingController : MonoBehaviour
         //audioController.Shoot(currentGun);
         //animController.Shoot();
 
-        nextShot = Time.time + timeBetweenShots;
-        nextBullet = Time.time + timeBetweenBullets;
+        nextShot = Time.time + currentWeapon.timeBetweenShots;
+        nextBullet = Time.time + currentWeapon.timeBetweenBullets;
 
 
-        float variance = -numShots / 2.0f * spreadAngle;
+        float variance = -currentWeapon.numShots / 2.0f * currentWeapon.spreadAngle;
 
         float shootdir = Facing();
         Quaternion angle = Quaternion.AngleAxis(shootdir, Vector3.forward);
 
 
-        Quaternion qAngle = Quaternion.AngleAxis(variance + (Random.Range(-inaccuracy, inaccuracy)), Vector3.forward) * angle;
-        Quaternion qDelta = Quaternion.AngleAxis(spreadAngle + (Random.Range(-inaccuracy, inaccuracy)), Vector3.forward);
-        for (int i = 0; i < numShots; i++)
+        Quaternion qAngle = Quaternion.AngleAxis(variance + (Random.Range(-currentWeapon.inaccuracy, currentWeapon.inaccuracy)), Vector3.forward) * angle;
+        Quaternion qDelta = Quaternion.AngleAxis(currentWeapon.spreadAngle + (Random.Range(-currentWeapon.inaccuracy, currentWeapon.inaccuracy)), Vector3.forward);
+        for (int i = 0; i < currentWeapon.numShots; i++)
         {
             GameObject go = Instantiate(bullet, gunTip.position, qAngle);
-            go.GetComponent<Rigidbody2D>().AddForce(-go.GetComponent<Transform>().up * bulletSpeed);
-            go.GetComponent<BulletController>().SetBulletType(currentGun);
-            qDelta = Quaternion.AngleAxis(spreadAngle + (Random.Range(-inaccuracy, inaccuracy)), transform.forward);
+            go.GetComponent<Rigidbody2D>().AddForce(-go.GetComponent<Transform>().up * currentWeapon.bulletSpeed);
+
+            //this part needs to be changed/fixed, mostly changed bullet -> shooter relationship
+            go.GetComponent<BulletController>().SetBulletType(System.Array.IndexOf(weapons, currentWeapon));
+
+            qDelta = Quaternion.AngleAxis(currentWeapon.spreadAngle + (Random.Range(-currentWeapon.inaccuracy, currentWeapon.inaccuracy)), transform.forward);
             qAngle = qDelta * qAngle;
         }
 
@@ -209,37 +235,37 @@ public class ShootingController : MonoBehaviour
         moveDown = Input.GetKey("s");
 
         //if clicked fire on a click fire weapon
-        if (Input.GetKeyDown(KeyCode.Space) && Time.time > nextShot && ammoClip[currentGun] > 0 && (currentGun == 0 || currentGun == 3))
+        if (Input.GetKeyDown(KeyCode.Space) && Time.time > nextShot && currentWeapon.ammoClip > 0 && currentWeapon.weaponType == 0)
         {
             Shoot();
             //animController.CancelReload();
-            ammoClip[currentGun] -= 1;
+            currentWeapon.ammoClip -= 1;
             SetUI();
         }
 
         //if clicked and held fire on a automatic fire weapon
-        if (Input.GetKey(KeyCode.Space) && Time.time > nextShot && ammoClip[currentGun] > 0 && currentGun == 1)
+        if (Input.GetKey(KeyCode.Space) && Time.time > nextShot && currentWeapon.ammoClip > 0 && currentWeapon.weaponType == 1)
         {
             Shoot();
             //animController.CancelReload();
-            ammoClip[currentGun] -= 1;
+            currentWeapon.ammoClip -= 1;
             SetUI();
         }
 
         //if clicked fire on a multi fire weapon
-        if (Input.GetKeyDown(KeyCode.Space) && Time.time > nextShot && ammoClip[currentGun] > 0 && currentGun == 2)
+        if (Input.GetKeyDown(KeyCode.Space) && Time.time > nextShot && currentWeapon.ammoClip > 0 && currentWeapon.weaponType == 2)
         {
 
             multiShot = 2;
             Shoot();
-            ammoClip[currentGun] -= 1;
+            currentWeapon.ammoClip -= 1;
             //animController.CancelReload();
             SetUI();
         }
 
 
         //if held and out of ammo
-        if (Input.GetKey(KeyCode.Space) && Time.time > nextShot && ammoClip[currentGun] <= 0 && firstOut && currentGun == 1)
+        if (Input.GetKey(KeyCode.Space) && Time.time > nextShot && currentWeapon.ammoClip <= 0 && firstOut && currentWeapon.weaponType == 1)
         {
             firstOut = false;
             //audioController.Empty();
@@ -249,17 +275,18 @@ public class ShootingController : MonoBehaviour
         }
 
         //if clicked and out of ammo
-        if (Input.GetKeyDown(KeyCode.Space) && Time.time > nextShot && ammoClip[currentGun] <= 0)
+        if (Input.GetKeyDown(KeyCode.Space) && Time.time > nextShot && currentWeapon.ammoClip <= 0)
         {
             StartReload();
         }
 
         //if clicked and out of ammo and stored ammo
-        if (Input.GetKeyDown(KeyCode.Space) && Time.time > nextShot && ammoClip[currentGun] <= 0 && ammoStorage[currentGun] <= 0)
+        if (Input.GetKeyDown(KeyCode.Space) && Time.time > nextShot && currentWeapon.ammoClip <= 0 && currentWeapon.ammoStorage <= 0)
         {
             //audioController.Empty();
             StartReload();
         }
+
         /*
         //throw grenade
         if (Input.GetKeyDown(KeyCode.G))
@@ -277,58 +304,63 @@ public class ShootingController : MonoBehaviour
         }
         */
 
-        //Next Weapon
+        //Prev Weapon
         if (Input.GetKeyDown(KeyCode.Q) || (Input.GetAxis("Mouse ScrollWheel") > 0))
         {
-            if (currentGun == 0)
-                SetGun(3);
-            else if (currentGun == 1)
-                SetGun(0);
-            else if (currentGun == 2)
-                SetGun(1);
-            else if (currentGun == 3)
-                SetGun(2);
+            int current = playersWeapons.IndexOf(currentWeapon);
+            if (current == 0)
+                current = playersWeapons.Count -1;
+            else
+                current -= 1;
+
+            currentWeapon = playersWeapons[current];
+
         }
 
-        //Prev weapon
+        //Next weapon
         if (Input.GetKeyDown(KeyCode.E) || (Input.GetAxis("Mouse ScrollWheel") < 0))
         {
-            if (currentGun == 0)
-                SetGun(1);
-            else if (currentGun == 1)
-                SetGun(2);
-            else if (currentGun == 2)
-                SetGun(3);
-            else if (currentGun == 3)
-                SetGun(0);
+            int current = playersWeapons.IndexOf(currentWeapon);
+            if (current == playersWeapons.Count -1)
+                current = 0;
+            else
+                current += 1;
+
+            currentWeapon = playersWeapons[current];
         }
 
         //Weapon Selection Numbers
-        if (Input.GetKeyDown(KeyCode.Alpha1) && doesHave[0])
+        if (Input.GetKeyDown(KeyCode.Alpha1) && (playersWeapons.Count >= 1))
         {
-            SetGun(0);
+            currentWeapon = playersWeapons[0];
             SetUI();
         }
 
-        if (Input.GetKeyDown(KeyCode.Alpha2) && doesHave[1])
+        if (Input.GetKeyDown(KeyCode.Alpha2) && (playersWeapons.Count >= 2))
         {
-            SetGun(1);
+            currentWeapon = playersWeapons[1];
             SetUI();
         }
 
-        if (Input.GetKeyDown(KeyCode.Alpha3) && doesHave[2])
+        if (Input.GetKeyDown(KeyCode.Alpha3) && (playersWeapons.Count >= 3))
         {
-            SetGun(2);
+            currentWeapon = playersWeapons[2];
             SetUI();
         }
 
-        if (Input.GetKeyDown(KeyCode.Alpha4) && doesHave[3])
+        if (Input.GetKeyDown(KeyCode.Alpha4) && (playersWeapons.Count >= 4))
         {
-            SetGun(3);
+            currentWeapon = playersWeapons[3];
             SetUI();
         }
 
-        
+        if (Input.GetKeyDown(KeyCode.Alpha4) && (playersWeapons.Count >= 5))
+        {
+            currentWeapon = playersWeapons[4];
+            SetUI();
+        }
+
+
         //Reload 
         if (Input.GetKeyDown(KeyCode.R))
         {
@@ -404,7 +436,7 @@ public class ShootingController : MonoBehaviour
     //tells the animator to start reloading
     void StartReload()
     {
-        if (ammoStorage[currentGun] > 0)
+        if (currentWeapon.ammoStorage > 0)
         {
             FinishReload();
             //animController.Reload();
@@ -418,18 +450,18 @@ public class ShootingController : MonoBehaviour
         firstOut = true;
 
 
-        if (ammoStorage[currentGun] >= ammoMaxClip[currentGun] - ammoClip[currentGun])
+        if (currentWeapon.ammoStorage >= currentWeapon.ammoMaxClip - currentWeapon.ammoClip)
         {
-            ammoStorage[currentGun] -= ammoMaxClip[currentGun] - ammoClip[currentGun];
+            currentWeapon.ammoStorage -= currentWeapon.ammoMaxClip - currentWeapon.ammoClip;
 
-            ammoClip[currentGun] = ammoMaxClip[currentGun];
+            currentWeapon.ammoClip = currentWeapon.ammoMaxClip;
         }
         else
         {
 
-            ammoClip[currentGun] += ammoStorage[currentGun];
+            currentWeapon.ammoClip += currentWeapon.ammoStorage;
 
-            ammoStorage[currentGun] = 0;
+            currentWeapon.ammoStorage = 0;
 
         }
 
@@ -460,57 +492,37 @@ public class ShootingController : MonoBehaviour
 
     }
 
-    // a method to set various shooting related stats when switching guns, it also switches the animator (which switches sprites)
-    void SetGun(int gunType)
-    {
-        if (gunType == 0)
-        {
-            currentGun = gunType;
-            timeBetweenShots = 1.1f;
-            spreadAngle = 7.0f;
-            numShots = 5;
-            inaccuracy = 3.0f;
-            //gunTip.localPosition = new Vector2(-0.5f, -7);
 
-        }
 
-        if (gunType == 1)
-        {
-            currentGun = gunType;
-            timeBetweenShots = 0.1f;
-            spreadAngle = 3.0f;
-            inaccuracy = 6.0f;
-            numShots = 1;
-            //gunTip.localPosition = new Vector2(-0.5f, -7);
+}
 
-        }
 
-        if (gunType == 2)
-        {
-            currentGun = gunType;
-            timeBetweenShots = 0.15f;
-            timeBetweenBullets = 0.05f;
-            spreadAngle = 2.0f;
-            inaccuracy = 3.0f;
-            numShots = 1;
-            //gunTip.localPosition = new Vector2(-0.5f, -7);
+public class Weapon
+{
+    //name
+    public string name;
 
-        }
+    // gun stats
+    public float timeBetweenShots;
+    public float timeBetweenBullets;
+    public float spreadAngle;
+    public float inaccuracy;
+    public float numShots;
 
-        if (gunType == 3)
-        {
-            currentGun = gunType;
-            timeBetweenShots = 0.1f;
-            spreadAngle = 3.0f;
-            inaccuracy = 5.0f;
-            numShots = 1;
-            //gunTip.localPosition = new Vector2(-2.5f, -5);
+    // ammo stats
+    public int ammoMaxClip;
+    public int ammoMaxStorage;
+    public int ammoClip;
+    public int ammoStorage;
 
-        }
+    // bullet stats
+    public float bulletSpeed;
+    public float damage;
 
-        //animController.GunSwitch(gunType);
-
-    }
-
+    // weapon type
+    // 0 = semi automatic
+    // 1 = automatic
+    // 2 = burst fire
+    public int weaponType;
 
 }
