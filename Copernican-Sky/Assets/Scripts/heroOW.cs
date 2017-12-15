@@ -6,7 +6,7 @@ using UnityEngine;
  * */
 public class HeroOW : MonoBehaviour {
 	//Public variables can be changed/set from within the Unity Editor
-    public float speed = 15f;
+    public float speed = 20f;
     public Rigidbody2D rb;
 	public Sprite lsprite;
 	public Sprite rsprite;
