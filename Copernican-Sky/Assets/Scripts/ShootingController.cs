@@ -66,7 +66,7 @@ public class ShootingController : MonoBehaviour
 
         //audioController = GetComponent<AudioController>();
         //animController = GetComponent<AnimationController>();
-        //text1 = GameObject.FindGameObjectWithTag("UIText1");
+        text1 = GameObject.FindGameObjectWithTag("WeaponUI");
         //GM = GameObject.FindGameObjectWithTag("GameManager");
 
         GunInit();
@@ -509,7 +509,8 @@ public class ShootingController : MonoBehaviour
     //updates the UI with relevant player info
     void SetUI()
     {
-        //text1.GetComponent<Text>().text = " Clip: " + ammoClip[currentGun] + "/" + ammoMaxClip[currentGun] + " Bag: " + ammoStorage[currentGun] + " HP: " + (health * 10.0f);
+        //text1.GetComponent<Text>().text = "Clip:" + currentWeapon.ammoClip + "/" + currentWeapon.ammoMaxClip + " Bag:" + currentWeapon.ammoStorage;
+        text1.GetComponent<Text>().text = currentWeapon.name + ": " + currentWeapon.ammoClip + "/" + currentWeapon.ammoMaxClip + " (" + currentWeapon.ammoStorage+")";
 
     }
 
