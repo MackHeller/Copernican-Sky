@@ -93,6 +93,11 @@ public class ShootingController : MonoBehaviour
         weapons[0].numShots = 5;
         weapons[0].inaccuracy = 3.0f;
         weapons[0].bulletSpeed = 5000.0f;
+        weapons[0].posUp = new Vector3(2.5f, 7.5f);
+        weapons[0].posDown = new Vector3(2.5f, 2.5f);
+        weapons[0].posRight = new Vector3(6.5f, 6.5f);
+        weapons[0].posLeft = new Vector3(-6.5f, 6.5f);
+
 
         doesHave[0] = false;
 
@@ -107,6 +112,10 @@ public class ShootingController : MonoBehaviour
         weapons[1].inaccuracy = 6.0f;
         weapons[1].numShots = 1;
         weapons[1].bulletSpeed = 5000.0f;
+        weapons[1].posUp = new Vector3(2.5f, 7.5f);
+        weapons[1].posDown = new Vector3(2.5f, 2.5f);
+        weapons[1].posRight = new Vector3(6.5f, 6.5f);
+        weapons[1].posLeft = new Vector3(-6.5f, 6.5f);
 
         doesHave[1] = false;
 
@@ -122,6 +131,10 @@ public class ShootingController : MonoBehaviour
         weapons[2].inaccuracy = 3.0f;
         weapons[2].numShots = 1;
         weapons[2].bulletSpeed = 5000.0f;
+        weapons[2].posUp = new Vector3(2.5f, 7.5f);
+        weapons[2].posDown = new Vector3(2.5f, 2.5f);
+        weapons[2].posRight = new Vector3(6.5f, 6.5f);
+        weapons[2].posLeft = new Vector3(-6.5f, 6.5f);
 
         doesHave[2] = false;
 
@@ -136,6 +149,10 @@ public class ShootingController : MonoBehaviour
         weapons[3].inaccuracy = 5.0f;
         weapons[3].numShots = 1;
         weapons[3].bulletSpeed = 5000.0f;
+        weapons[3].posUp = new Vector3(2.5f, 7.5f);
+        weapons[3].posDown = new Vector3(2.5f, 2.5f);
+        weapons[3].posRight = new Vector3(6.5f, 6.5f);
+        weapons[3].posLeft = new Vector3(-6.5f, 6.5f);
 
         doesHave[3] = false;
 
@@ -378,21 +395,25 @@ public class ShootingController : MonoBehaviour
         if (anim.GetCurrentAnimatorStateInfo(0).IsName("Down") || anim.GetCurrentAnimatorStateInfo(0).IsName("Down_Idle"))
         {
             direction = 0;
+            gunTip.localPosition = currentWeapon.posDown;
             Debug.Log("down");
         }
         else if (anim.GetCurrentAnimatorStateInfo(0).IsName("Up") || anim.GetCurrentAnimatorStateInfo(0).IsName("Up_Idle"))
         {
             direction = 180;
+            gunTip.localPosition = currentWeapon.posUp;
             Debug.Log("up");
         }
         else if (anim.GetCurrentAnimatorStateInfo(0).IsName("Right") || anim.GetCurrentAnimatorStateInfo(0).IsName("Right_Idle"))
         {
             direction = 90;
+            gunTip.localPosition = currentWeapon.posRight;
             Debug.Log("right");
         }
         else if (anim.GetCurrentAnimatorStateInfo(0).IsName("Left") || anim.GetCurrentAnimatorStateInfo(0).IsName("Left_Idle"))
         {
             direction = 270;
+            gunTip.localPosition = currentWeapon.posLeft;
             Debug.Log("left");
         }
 
@@ -524,5 +545,12 @@ public class Weapon
     // 1 = automatic
     // 2 = burst fire
     public int weaponType;
+
+    //projectile position
+    public Vector3 posUp;
+    public Vector3 posDown;
+    public Vector3 posLeft;
+    public Vector3 posRight;
+
 
 }
