@@ -11,6 +11,7 @@ public class ShootingController : MonoBehaviour
     public GameObject bullet;
     public GameObject GM;
     public GameObject grenade;
+    public SheetSwap sheetController;
 
     private GameObject text1;
 
@@ -27,7 +28,6 @@ public class ShootingController : MonoBehaviour
 
     //other stats
     private float health = 10.0f;
-    private bool[] doesHave;
 
     //a bool to make it so the player is only notified they are out of ammo on the first hold down click
     private bool firstOut = true;
@@ -80,7 +80,7 @@ public class ShootingController : MonoBehaviour
         weapons = new Weapon[numOfGuns];
 
         //set gun variables
-        doesHave = new bool[numOfGuns];
+
 
         //Shotgun
         weapons[0] = new Weapon();
@@ -97,9 +97,7 @@ public class ShootingController : MonoBehaviour
         weapons[0].posDown = new Vector3(2.5f, 2.5f);
         weapons[0].posRight = new Vector3(6.5f, 6.5f);
         weapons[0].posLeft = new Vector3(-6.5f, 6.5f);
-
-
-        doesHave[0] = false;
+        weapons[0].spriteSheetName = "Sprites/AivaShotgun_Sheet";
 
         //SMG
         weapons[1] = new Weapon();
@@ -116,8 +114,7 @@ public class ShootingController : MonoBehaviour
         weapons[1].posDown = new Vector3(2.5f, 2.5f);
         weapons[1].posRight = new Vector3(6.5f, 6.5f);
         weapons[1].posLeft = new Vector3(-6.5f, 6.5f);
-
-        doesHave[1] = false;
+        weapons[1].spriteSheetName = "Sprites/AivaGun_Sheet";
 
         //AR
         weapons[2] = new Weapon();
@@ -135,8 +132,7 @@ public class ShootingController : MonoBehaviour
         weapons[2].posDown = new Vector3(2.5f, 2.5f);
         weapons[2].posRight = new Vector3(6.5f, 6.5f);
         weapons[2].posLeft = new Vector3(-6.5f, 6.5f);
-
-        doesHave[2] = false;
+        weapons[2].spriteSheetName = "Sprites/AivaGun_Sheet";
 
         //Pistol
         weapons[3] = new Weapon();
@@ -153,9 +149,7 @@ public class ShootingController : MonoBehaviour
         weapons[3].posDown = new Vector3(2.5f, 2.5f);
         weapons[3].posRight = new Vector3(6.5f, 6.5f);
         weapons[3].posLeft = new Vector3(-6.5f, 6.5f);
-
-        doesHave[3] = false;
-
+        weapons[3].spriteSheetName = "Sprites/AivaGun_Sheet";
 
     }
 
@@ -175,6 +169,8 @@ public class ShootingController : MonoBehaviour
         }
 
         currentWeapon = playersWeapons[0];
+        sheetController.SpriteSheetName = currentWeapon.spriteSheetName;
+
     }
 
     void Update()
@@ -331,6 +327,7 @@ public class ShootingController : MonoBehaviour
                 current -= 1;
 
             currentWeapon = playersWeapons[current];
+            sheetController.SpriteSheetName = currentWeapon.spriteSheetName;
 
         }
 
@@ -344,36 +341,43 @@ public class ShootingController : MonoBehaviour
                 current += 1;
 
             currentWeapon = playersWeapons[current];
+            sheetController.SpriteSheetName = currentWeapon.spriteSheetName;
+
         }
 
         //Weapon Selection Numbers
         if (Input.GetKeyDown(KeyCode.Alpha1) && (playersWeapons.Count >= 1))
         {
             currentWeapon = playersWeapons[0];
+            sheetController.SpriteSheetName = currentWeapon.spriteSheetName;
             SetUI();
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha2) && (playersWeapons.Count >= 2))
         {
             currentWeapon = playersWeapons[1];
+            sheetController.SpriteSheetName = currentWeapon.spriteSheetName;
             SetUI();
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha3) && (playersWeapons.Count >= 3))
         {
             currentWeapon = playersWeapons[2];
+            sheetController.SpriteSheetName = currentWeapon.spriteSheetName;
             SetUI();
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha4) && (playersWeapons.Count >= 4))
         {
             currentWeapon = playersWeapons[3];
+            sheetController.SpriteSheetName = currentWeapon.spriteSheetName;
             SetUI();
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha4) && (playersWeapons.Count >= 5))
         {
             currentWeapon = playersWeapons[4];
+            sheetController.SpriteSheetName = currentWeapon.spriteSheetName;
             SetUI();
         }
 
@@ -552,6 +556,9 @@ public class Weapon
     public Vector3 posDown;
     public Vector3 posLeft;
     public Vector3 posRight;
+
+    //sprite sheet
+    public string spriteSheetName;
 
 
 }

@@ -4558,26 +4558,12 @@ GameObject:
   m_PrefabParentObject: {fileID: 1000011880734628, guid: 45308ee12847b844a9f03ade3afe1d7f,
     type: 2}
   m_PrefabInternal: {fileID: 830614658}
---- !u!114 &538562439
+--- !u!114 &538562440 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 538562438}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30e92ebe0af4f0e49a3c7f7ccd04bc83, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gunTip: {fileID: 1485418420}
-  bullet: {fileID: 1155567034446252, guid: 0264de12b34c2df43a0bc574a94e4208, type: 2}
-  GM: {fileID: 0}
-  grenade: {fileID: 0}
---- !u!4 &538562446 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 4000012248254490, guid: 45308ee12847b844a9f03ade3afe1d7f,
+  m_PrefabParentObject: {fileID: 114389916863628542, guid: 45308ee12847b844a9f03ade3afe1d7f,
     type: 2}
   m_PrefabInternal: {fileID: 830614658}
+  m_Script: {fileID: 11500000, guid: 13f9c3a8169d7f94a9955c971d0d0f97, type: 3}
 --- !u!1 &554825200
 GameObject:
   m_ObjectHideFlags: 0
@@ -6738,6 +6724,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 114588493792304294, guid: 45308ee12847b844a9f03ade3afe1d7f,
+        type: 2}
+      propertyPath: sheetController
+      value: 
+      objectReference: {fileID: 538562440}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 45308ee12847b844a9f03ade3afe1d7f, type: 2}
   m_IsPrefabParent: 0
@@ -13314,34 +13305,6 @@ SpriteRenderer:
   m_Size: {x: 0.16, y: 0.16}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
---- !u!1 &1485418419
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1485418420}
-  m_Layer: 9
-  m_Name: Gun Tip
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1485418420
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1485418419}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 8, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 538562446}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1500684881
 Prefab:
   m_ObjectHideFlags: 0
