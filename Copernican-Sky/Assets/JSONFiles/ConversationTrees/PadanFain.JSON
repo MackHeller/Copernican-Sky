@@ -60,13 +60,13 @@
 		{
 			"id": 5,
 			"text": "Anything else?",
-			"optId": [1,2,3,4,-1],
+			"optId": [1,2,4,3,-1],
 			"optText": 
 			[
 				"Buy",
 				"Sell",
-				"What news do you have?",
 				"I know who you are, Darkfriend!",
+				"What news do you have?",
 				"No, nothing else"
 			]
 		},

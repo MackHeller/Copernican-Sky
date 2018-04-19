@@ -251,9 +251,9 @@ public class OverWorldController : MonoBehaviour {
             for (int i = 1; i < options.Count; i++)
             {
                 IItem shopItem = inventory.buildItem(options[i - 1]);
-                words = words + shopItem.ItemName + " " + shopItem.Weight+"kg " + shopItem.BuyPrice +"g (" + i + ")\n";
+                words = words + "(" + i + ") "+ shopItem.ItemName + " " + shopItem.Weight+"kg " + shopItem.BuyPrice +"g \n";
             }
-            words = words + options.Last + " (" + options.Count + ")\n";
+            words = words + "(" + options.Count + ") "+ options.Last+"\n";
             storeMenu.SetActive(true);
             storeTextController.setText(words);
             buyingAnItem = true;
@@ -264,7 +264,7 @@ public class OverWorldController : MonoBehaviour {
         {
             for (int i = 1; i <= options.Count; i++)
             {
-                words = words + options[i - 1] + " (" + i + ")\n";
+                words = words + "(" + i + ") "+options[i - 1] + "\n";
             }
             textBoxController.setText(words);
         }
@@ -273,7 +273,6 @@ public class OverWorldController : MonoBehaviour {
 
     public void selectOption(int pick)
     {
-        pick = currentChar.adjustPickForBlackList(pick);
         if (buyingAnItem)//got to the item buying method
         {
             buyItem(pick);
@@ -290,7 +289,8 @@ public class OverWorldController : MonoBehaviour {
                 currentChar.checkAlterCharacters(ref characters);
                 conversationState = false;
             }
-            else if (currentNode.indexInRange(pick) && currentNode.getNewIndex(pick) == -1)//if not valid because it's the end
+            else if (currentNode.indexInRange(currentChar.adjustPickForBlackList(pick)) 
+                && currentNode.getNewIndex(currentChar.adjustPickForBlackList(pick)) == -1)//if not valid because it's the end
             {
                 textBoxController.setText("");
                 currentChar.checkModifyInventory(ref inventory);

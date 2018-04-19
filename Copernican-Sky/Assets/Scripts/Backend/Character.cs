@@ -61,9 +61,12 @@ public abstract class Character {
     {
         ConversationTreeNode oldNode = conversationTree.getCurrentNode();
         //pick within range and blacklisted
-        while (oldNode.indexInRange(pick) && blacklistIndexes.Contains(oldNode.getNewIndex(pick)))
+        for (int i = 0; i <= pick && oldNode.indexInRange(pick); i++)
         {
-            pick = pick + 1;
+            if (blacklistIndexes.Contains(oldNode.getNewIndex(i))) {
+                pick = pick + 1;
+            }
+            
         }
         return pick;
     }
